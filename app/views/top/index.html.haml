@@ -1,8 +1,22 @@
 .wrapper
-  .toppage-header
-    ヘッダー
-    .toppage-header__innner
-      インナー
+  .header
+    .header__inner
+      .header__inner-top
+        .header__inner-top--title
+          タイトル
+        .header__inner-top--search-box
+          検索窓
+      .header__inner-bottom
+        %ul.header__inner-bottom--find
+          %li.header__inner-bottom--find-list
+            カテゴリから探す
+          %li.header__inner-bottom--find-list
+            ブランドから探す
+        %ul.header__inner-bottom--btn
+          %li.header__inner-bottom--btn-list
+            新規会員登録
+          %li.header__inner-bottom--btn-list
+            ログイン
   .toppage-main-contents
     メインコンテンツ
   .toppage-footer
