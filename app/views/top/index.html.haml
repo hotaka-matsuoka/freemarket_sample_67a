@@ -3,9 +3,11 @@
     .header__inner
       .header__inner-top
         .header__inner-top--title
-          タイトル
+          = image_tag 'logo/logo.png',size:'142x41'
         .header__inner-top--search-box
-          検索窓
+          = form_for(test) do |f|
+            = f.text_field :test ,placeholder: '検索する' 
+            = f.submit
       .header__inner-bottom
         %ul.header__inner-bottom--find
           %li.header__inner-bottom--find-list

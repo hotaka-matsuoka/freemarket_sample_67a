@@ -7,12 +7,10 @@
   width:calc(100%-120px);
   height:100px;
   padding:0 60px;
-  background-color:blue;
   &__inner{
     margin:0 70px;
     padding:20px 0;
     height:80px;
-    background-color: red;
   }
   &__inner-top{
     width:100%;
@@ -21,7 +19,6 @@
     &--title{
       width:18%;
       height:100%;
-      background-color: rebeccapurple;
     }
     &--search-box{
       width:82%;
@@ -32,13 +29,14 @@
   &__inner-bottom{
     display:flex;
     justify-content: space-between;
+    padding-top: 10px;
     &--find{
       display: flex;
       background-color: salmon;
       list-style: none;
     }
     &--find-list{
-      padding-right: 10px;
+      padding-right: 15px;
     }
     &--btn{
       display: flex;
@@ -46,7 +44,7 @@
       list-style: none;
     }
     &--btn-list{
-      padding-left: 10px;
+      padding-left: 15px;
     }
   }  
 }
