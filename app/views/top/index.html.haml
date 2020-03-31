@@ -3,7 +3,8 @@
     .header__inner
       .header__inner-top
         .header__inner-top--title
-          = image_tag 'logo/logo.png',size:'142x41'
+          = link_to '#' do
+            = image_tag 'logo/logo.png',size:'142x41'
         .header__inner-top--search-box
           = form_with url:'#' do |f|
             = f.text_field :name,value:'何かお探しですか？',class:'header__inner-top--search-window' 
@@ -24,6 +25,6 @@
             = link_to '#' do
               ログイン
   .toppage-main-contents
-    メインコンテンツ
+    = image_tag 'pict/bg-mainVisual-pict_pc.jpg',size:'1280x560'
   .toppage-footer
     フッター
