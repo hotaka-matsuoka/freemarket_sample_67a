@@ -1,3 +1,8 @@
+a{
+  text-decoration: none;
+  color:$link-color
+}
+
 .wrapper{
   width:100%;
   height:100vh;
@@ -23,16 +28,26 @@
     &--search-box{
       width:82%;
       height:100%;
-      background-color: royalblue;
       }
+    &--search-window{
+      width:90%;
+      height:32px;
+      font-size:16px;
+    }
+    &--search-button{
+      width:25;
+      height:32px;
+      font-size:16px;
+      background-image: url('app/assets/images/icon/icon-search1.png');
+    }
   }
   &__inner-bottom{
     display:flex;
     justify-content: space-between;
-    padding-top: 10px;
+    padding-top: 12px;
+    font-size: 14px;
     &--find{
       display: flex;
-      background-color: salmon;
       list-style: none;
     }
     &--find-list{
@@ -40,7 +55,6 @@
     }
     &--btn{
       display: flex;
-      background-color: sienna;
       list-style: none;
     }
     &--btn-list{
