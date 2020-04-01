@@ -1,30 +1,7 @@
 .wrapper
   .header
-    .header__inner
-      .header__inner-top
-        .header__inner-top--title
-          = link_to '#' do
-            = image_tag 'logo/logo.png',size:'142x41'
-        .header__inner-top--search-box
-          = form_with url:'#' do |f|
-            = f.text_field :name,value:'何かお探しですか？',class:'header__inner-top--search-window' 
-            = f.submit value:"検索",class:'header__inner-top--search-button'
-      .header__inner-bottom
-        %ul.header__inner-bottom--find
-          %li.header__inner-bottom--find-list
-            = link_to '#' do
-              カテゴリから探す
-          %li.header__inner-bottom--find-list
-            = link_to '#' do
-              ブランドから探す
-        %ul.header__inner-bottom--btn
-          %li.header__inner-bottom--btn-list
-            = link_to '#' do
-              新規会員登録
-          %li.header__inner-bottom--btn-list
-            = link_to '#' do
-              ログイン
+    = render 'header'
   .toppage-main-contents
-    = image_tag 'pict/bg-mainVisual-pict_pc.jpg',size:'1280x560'
+    = render 'main-contents'
   .toppage-footer
-    フッター
+    = render 'footer'
