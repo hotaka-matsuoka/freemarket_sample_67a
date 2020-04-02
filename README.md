@@ -29,7 +29,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|email|string|null: false, unipue: true|
+|email|string|null: false, unique: true|
 |family_name|string|null: false|
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
@@ -68,7 +68,7 @@ has_one:    purchase
 |card_num|integer|null: false, unique: true|
 |year|integer|null: false|
 |day|integer|null: false|
-|securith_code|integer|null: false|
+|security_code|integer|null: false|
 ## Association
 has_many: users
 has_one:  purchase
@@ -171,7 +171,7 @@ belongs_to: exhibition
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
-|first_category_id|referense|null: false, forign_key: true|
+|first_category_id|referense|null: false, foreign_key: true|
 ## Association
 - belongs_to :first_category
 - has_many   :exibitions
@@ -183,7 +183,7 @@ belongs_to: exhibition
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
-|second_category_id|referense|null: false, forign_key: true|
+|second_category_id|referense|null: false, foreign_key: true|
 ## Association
 - belongs_to :second_category
 - has_many   :exibitions
