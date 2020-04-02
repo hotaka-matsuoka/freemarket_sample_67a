@@ -39,13 +39,13 @@ Things you may want to cover:
 |profile_img|string||
 |self_introduction|string||
 ## Association
-has_one:  addresse
-has_one:  purchase
-has_one:  evaluation
-has_many: credit_cards
-has_many: exhibitions
-has_many: comments
-has_many: transactions
+- has_one:  addresse
+- has_one:  purchase
+- has_one:  evaluation
+- has_many: credit_cards
+- has_many: exhibitions
+- has_many: comments
+- has_many: transactions
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -58,8 +58,8 @@ has_many: transactions
 |building_name|string||
 |tel|string|null: false|
 ## Association
-belongs_to: user
-has_one:    purchase
+- belongs_to: user
+- has_one:    purchase
 
 ## credit_cardsテーブル
 |Column|Type|Options|
@@ -70,8 +70,8 @@ has_one:    purchase
 |day|integer|null: false|
 |security_code|integer|null: false|
 ## Association
-has_many: users
-has_one:  purchase
+- has_many: users
+- has_one:  purchase
 
 ## purchasesテーブル
 |Column|Type|Options|
@@ -81,8 +81,8 @@ has_one:  purchase
 |exhibition_id|reference|null: false|
 |credit_card_id|reference|null: false|
 ## Association
-belongs_to: credit_card
-belongs_to: addresse
+- belongs_to: credit_card
+- belongs_to: addresse
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -92,8 +92,8 @@ belongs_to: addresse
 |item_id|reference|null: false, foreign_key: true|
 |text|string|null: false|
 ## Association
-belongs_to: user
-belongs_to: exhibition
+- belongs_to: user
+- belongs_to: exhibition
 
 ## transactionsテーブル
 |Column|Type|Options|
@@ -103,8 +103,8 @@ belongs_to: exhibition
 |item_id|reference|null: false, foreign_key: true|
 |text|string|null: false|
 ## Association
-belongs_to: users
-belongs_to: exhibition
+- belongs_to: users
+- belongs_to: exhibition
 
 ## evaluationsテーブル
 |Column|Type|Options|
@@ -115,8 +115,8 @@ belongs_to: exhibition
 |usually|integer||
 |bad|integer||
 ## Association
-belongs_to: user
-belongs_to: exhibition
+- belongs_to: user
+- belongs_to: exhibition
 
 ## exibitionsテーブル
 |Column|Type|Options|
