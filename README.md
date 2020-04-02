@@ -23,6 +23,9 @@ Things you may want to cover:
 
 * ...
 
+# ER図
+<https://www.lucidchart.com/documents/edit/38b8f983-3a34-4edb-83e1-4624d529adb1/iECLyY.Q7XgJ?shared=true#?folder_id=home&browser=icon>
+
 # DB設計
 
 ## usersテーブル
