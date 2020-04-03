@@ -1,3 +1,4 @@
+
 # ER図
 <https://www.lucidchart.com/documents/edit/38b8f983-3a34-4edb-83e1-4624d529adb1/iECLyY.Q7XgJ?shared=true#?folder_id=home&browser=icon>
 
@@ -17,18 +18,18 @@
 |profile_img|string||
 |self_introduction|string||
 ## Association
-- has_one:  addresse
-- has_one:  purchase
-- has_one:  evaluation
-- has_many: credit_cards
-- has_many: exhibitions
+- has_one:  address, dependent: :destroy
+- has_one:  purchase, dependent: :destroy
+- has_one:  evaluation, dependent: :destroy
+- has_many: credit_cards, dependent: :destroy
+- has_many: exhibitions, dependent: :destroy
 - has_many: comments
 - has_many: transactions
 
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false|
+|user_id|reference|null: false, foreign_key: true|
 |post_num|integer|null: false|
 |prefecture|string|null: false|
 |municipality|string|null: false|
@@ -48,19 +49,21 @@
 |day|integer|null: false|
 |security_code|integer|null: false|
 ## Association
-- has_many: users
+- belongs_to: user
 - has_one:  purchase
 
 ## purchasesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false|
-|addresse_id|reference|null: false|
-|exhibition_id|reference|null: false|
-|credit_card_id|reference|null: false|
+|user_id|reference|null: false, foreign_key: true|
+|address_id|reference|null: false, foreign_key: true|
+|exhibition_id|reference|null: false, foreign_key: true|
+|credit_card_id|reference|null: false, foreign_key: true|
 ## Association
 - belongs_to: credit_card
-- belongs_to: addresse
+- belongs_to: address
+- belongs_to: user
+- belongs_to: exibition
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -78,10 +81,10 @@
 |------|----|-------|
 |seller_user_id|reference|null: false, foreign_key: true|
 |buyer_user_id|reference|null: false, foreign_key: true|
-|item_id|reference|null: false, foreign_key: true|
+|exibition_id|reference|null: false, foreign_key: true|
 |text|string|null: false|
 ## Association
-- belongs_to: users
+- belongs_to: user
 - belongs_to: exhibition
 
 ## evaluationsテーブル
@@ -110,22 +113,18 @@
 |shipping_method|intger|null: false|
 |shipping_date|intger|null: false|
 |prefecture|string|null: false|
-|first_category_id|integer|null: false, foreign_key: true|
-|second_category_id|integer|null: false, foreign_key: true|
-|third_category_id|integer|null: false, foreign_key: true|
-|bland_id|integer|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|brand_id|references|null: false, foreign_key: true|
 ## Association
 - belongs_to :user
 - belongs_to :purchase
 - belongs_to :address
 - belongs_to :evaluation
-- belongs_to :first_category
-- belongs_to :second_category
-- belongs_to :third_category
-- belongs_to :bland
+- belongs_to :category
+- belongs_to :brand
 - has_many   :comments
 - has_many   :transaction
-- has_many   :images
+- has_many   :images, dependent: :destroy
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -135,47 +134,21 @@
 ## Association
 - belongs_to :exibition
 
-## first_categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
+|path|string|
 ## Association
 - has_many :exibitions
-- has_many :second_categories
-- has_many :category_blands
-- has_many :blands,  through :category_blands
+- has_many :category_brands
+- has_many :brands,  through :category_brands
 
-## second_categoriesテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category|string|null: false|
-|first_category_id|referense|null: false, foreign_key: true|
-## Association
-- belongs_to :first_category
-- has_many   :exibitions
-- has_many   :third_categories
-- has_many   :category_blands
-- has_many   :blands,  through :category_blands
-
-## third_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category|string|null: false|
-|second_category_id|referense|null: false, foreign_key: true|
-## Association
-- belongs_to :second_category
-- has_many   :exibitions
-- has_many   :second_categories
-- has_many   :category_blands
-- has_many   :blands,  through :category_blands
-
-## blandsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|bland|string|
+|brand|string|
 ## Association
 - has_many: exhibitions
-- has_many: bland_categories
-- has_many: first_categories,  through :category_blands
-- has_many: second_categories, through :category_blands
-- has_many: third_categories,  through :category_blands
+- has_many: brand_categories
+- has_many: categories,  through :category_brands
