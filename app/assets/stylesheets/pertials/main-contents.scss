@@ -1,5 +1,61 @@
+h1.onimg{
+  position: absolute;
+  color:$img-oncolor;
+  font-size:48px;
+  margin:40px;
+  top: 30%;
+}
+
+h1.reason{
+  font-weight: bold;
+}
+
+h2.onimg{
+  position: absolute;
+  color:$img-oncolor;
+  font-size:16px;
+  line-height: 30px;
+  margin-left:40px;
+  top: 50%;
+}
+
+h2.reason{
+  margin:15px;
+  line-height: 45px;
+}
+
+p.reason{
+  font-size:18px;
+  width:230px;
+}
+
 .toppage-main-contents{
   width:100%;
-  height:100%;
-  background-color: green;
+  &__top-img{
+    position: relative;
+  }
+  &__reason{
+    text-align: center;
+    font-size:24px;
+    padding:50px;
+    margin:0 auto;
+  }
+  &__reason::after{
+    content: "";
+    width: 70px;
+    height: 4px;
+    background-color: #3CCACE;
+    position: absolute;
+    top: 750px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__reason-box{
+    width:100%;
+    margin-top:50px;
+    display:flex;
+    justify-content: space-evenly;
+  }
+  &__reason-img{
+  }
 }
