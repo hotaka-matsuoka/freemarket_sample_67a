@@ -1,6 +1,8 @@
 a{
   text-decoration: none;
-  color:$link-color
+  color:#fff;
+  display: block; 
+  // footer-contents-head-contentの縦並びのため
 }
 
 .wrapper{

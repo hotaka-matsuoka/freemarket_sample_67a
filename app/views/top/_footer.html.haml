@@ -1,24 +1,34 @@
 .footer
   .footer-contents
-    .footer-contents-head
+    %ul.footer-contents-head
       FURIMAについて
-      %ul.footer-contents-head-content
-        %li 会社概要（会社運営）
-        %li プライバシーポリシー
-        %li FURIMA利用規約
-        %li ポイントに関する特約
-    .footer-contents-head
+      %li.footer-contents-head-content
+        = link_to '#' do
+          会社概要（会社運営）
+        = link_to '#' do
+          プライバシーポリシー
+        = link_to '#' do
+          FURIMA利用規約
+        = link_to '#' do
+          ポイントに関する特約
+    %ul.footer-contents-head
       FURIMAを見る
-      %ul.footer-contents-head-content
-        %li カテゴリー一覧
-        %li ブランド一覧
-    .footer-contents-head
+      %li.footer-contents-head-content
+        = link_to '#' do
+          カテゴリー一覧
+        = link_to '#' do
+          ブランド一覧
+    %ul.footer-contents-head
       ヘルプ&ガイド
-      %ul.footer-contents-head-content
-        %li FURIMAガイド
-        %li FURIMAロゴ利用ガイドライン
-        %li お知らせ
-  .footer-logo
-    = image_tag 'logo/logo-white.png',size:'160x46'
+      %li.footer-contents-head-content
+        = link_to '#' do
+          FURIMAガイド
+        = link_to '#' do
+          FURIMAロゴ利用ガイドライン
+        = link_to '#' do
+          お知らせ
+  %li.footer-logo
+    = link_to '#' do
+      = image_tag 'logo/logo-white.png',size:'160x46'
     .footer-logo-list
       © FURIMA
