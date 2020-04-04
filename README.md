@@ -14,8 +14,8 @@
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |birth_day|date|null: false|
-|profile_img|string||
-|self_introduction|string||
+|profile_img|string|
+|self_introduction|text|
 ## Association
 - has_one:  address, dependent: :destroy
 - has_one:  purchase, dependent: :destroy
