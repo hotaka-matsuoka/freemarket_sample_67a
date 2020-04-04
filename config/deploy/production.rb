@@ -5,7 +5,7 @@
 
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
-server '52.196.125.42', user: 'ec2-user', roles: %w{app db web}
+# server "db.example.com", user: "deploy", roles: %w{db}
 
 
 
@@ -59,3 +59,4 @@ server '52.196.125.42', user: 'ec2-user', roles: %w{app db web}
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+server '52.196.125.42', user: 'ec2-user', roles: %w{app db web}
