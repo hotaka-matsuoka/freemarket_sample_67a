@@ -1,3 +1,8 @@
+a.header-link{
+  text-decoration: none;
+  color:#333;
+}
+
 h1.onimg{
   position: absolute;
   color:$img-oncolor;
@@ -20,13 +25,16 @@ h2.onimg{
 }
 
 h2.reason{
-  margin:15px;
+  margin:12px;
   line-height: 45px;
+  & span{
+    color: #3CCACE;
+  }
 }
 
 p.reason{
   font-size:18px;
-  width:230px;
+  line-height: 24px;
 }
 
 .toppage-main-contents{
@@ -57,5 +65,19 @@ p.reason{
     justify-content: space-evenly;
   }
   &__reason-img{
+    position: relative;
+    & span.number{
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 4%;
+      font-size: 30px;
+      text-align: center;
+      margin: 0 5px 0 0;
+      padding: 10px 20px;
+      background-color: #3CCACE;
+      color: #fff;
+    }
   }
 }
