@@ -1,0 +1,37 @@
+.pickup{
+  background: #f8f8f8;
+}
+  .pickup-top{
+
+  }
+  .pickup-middle{
+
+  }
+
+
+.pickup-bottom{
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+  .pickup-bottom-inner{
+    width:calc(100%-120px);
+    text-align: center;
+  }
+  .pickup-bottom-inner_header{
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  .pickup-bottom-inner_main{
+    font-size: 35px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  }
+
+  .pickup-bottom-inner_contents{
+    width: 180px;
+    }
