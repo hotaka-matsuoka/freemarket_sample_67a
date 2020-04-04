@@ -54,7 +54,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'ancestry'
 group :production do
-  gem 'unicorn', '5.5.1'
+  gem 'unicorn', '5.5.4'
 end
 group :development, :test do
   gem 'capistrano'
