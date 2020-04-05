@@ -3,25 +3,14 @@ a.header-link{
   color:#333;
 }
 
-h1.onimg{
-  position: absolute;
-  color:$img-oncolor;
-  font-size:48px;
-  margin:40px;
-  top: 30%;
+p.exhibition{
+  font-size:16px;
+  line-height: 20px;
+  margin-bottom:10px;
 }
 
 h1.reason{
   font-weight: bold;
-}
-
-h2.onimg{
-  position: absolute;
-  color:$img-oncolor;
-  font-size:16px;
-  line-height: 30px;
-  margin-left:40px;
-  top: 50%;
 }
 
 h2.reason{
@@ -41,6 +30,33 @@ p.reason{
   width:100%;
   &__top-img{
     position: relative;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    color: #fff;
+    &__heading{
+      position: absolute;
+      font-size:48px;
+      font-weight: bold;
+      margin:40px;
+      top: 30%;
+    }
+    &__text{
+      position: absolute;
+      font-size:16px;
+      line-height: 30px;
+      margin-left:40px;
+      top: 50%;
+    }
+    &__btn{
+      margin-top:30px;
+      display: flex;
+      justify-content: flex-start;
+      .btn {
+        width: 180px;
+      }
+      .app{
+        margin-right: 10px;
+      }
+    }
   }
   &__reason{
     text-align: center;
@@ -75,9 +91,20 @@ p.reason{
       font-size: 30px;
       text-align: center;
       margin: 0 5px 0 0;
-      padding: 10px 20px;
+      padding: 10px 15px;
       background-color: #3CCACE;
       color: #fff;
     }
+  }
+  &__camera{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 7%;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px 24px;
+    background-color: #3CCACE;
+    color: #fff;
   }
 }

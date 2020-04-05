@@ -5,8 +5,9 @@
         = image_tag 'logo/logo.png',size:'142x41'
     .header__inner-top--search-box
       = form_with url:'#' do |f|
-        = f.text_field :name,value:'何かお探しですか？',class:'header__inner-top--search-window' 
-        = f.submit value:"検索",class:'header__inner-top--search-button'
+        = f.text_field :name,placeholder:'何かお探しですか？',class:'header__inner-top--search-window' 
+        = button_tag do 
+          = image_tag 'icon/icon-search1.png',class:'header__inner-top--search-button'
   .header__inner-bottom
     %ul.header__inner-bottom--find
       %li.header__inner-bottom--find-list
@@ -16,6 +17,11 @@
         = link_to '#',class:'header-link' do
           ブランドから探す
     %ul.header__inner-bottom--btn
+      -# - if user_signed_in?  この部分はログインの実装が終わったらコメントアウトを外す
+      -# %li.header__inner-bottom--btn-list
+        -# = link_to '#',class:'header-link'do
+          -# マイページ
+      -# - else
       %li.header__inner-bottom--btn-list
         = link_to '#',class:'header-link'do
           新規会員登録
