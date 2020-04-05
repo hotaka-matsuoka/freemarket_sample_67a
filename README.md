@@ -29,13 +29,14 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|reference|null: false, foreign_key: true|
-|post_num|integer|null: false|
-|prefecture|string|null: false|
+|zipcode|integer|null: false|
+|prefecture_id|reference|null: false|
 |municipality|string|null: false|
 |address|string|null: false|
-|building_name|string||
+|building_name|string|
 |tel|string|null: false|
 ## Association
+- belongs_to_active_hash :prefecture
 - belongs_to: user
 - has_one:    purchase
 

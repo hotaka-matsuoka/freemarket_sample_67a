@@ -54,6 +54,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'ancestry'
 gem 'devise'
+gem 'active_hash'
 group :production do
   gem 'unicorn', '5.5.1'
 end
