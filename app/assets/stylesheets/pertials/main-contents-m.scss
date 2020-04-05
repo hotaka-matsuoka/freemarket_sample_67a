@@ -38,9 +38,9 @@
   }
 }
 .feature{
-  padding: 60px 100px;
+  padding: 70px 90px;
   .heading{
-  font-size: 27px;
+  font-size: 25px;
   font-weight: bold;
   text-align: center;
   }
@@ -52,21 +52,27 @@
   }
   .contents{
     display: flex;
+    justify-content: center;
     .content{
-      padding: 0 20px;
+      width: 20%;
+      max-width: 400px;
+      padding: 0 25px; 
       &__img{
+        text-align: center;
         img{
-          width: 50%;
+          width: 75%;
         }
       }
       &__subtitle{
-        font-weight: bold;
+        font-size: 20px;
         line-height: 1.5;
         text-align: center;
         margin: 40px 0 10px 0;
       }
       &__text{
-        line-height: 1.5;
+        font-size: 17px;
+        line-height: 1.5;    
+        margin-bottom: 25px;
       }
     }
   }
