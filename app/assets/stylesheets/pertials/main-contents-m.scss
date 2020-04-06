@@ -1,0 +1,79 @@
+.toppage-main-contents__middle{
+  .dl{
+    height: 400px;
+    color: white;
+    background-image: url("/assets/pict/bg-topMiddleDl-pict.jpg");
+    background-position: bottom  right;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    &__inner{
+      height: 205px;
+      width: 100%;
+      max-width: 1040px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      text-align: left;
+      margin: 0 auto;
+      &__heading{
+      font-size: 27px;
+      font-weight: bold;
+      }
+      &__text{
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 20px 0 30px 0;
+      }
+      &__btn{
+        display: flex;
+        justify-content: flex-start;
+        .btn {
+          width: 180px;
+        }
+        .app{
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+.feature{
+  padding: 70px 90px;
+  .heading{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  }
+  .heading-line{
+    height: 4px;
+    width: 75px;
+    background-color: #3CCACE;
+    margin: 20px auto 25px auto;
+  }
+  .contents{
+    display: flex;
+    justify-content: center;
+    .content{
+      width: 20%;
+      max-width: 400px;
+      padding: 0 25px; 
+      &__img{
+        text-align: center;
+        img{
+          width: 75%;
+        }
+      }
+      &__subtitle{
+        font-size: 20px;
+        line-height: 1.5;
+        text-align: center;
+        margin: 40px 0 10px 0;
+      }
+      &__text{
+        font-size: 17px;
+        line-height: 1.5;    
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
