@@ -1,0 +1,201 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+}
+
+.header {
+  width: calc(100%-120px);
+  height: 100px;
+  padding: 0 60px;
+}
+
+.header__inner {
+  margin: 0 70px;
+  padding: 20px 0;
+  height: 80px;
+}
+
+.header__inner-top {
+  width: 100%;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header__inner-top--title {
+  width: 18%;
+  height: 100%;
+}
+
+.header__inner-top--search-box {
+  width: 82%;
+  height: 100%;
+}
+
+.header__inner-top--search-window {
+  width: 90%;
+  height: 32px;
+  font-size: 16px;
+}
+
+.header__inner-top--search-button {
+  width: 25;
+  height: 32px;
+  font-size: 16px;
+  background-image: url("app/assets/images/icon/icon-search1.png");
+}
+
+.header__inner-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 12px;
+  font-size: 14px;
+}
+
+.header__inner-bottom--find {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
+
+.header__inner-bottom--find-list {
+  padding-right: 15px;
+}
+
+.header__inner-bottom--btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
+
+.header__inner-bottom--btn-list {
+  padding-left: 15px;
+}
+
+.toppage-main-contents {
+  width: 100%;
+  height: 100%;
+  background-color: green;
+}
+
+.toppage-footer {
+  width: calc(100%-120px);
+  height: 250px;
+  padding: 60px;
+  background-color: yellow;
+}
+/*# sourceMappingURL=application.css.map */
