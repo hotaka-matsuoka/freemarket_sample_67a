@@ -55,6 +55,8 @@ gem 'haml-rails'
 gem 'ancestry'
 gem 'devise'
 gem 'active_hash'
+gem 'rspec-rails'
+gem 'factory_bot_rails'
 group :production do
   gem 'unicorn', '5.5.1'
 end
