@@ -1,4 +1,9 @@
 .header{
+  a.header-link{
+    text-decoration: none;
+    color:$link-color;
+  }
+  
   width:calc(100%-120px);
   height:100px;
   padding:0 60px;
@@ -22,7 +27,7 @@
         display: flex;
         & button{
           border:0;
-          background-color: #3CCACE;
+          background-color: $bg-color;
         }
       }
       }
@@ -35,7 +40,7 @@
     &--search-button{
       width:24px;
       height:24px;
-      background-color: #3CCACE;
+      background-color: $bg-color;
     }
   }
   &__inner-bottom{
@@ -43,16 +48,15 @@
     justify-content: space-between;
     padding-top: 12px;
     font-size: 14px;
+    list-style: none;
     &--find{
       display: flex;
-      list-style: none;
     }
     &--find-list{
       padding-right: 15px;
     }
     &--btn{
       display: flex;
-      list-style: none;
     }
     &--btn-list{
       padding-left: 15px;
