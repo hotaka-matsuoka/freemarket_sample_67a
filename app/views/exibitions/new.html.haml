@@ -1,0 +1,25 @@
+= form_for(@exibition) do |f|
+  .field
+    = f.label :商品名
+    %br/
+    = f.text_field :name, placeholder: "40字まで"
+  .field
+    = f.label :商品の説明
+    %br/
+    = f.text_field :explanation, placeholder: "商品の説明"
+  .field
+    = f.label :商品の状態
+    %br/
+    = f.collection_select :status_id, Exibition_status.all, :id, :status
+  .field
+    = f.label :カテゴリー
+    %br/
+    = f.collection_select :category_id, Exibition_category.all, :id, :category
+  .field
+    = f.label :ブランド
+    %br/
+    = f.text_field :brand, placeholder: "例）シャネル"
+  .field
+    = f.label :配送元地域
+    %br/
+    = f.collection_select :prefecture_id, Prefecture.all, :id, :name

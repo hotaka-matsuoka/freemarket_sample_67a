@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_023458) do
+ActiveRecord::Schema.define(version: 2020_04_07_104959) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zipcode", null: false
@@ -24,6 +24,49 @@ ActiveRecord::Schema.define(version: 2020_04_05_023458) do
     t.datetime "updated_at", null: false
     t.index ["prefecture_id"], name: "index_addresses_on_prefecture_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "exibition_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exibitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "explanation", null: false
+    t.string "brand"
+    t.string "shipping_charge", null: false
+    t.string "shipping_method", null: false
+    t.string "shipping_date", null: false
+    t.string "price", null: false
+    t.string "size", null: false
+    t.bigint "status_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "prefecture_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_exibitions_on_category_id"
+    t.index ["prefecture_id"], name: "index_exibitions_on_prefecture_id"
+    t.index ["status_id"], name: "index_exibitions_on_status_id"
+    t.index ["user_id"], name: "index_exibitions_on_user_id"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image1"
+    t.string "image2"
+    t.string "image3"
+    t.string "image4"
+    t.string "image5"
+    t.string "image6"
+    t.string "image7"
+    t.string "image8"
+    t.string "image9"
+    t.string "image10"
+    t.bigint "exbition_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exbition_id"], name: "index_images_on_exbition_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
