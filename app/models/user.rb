@@ -14,5 +14,6 @@ class User < ApplicationRecord
   validates :family_name_kana, :first_name_kana, presence: true, format: { with: VALID_NAME_KANA_REGEX }
   validates :birth_day,                          presence: true
 
-  has_one :address, dependent: :destroy
+  has_one  :address, dependent: :destroy
+  has_many :exibitions
 end

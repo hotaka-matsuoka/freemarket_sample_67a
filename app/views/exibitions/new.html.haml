@@ -8,10 +8,6 @@
     %br/
     = f.text_field :explanation, placeholder: "商品の説明"
   .field
-    = f.label :商品の状態
-    %br/
-    = f.collection_select :status_id, Exibition_status.all, :id, :status
-  .field
     = f.label :カテゴリー
     %br/
     = f.collection_select :category_id, Exibition_category.all, :id, :category
@@ -20,6 +16,24 @@
     %br/
     = f.text_field :brand, placeholder: "例）シャネル"
   .field
+    = f.label :商品の状態
+    %br/
+    = f.collection_select :status_id, Exibition_status.all, :id, :status
+  .field
+    = f.label :配送量の負担
+    %br/
+    = f.collection_select :shipping_method_id, Exibition_shipping_method.all, :id, :burden
+  .field
     = f.label :配送元地域
     %br/
     = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+  .field
+    = f.label :発送までの日数
+    %br/
+    = f.collection_select :shipping_date_id, Exibition_shipping_date.all, :id, :date
+  .field
+    = f.label :販売価格
+    %br/
+    = f.number_field :price
+  .actions
+    = f.submit "出品する"

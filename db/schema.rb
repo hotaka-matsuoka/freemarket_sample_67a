@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_104959) do
+ActiveRecord::Schema.define(version: 2020_04_07_093631) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zipcode", null: false
@@ -35,11 +35,9 @@ ActiveRecord::Schema.define(version: 2020_04_07_104959) do
     t.string "name", null: false
     t.string "explanation", null: false
     t.string "brand"
-    t.string "shipping_charge", null: false
-    t.string "shipping_method", null: false
-    t.string "shipping_date", null: false
     t.string "price", null: false
-    t.string "size", null: false
+    t.bigint "shipping_method_id", null: false
+    t.bigint "shipping_date_id", null: false
     t.bigint "status_id", null: false
     t.bigint "user_id", null: false
     t.bigint "prefecture_id", null: false
@@ -48,6 +46,8 @@ ActiveRecord::Schema.define(version: 2020_04_07_104959) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_exibitions_on_category_id"
     t.index ["prefecture_id"], name: "index_exibitions_on_prefecture_id"
+    t.index ["shipping_date_id"], name: "index_exibitions_on_shipping_date_id"
+    t.index ["shipping_method_id"], name: "index_exibitions_on_shipping_method_id"
     t.index ["status_id"], name: "index_exibitions_on_status_id"
     t.index ["user_id"], name: "index_exibitions_on_user_id"
   end

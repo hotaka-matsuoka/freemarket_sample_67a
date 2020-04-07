@@ -10,12 +10,12 @@ class ExibitionsController < ApplicationController
   
   def create
     Exibition.create(exibition_params)
-    redirect_to root_path
+    redirect_to exibitions_path
   end
 
   private
 
   def exibition_params
-    params.require(:exibition).permit(:name, :explanation, :brand, :status, :shipping_charge, :shipping_method, :shipping_date, :price, :size, :prefecture).merge(user_id: current_user.id)
+    params.require(:exibition).permit(:name, :explanation, :brand, :price, :status_id, :shipping_method_id, :shipping_date_id, :category_id, :prefecture_id).merge(user_id: current_user.id)
   end
 end
