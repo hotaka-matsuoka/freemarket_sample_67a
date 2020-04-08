@@ -1,4 +1,10 @@
-= form_for(@exibition) do |f|
+= form_for @exibition do |f|
+  .field
+    = f.label :商品画像
+    %p 最大10枚までアップロードできます
+    %br/
+    = f.fields_for :images, @exibition.images.build do |i|
+      = i.file_field :image, multiple: true
   .field
     = f.label :商品名
     %br/

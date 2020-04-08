@@ -53,20 +53,11 @@ ActiveRecord::Schema.define(version: 2020_04_07_093631) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image1"
-    t.string "image2"
-    t.string "image3"
-    t.string "image4"
-    t.string "image5"
-    t.string "image6"
-    t.string "image7"
-    t.string "image8"
-    t.string "image9"
-    t.string "image10"
-    t.bigint "exbition_id"
+    t.string "image"
+    t.bigint "exibition_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["exbition_id"], name: "index_images_on_exbition_id"
+    t.index ["exibition_id"], name: "index_images_on_exibition_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

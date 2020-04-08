@@ -6,6 +6,7 @@ class ExibitionsController < ApplicationController
 
   def new
     @exibition = Exibition.new
+    @exibition.images.new
   end
   
   def create
@@ -16,6 +17,6 @@ class ExibitionsController < ApplicationController
   private
 
   def exibition_params
-    params.require(:exibition).permit(:name, :explanation, :brand, :price, :status_id, :shipping_method_id, :shipping_date_id, :category_id, :prefecture_id).merge(user_id: current_user.id)
+    params.require(:exibition).permit(:name, :explanation, :brand, :price, :status_id, :shipping_method_id, :shipping_date_id, :category_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 end
