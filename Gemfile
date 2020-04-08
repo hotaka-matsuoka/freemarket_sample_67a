@@ -59,6 +59,7 @@ gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'jquery-rails'
 group :production do
   gem 'unicorn', '5.5.4'
 end
