@@ -1,1 +1,5 @@
-= link_to "ログアウト", destroy_user_session_path, method: :delete
+.mypage-wrapper
+  .mypage-lists
+    = render 'mypage-lists'
+  .mypage-contents
+    = render 'mypage-top'

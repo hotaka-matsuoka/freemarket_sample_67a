@@ -1,0 +1,30 @@
+.mypage-lists__inner
+  %ul.mypage-menulists
+    %h2.mypage-list-title
+    =link_to '#' do
+      %li.mypage-list
+        マイページ
+    =link_to '#' do
+      %li.mypage-list
+        出品する
+    =link_to '#' do
+      %li.mypage-list
+        出品中
+    =link_to '#' do
+      %li.mypage-list
+        購入履歴
+  %ul.mypage-menulists
+    %h2.mypage-list-title
+      設定
+    =link_to '#' do
+      %li.mypage-list
+        住所・発送元
+    =link_to '#' do
+      %li.mypage-list
+        支払い方法
+    =link_to '#' do
+      %li.mypage-list
+        メール/パスワード
+    = link_to destroy_user_session_path, method: :delete do
+      %li.mypage-list
+        ログアウト
