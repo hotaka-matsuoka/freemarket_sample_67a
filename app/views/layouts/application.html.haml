@@ -8,10 +8,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     .header
-      = render 'header'
+      = render 'top/header'
     = yield
     .footer
-      = render 'footer'
+      = render 'top/footer'
     =link_to '#' do
       .camera
         %p.exhibition
