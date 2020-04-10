@@ -26,11 +26,6 @@ ActiveRecord::Schema.define(version: 2020_04_07_093631) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "exibition_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "exibitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "explanation", null: false

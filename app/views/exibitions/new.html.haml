@@ -12,8 +12,8 @@
             .item__required
               必須
           %p 最大10枚までアップロードできます
-          = f.fields_for :images, @exibition.images.build do |i|
-            = i.file_field :image, multiple: true
+          = f.fields_for :images do |i|
+            = i.file_field :image
           .exhibit__img
       .exhibition-container
         .product-name
