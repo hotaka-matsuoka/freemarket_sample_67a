@@ -1,0 +1,335 @@
+.pickup{
+  background: #f8f8f8;
+}
+
+  .pickup-top{
+    width:calc(100%-120px);
+    height: 300px;
+    padding: 80px 0 0;
+    background-color: #f8f8f8;
+    height: 100%;
+  }
+
+    .pickup-top-titile{
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.4;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .pickup-top-box
+      .pickup-top-box-titile{
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      }
+      .pickup-top-box-main{
+      display: flex;
+      justify-content: center;
+      }
+      
+        .pickup-top-box-main-leftbox{
+          background-color: #fff;
+          margin-right: 40px;
+        }
+          .pickup-top-box-main-leftbox-bottom{
+            position: absolute;
+          }
+            .pickup-top-box-main-leftbox-bottom-name{
+              position: relative;
+              left: 10px;
+              font-size: 16px;
+              font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+            }
+            .pickup-top-box-main-leftbox-bottom-detail{
+              display: flex;
+              padding-top: 10px;
+              padding-left: 10px;
+              font-size: 16px;
+              font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+            }
+              .pickup-top-box-main-leftbox-bottom-price{
+                display: flex;
+              }
+              .pickup-top-box-main-leftbox-bottom-star{
+                display: flex;
+                margin-left: 100px;
+              }
+              .pickup-top-box-main-leftbox-bottom-counter{
+                margin-left: 5px;
+              }
+            .pickup-top-box-main-leftbox-bottom-tax{
+              font-size: 10px;
+              padding-top: 5px;
+              padding-left: 10px;
+              margin-bottom: 20px;
+              font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+            }
+
+          .pickup-top-box-main-centerbox{
+          background-color: #fff;
+        }
+          .pickup-top-box-main-centerbox-bottom{
+            position: absolute;
+          }
+          .pickup-top-box-main-centerbox-bottom-name{
+            position: relative;
+            left: 10px;
+            font-size: 16px;
+            font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+          }
+          .pickup-top-box-main-centerbox-bottom-detail{
+            display: flex;
+            padding-top: 10px;
+            padding-left: 10px;
+            font-size: 16px;
+            font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+          }
+            .pickup-top-box-main-centerbox-bottom-price{
+              display: flex;
+            }
+              .pickup-top-box-main-centerbox-bottom-star{
+                display: flex;
+                margin-left: 100px;
+              }
+                .pickup-top-box-main-centerbox-bottom-counter{
+                  margin-left: 5px;
+                }
+          .pickup-top-box-main-centerbox-bottom-tax{
+            font-size: 10px;
+            padding-top: 5px;
+            padding-left: 10px;
+            margin-bottom: 20px;
+            font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+          }
+            
+
+        .pickup-top-box-main-rightbox{
+          background-color: #fff;
+          margin-left: 40px;
+        }
+          .pickup-top-box-main-rightbox-bottom{
+            position: absolute;
+          }
+          .pickup-top-box-main-rightbox-bottom-name{
+            position: relative;
+            left: 10px;
+            font-size: 16px;
+            font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+          }
+          .pickup-top-box-main-rightbox-bottom-detail{
+            display: flex;
+            padding-top: 10px;
+            padding-left: 10px;
+            font-size: 16px;
+            font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+          }
+            .pickup-top-box-main-rightbox-bottom-price{
+              display: flex;
+            }
+            .pickup-top-box-main-rightbox-bottom-star{
+              display: flex;
+              margin-left: 100px;
+            }
+            .pickup-top-box-main-rightbox-bottom-counter{
+              margin-left: 5px;
+            }
+          .pickup-top-box-main-rightbox-bottom-tax{
+            font-size: 10px;
+            padding-top: 5px;
+            padding-left: 10px;
+            margin-bottom: 20px;
+            font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+          }
+
+
+  .pickup-middle{
+    width:calc(100%-120px);
+    height: 300px;
+    padding: 80px 0 0;
+    background-color: #f8f8f8;
+    height: 100%;
+    padding-bottom: 100px;
+  }
+
+
+  .pickup-middle-titile{
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+    .pickup-middle-box-titile{
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    }
+    .pickup-middle-box-main{
+    display: flex;
+    justify-content: center;
+    }
+    
+      .pickup-middle-box-main-leftbox{
+        background-color: #fff;
+        margin-right: 40px;
+      }
+        .pickup-middle-box-main-leftbox-bottom{
+          position: absolute;
+        }
+          .pickup-middle-box-main-leftbox-bottom-name{
+            position: relative;
+            left: 10px;
+            font-size: 16px;
+            font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+          }
+          .pickup-middle-box-main-leftbox-bottom-detail{
+            display: flex;
+            padding-top: 10px;
+            padding-left: 10px;
+            font-size: 16px;
+            font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+          }
+            .pickup-middle-box-main-leftbox-bottom-price{
+              display: flex;
+            }
+            .pickup-middle-box-main-leftbox-bottom-star{
+              display: flex;
+              margin-left: 100px;
+            }
+            .pickup-middle-box-main-leftbox-bottom-counter{
+              margin-left: 5px;
+            }
+          .pickup-middle-box-main-leftbox-bottom-tax{
+            font-size: 10px;
+            padding-top: 5px;
+            padding-left: 10px;
+            margin-bottom: 20px;
+            font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+          }
+
+        .pickup-middle-box-main-centerbox{
+          background-color: #fff;
+        }
+
+        .pickup-middle-box-main-centerbox-bottom{
+          position: absolute;
+        }
+        .pickup-middle-box-main-centerbox-bottom-name{
+          position: relative;
+          left: 10px;
+          font-size: 16px;
+          font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+        }
+        .pickup-middle-box-main-centerbox-bottom-detail{
+          display: flex;
+          padding-top: 10px;
+          padding-left: 10px;
+          font-size: 16px;
+          font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+        }
+          .pickup-middle-box-main-centerbox-bottom-price{
+            display: flex;
+          }
+            .pickup-middle-box-main-centerbox-bottom-star{
+              display: flex;
+              margin-left: 100px;
+            }
+              .pickup-middle-box-main-centerbox-bottom-counter{
+                margin-left: 5px;
+              }
+        .pickup-middle-box-main-centerbox-bottom-tax{
+          font-size: 10px;
+          padding-top: 5px;
+          padding-left: 10px;
+          margin-bottom: 20px;
+          font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+        }
+          
+
+      .pickup-middle-box-main-rightbox{
+        background-color: #fff;
+        margin-left: 40px;
+      }
+        .pickup-middle-box-main-rightbox-bottom{
+          position: absolute;
+        }
+        .pickup-middle-box-main-rightbox-bottom-name{
+          position: relative;
+          left: 10px;
+          font-size: 16px;
+          font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+        }
+        .pickup-middle-box-main-rightbox-bottom-detail{
+          display: flex;
+          padding-top: 10px;
+          padding-left: 10px;
+          font-size: 16px;
+          font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+        }
+          .pickup-middle-box-main-rightbox-bottom-price{
+            display: flex;
+          }
+          .pickup-middle-box-main-rightbox-bottom-star{
+            display: flex;
+            margin-left: 100px;
+          }
+          .pickup-middle-box-main-rightbox-bottom-counter{
+            margin-left: 5px;
+          }
+        .pickup-middle-box-main-rightbox-bottom-tax{
+          font-size: 10px;
+          padding-top: 5px;
+          padding-left: 10px;
+          margin-bottom: 20px;
+          font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+        }
+
+
+
+
+.appBanner{
+  width:calc(100%-120px);
+  color: #fff;
+  position: relative;
+}
+
+  .appBanner-inner-header{
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.4;
+    position: absolute;
+    top: 110px;
+    left: 460px;
+  }
+
+  .appBanner-inner-main{
+    font-size: 35px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    position: absolute;
+    top: 160px;
+    left: 500px;
+  }
+
+  .appBanner-inner-contents{
+    display: flex;
+    justify-content: center;
+  }
+    .appBanner-inner-contents-left{
+      position: absolute;
+      top: 210px;
+      left: 520px;
+      }
+    
+    .appBanner-inner-contents-right{
+      margin-left: 10px;
+      position: absolute;
+      top: 210px;
+      left: 700px;  
+    }
+  
