@@ -1,6 +1,6 @@
 class CreateExibitions < ActiveRecord::Migration[5.2]
   def change
-    create_table :exibitions do |t|
+    create_table :exhibitions do |t|
       t.string     :name,            null: false
       t.string     :explanation,     null: false
       t.string     :brand

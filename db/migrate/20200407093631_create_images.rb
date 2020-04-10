@@ -1,8 +1,8 @@
 class CreateImages < ActiveRecord::Migration[5.2]
   def change
     create_table :images do |t|
-      t.string     :image
-      t.references :exibition,  foreing_key: true
+      t.string     :image_url
+      t.references :exhibition,  foreing_key: true
       t.timestamps
     end
   end

@@ -1,4 +1,4 @@
-class Exibition_category < ActiveHash::Base
+class Exhibition_category < ActiveHash::Base
   self.data = [
       {id: 1, category: 'レディース'},          {id: 2, category: 'メンズ'}, 
       {id: 3, category: 'ベビー・キッズ'},      {id: 4, category: 'インテリア・住まい・小物'},

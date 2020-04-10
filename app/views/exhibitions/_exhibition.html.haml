@@ -1,0 +1,8 @@
+.content
+  %p= exhibition.name
+  %p
+    = exhibition.price
+    円
+  - exhibition.images.each do |image|
+    = image_tag image.image_url.to_s
+= link_to '編集', edit_exhibition_path(@exhibitions.ids)
