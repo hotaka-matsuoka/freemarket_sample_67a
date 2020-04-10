@@ -1,0 +1,29 @@
+%h2 発送元・お届け先住所
+= form_for @address do |f|
+  = render "devise/shared/error_messages", resource: @address
+  .field
+    = f.label :郵便番号
+    %br/
+    = f.text_field :zipcode, placeholder: "例）1234567"
+  .field
+    = f.label :都道府県
+    %br/
+    = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+  .field
+    = f.label :市町村区
+    %br/
+    = f.text_field :address, placeholder: "例）横浜市緑区"
+  .field
+    = f.label :番地
+    %br/
+    = f.text_field :municipality, placeholder: "例）青山1-1-1"
+  .field
+    = f.label :建物名
+    %br/
+    = f.text_field :building_name, placeholder: "例）柳ビル103"
+  .field
+    = f.label :電話
+    %br/
+    = f.text_field :tel, placeholder: "例）09012345678"
+  .actions
+    = f.submit "登録"

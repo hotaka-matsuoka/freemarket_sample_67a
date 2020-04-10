@@ -1,4 +1,8 @@
 .header{
+  a.header-link{
+    text-decoration: none;
+    color:$link-color;
+  }
   width:calc(100%-120px);
   height:100px;
   padding:0 60px;
@@ -18,17 +22,24 @@
     &--search-box{
       width:82%;
       height:100%;
+      & form{
+        display: flex;
+        & button{
+          border:0;
+          background-color: $bg-color;
+        }
+      }
       }
     &--search-window{
-      width:90%;
+      width:100%;
       height:32px;
       font-size:16px;
+      padding-left:5px;
     }
     &--search-button{
-      width:25;
-      height:32px;
-      font-size:16px;
-      background-image: url('app/assets/images/icon/icon-search1.png');
+      width:24px;
+      height:24px;
+      background-color: $bg-color;
     }
   }
   &__inner-bottom{
@@ -36,16 +47,15 @@
     justify-content: space-between;
     padding-top: 12px;
     font-size: 14px;
+    list-style: none;
     &--find{
       display: flex;
-      list-style: none;
     }
     &--find-list{
       padding-right: 15px;
     }
     &--btn{
       display: flex;
-      list-style: none;
     }
     &--btn-list{
       padding-left: 15px;

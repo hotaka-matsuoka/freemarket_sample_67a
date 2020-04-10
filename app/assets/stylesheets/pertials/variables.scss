@@ -1,2 +1,23 @@
 $link-color:#333;
-$img-oncolor:#999;
+$white-color:#fff;
+$bg-color:#3CCACE;
+
+ul{
+  list-style: none;
+}
+  @mixin camera{
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 7%;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px 24px;
+  background-color: $bg-color;
+  color:$white-color;
+  p.exhibition{
+    font-size:16px;
+    line-height: 20px;
+    margin-bottom:10px;
+  }
+}
