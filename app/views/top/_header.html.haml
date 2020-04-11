@@ -16,10 +16,16 @@
       %li.header__inner-bottom--find-list
         = link_to '#',class:'header-link' do
           ブランドから探す
-    %ul.header__inner-bottom--btn
-      %li.header__inner-bottom--btn-list
-        = link_to new_user_registration_path,class:'header-link'do
-          新規会員登録
-      %li.header__inner-bottom--btn-list
-        = link_to new_user_session_path,class:'header-link'do
-          ログイン
+    - if user_signed_in?
+      %ul.header__inner-bottom--btn
+        %li.header__inner-bottom--btn-list
+          = link_to destroy_user_session_path, method: "delete",class:'header-link' do
+            ログアウト
+    - else
+      %ul.header__inner-bottom--btn
+        %li.header__inner-bottom--btn-list
+          = link_to new_user_registration_path,class:'header-link'do
+            新規会員登録
+        %li.header__inner-bottom--btn-list
+          = link_to new_user_session_path,class:'header-link'do
+            ログイン
