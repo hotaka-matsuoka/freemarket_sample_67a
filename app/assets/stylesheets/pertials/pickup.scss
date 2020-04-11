@@ -1,0 +1,67 @@
+.pickup{
+  background: #f8f8f8;
+  padding-top:80px;
+  h1.pickup__title{
+    font-size:28px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom:25px;
+    }
+  h2.pickup__sub-title{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  h3.name{
+    font-size:14px;
+    padding-bottom: 5px;
+  }
+  ul.detail{
+    display: flex;
+    justify-content: space-between;
+  }
+  li.detail-name{
+    font-size:14px;
+    line-height: 20px;
+  }
+  a.pickup__link{
+    font-size:24px;
+    text-decoration: none;
+    color:#000;
+      &--category{
+        font-size:24px;
+        text-decoration: none;
+        color:$bg-color;
+      }
+    }
+  p.tax-included{
+    font-size: 12px;
+  }
+  img{
+    width:200px;
+    height:150px;
+  }
+
+  &__img{
+    width:200px;
+    height:150px;
+  }
+  &__box{
+    display:flex;
+    justify-content: space-between;
+    margin:0 auto;
+    width:700px;
+    padding:10px 0 70px 0;
+  }
+  &__content{
+    background-color: $white-color;
+  }
+  &__content:hover{
+    opacity: 0.6;
+    filter: brightness(110%);
+  }
+  &__body{
+    padding:20px;
+  }
+}
