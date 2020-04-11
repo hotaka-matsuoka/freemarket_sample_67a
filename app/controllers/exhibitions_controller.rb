@@ -11,8 +11,12 @@ class ExhibitionsController < ApplicationController
   end
   
   def create
-    Exhibition.create(exhibition_params)
-    redirect_to exhibitions_path
+    @exhibition = Exhibition.new(exhibition_params)
+    if @exhibition.save
+      redirect_to exhibitions_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,6 +31,8 @@ class ExhibitionsController < ApplicationController
   end
 
   def destroy
+    @exhibition.destroy
+    redirect_to exhibitions_path
   end
 
   private

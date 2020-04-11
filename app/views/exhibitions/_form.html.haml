@@ -21,7 +21,7 @@
             .js-file_group{"data-index" => "#{@exhibition.images.count}"}
               = file_field_tag :image_url, multipart: true, class: 'js-file', name: "exhbition[images_attributes][#{@exhibition.images.count}][image_url]"
               .js-remove 削除
-              -# %i(class="fa fa-camera")
+              %i(class="fa fa-camera")
       .exhibition-container
         .item
           .item__label 商品名
