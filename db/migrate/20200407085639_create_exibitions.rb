@@ -7,10 +7,10 @@ class CreateExibitions < ActiveRecord::Migration[5.2]
       t.string     :price,           null: false
       t.references :shipping_method, null: false
       t.references :shipping_date,   null: false
-      t.references :status,          null: false
-      t.references :user,            null: false
+      t.references :condition,       null: false
       t.references :prefecture,      null: false  
-      t.references :category,        null: false       
+      t.references :category,        null: false     
+      t.references :user,            foreign_key: true  
       t.timestamps
     end
   end

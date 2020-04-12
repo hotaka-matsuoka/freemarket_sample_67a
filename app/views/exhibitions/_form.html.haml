@@ -46,7 +46,7 @@
         .item
           .item__label 商品の状態
           .item__required 必須
-        = f.collection_select  :status_id, Exhibition_status.all, :id, :status
+        = f.collection_select  :condition_id, Exhibition_condition.all, :id, :condition
       .exhibition-container
         .items
           .items__label 配送について
