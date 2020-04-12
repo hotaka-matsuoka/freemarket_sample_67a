@@ -1,0 +1,38 @@
+.footer{
+  a{
+    text-decoration: none;
+    color:#fff;
+  }
+
+  h1{
+    padding-bottom:10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  p{
+    margin-top: 15px;
+    font-size: 11px;
+    line-height: 11px;
+    list-style: none;
+  }
+
+  width:100%;
+  height:220px;
+  padding-top:40px;
+  background-color:#272727 ;
+  color: $white-color;
+  .footer-contents{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+}
+
+.footer-logo{
+  text-align: center;
+  
+  .footer-logo-list{
+    font-size: 14px;
+  }
+}

@@ -1,6 +1,10 @@
 .mypage-wrapper{
   display:flex;
 }
+a{
+  text-decoration: none;
+  color:#000;
+}
 .mypage-lists{
     height: 100vh;
     width: 32%;
@@ -23,6 +27,9 @@
     background-color: #eee;
     border-bottom:#fff 2px solid;
   }
+  li.mypage-list:hover{
+    background-color: #ccc;
+  }
 }
 .mypage-contents{
     height: 100vh;
@@ -35,6 +42,7 @@
     width:700px;
     text-align: center;
     background-color: #eee;
+    border-bottom:$bg-color 2px solid
   }
   h1.user-name{
     font-size:32px;
@@ -46,23 +54,23 @@
   }
 }
 
-.mypage-contents__flex{
-  display:flex;
-  width:700px;
-  .mypage-contents__menu{
-    width:50%;
-    height:80px;
-    line-height: 80px;
-    text-align: center;
-    background-color: #ccc;
-  }
-}
+// .mypage-contents__flex{
+//   display:flex;
+//   width:700px;
+//   .mypage-contents__menu{
+//     width:50%;
+//     height:80px;
+//     line-height: 80px;
+//     text-align: center;
+//     background-color: #ccc;
+//   }
+// }
 
-.mypage-contents__window{
-  width:700px;
-  height:200px;
-  line-height: 200px;
-  text-align: center;
-  background-color: #eeeeee;
-  color:#999;
-}
+// .mypage-contents__window{
+//   width:700px;
+//   height:200px;
+//   line-height: 200px;
+//   text-align: center;
+//   background-color: #eeeeee;
+//   color:#999;
+// }
