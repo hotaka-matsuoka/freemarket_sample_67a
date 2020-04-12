@@ -1,0 +1,31 @@
+.header__inner
+  .header__inner-top
+    .header__inner-top--title
+      = link_to root_path do
+        = image_tag 'logo/logo.png',size:'142x41'
+    .header__inner-top--search-box
+      = form_with url:'#' do |f|
+        = f.text_field :name,placeholder:'何かお探しですか？',class:'header__inner-top--search-window' 
+        = button_tag do 
+          = image_tag 'icon/icon-search1.png',class:'header__inner-top--search-button'
+  .header__inner-bottom
+    %ul.header__inner-bottom--find
+      %li.header__inner-bottom--find-list
+        = link_to '#',class:'header-link' do
+          カテゴリから探す
+      %li.header__inner-bottom--find-list
+        = link_to '#',class:'header-link' do
+          ブランドから探す
+    - if user_signed_in?
+      %ul.header__inner-bottom--btn
+        %li.header__inner-bottom--btn-list
+          = link_to destroy_user_session_path, method: "delete",class:'header-link' do
+            ログアウト
+    - else
+      %ul.header__inner-bottom--btn
+        %li.header__inner-bottom--btn-list
+          = link_to new_user_registration_path,class:'header-link'do
+            新規会員登録
+        %li.header__inner-bottom--btn-list
+          = link_to new_user_session_path,class:'header-link'do
+            ログイン

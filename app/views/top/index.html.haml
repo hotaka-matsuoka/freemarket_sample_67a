@@ -1,28 +1,118 @@
 .wrapper
-  .header
-    .header__inner
-      .header__inner-top
-        .header__inner-top--title
-          = link_to '#' do
-            = image_tag 'logo/logo.png',size:'142x41'
-        .header__inner-top--search-box
-          = form_with url:'#' do |f|
-            = f.text_field :name,value:'何かお探しですか？',class:'header__inner-top--search-window' 
-            = f.submit value:"検索",class:'header__inner-top--search-button'
-      .header__inner-bottom
-        %ul.header__inner-bottom--find
-          %li.header__inner-bottom--find-list
-            = link_to '#' do
-              カテゴリから探す
-          %li.header__inner-bottom--find-list
-            = link_to '#' do
-              ブランドから探す
-        %ul.header__inner-bottom--btn
-          - if user_signed_in?
-            %li.header__inner-bottom--btn-list
-              = link_to "ログアウト", destroy_user_session_path, method: :delete
-          - else
-            %li.header__inner-bottom--btn-list
-              = link_to "新規会員登録", new_user_registration_path, method: :get
-            %li.header__inner-bottom--btn-list
-              = link_to "ログイン", new_user_session_path, method: :get
+  .toppage-main-contents
+    .top-img
+      = image_tag 'pict/bg-mainVisual-pict_pc.jpg',class:'top-img'
+      .top-img__heading
+        人生を変えるフリマアプリ
+      .top-img__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+        .top-img__btn
+          =link_to "#", class:"btn app" do
+            = image_tag "icon/app.svg",size:'180x53'
+          =link_to "#", class:"btn play" do
+            = image_tag "icon/google.svg",size:'180x53'
+    .reason
+      %h1.reason__reason-title
+        FURIMAが選ばれる3つの理由
+      %ul.reason__reason-box
+        %li.reason__reason-img
+          %span.number
+            1
+          = image_tag 'pict/pict-reason-01.jpg',size:'306x306'
+          %h2.reason-content
+            %span
+              3分
+            ですぐに出品
+          %p.reason-text
+            スマホで入力するだけで
+            %br
+            簡単に出品できる！
+        %li.reason__reason-img
+          %span.number
+            2
+          = image_tag 'pict/pict-reason-02.jpg',size:'306x306'
+          %h2.reason-content
+            %span
+              シンプル
+            で使いやすい
+          %p.reason-text
+            めんどくさい入力は必要なく、
+            %br
+            検索も購入もスムーズ！
+        %li.reason__reason-img
+          %span.number
+            3
+          = image_tag 'pict/pict-reason-03.jpg',size:'306x306'
+          %h2.reason-content
+            手数料
+            %span
+              業界最安
+          %p.reason-text
+            最大3%でお得に出品&購入！
+
+    .dl
+      .dl__inner
+        .dl__inner__heading
+          会員数日本一位
+        .dl__inner__text
+          FURIMAは、フリマアプリで最も人気。
+          %br/
+          出品・購入回数も業界最多です！
+          %br/
+          ほしかったあの商品に出会えるかもしれません。
+        .dl__inner__btn
+          =link_to "#", class:"btn app" do
+            = image_tag "icon/app.svg",size:'180x53'
+          =link_to "#", class:"btn play" do
+            = image_tag "icon/google.svg",size:'180x53'
+    .feature
+      %h2.heading
+        FURIMAの特徴
+      .heading-line
+      .contents
+        .content
+          .content__img
+            = image_tag "icon/icon-01.png"
+          %h3.content__subtitle
+            簡単に売り買いできる
+          %p.content__text
+            スマホひとつで、いつでもどこでも簡単に
+            %br
+            出品・購入が可能！
+        .content
+          .content__img
+            = image_tag "icon/icon-03.png"
+          %h3.content__subtitle
+            売上金は即日振り込みに対応
+          %p.content__text
+            午前9時までに振り込みを依頼いただければ、
+            %br
+            翌日に指定の口座に入金いたします！
+        .content
+          .content__img
+            = image_tag "icon/icon-04.png"
+          %h3.content__subtitle
+            様々な支払いに対応
+          %p.content__text
+            お支払いは、クレジットカードだけでなく、
+            %br
+            ポイントや売上金など多彩な方法があります。
+
+    = render 'pickup'
+
+    .appBanner
+      = image_tag 'pict/bg-appBanner-pict.jpg',class:'appBanner__img'
+      .appBanner__inner
+        %h1.appBanner__title
+          だれでもかんたん、人生を変えるフリマアプリ
+        %p.appBanner__download
+          今すぐ無料ダウンロード！
+        %ul.appBanner__contents
+          %li.appBanner__banner
+            =link_to "#", class:"btn play" do
+              = image_tag "icon/app.svg",size:'180x53'
+          %li.appBanner__banner
+            =link_to "#", class:"btn play" do
+              = image_tag "icon/google.svg",size:'180x53'
