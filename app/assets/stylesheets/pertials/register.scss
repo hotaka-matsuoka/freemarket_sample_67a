@@ -1,23 +1,39 @@
 .wrapper{
-  text-align: center;
-  padding: 0 0 250px;
-}
-.single-header{
-  width: 100%;
-}
-.header-icon{
-  text-align: center;
-  font-size: inherit;
-  padding-top: 10px;
+  background: #f5f5f5;
+  .signup__header {
+    padding: 50px 0;
+  }
+  .header__icon {
+    text-align: center;
+  }
+  .logo__img {
+    margin-bottom: 20px;
   }
 
+  .form__wrapper {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    h2 {
+      font-size: 35px;
+      text-align: center;
+      padding: 70px 0;
+    }
+    .field {
+      margin: 0 220px 30px 220px;
+    }
+    .input__form {
+      width: 350px;
+      height: 40px;
+      &--name {
+        width: 150px;
+        height: 30px;
+      }
+    }
+  }
+  
+
 .progress-bar {
-  background: #f5f5f5;
-  padding: 40px 40px 40px 44px;
-  border: 0;
-  display: inline-block;
-  vertical-align: top;
-  font-size: 0;
   text-align: center;
   .progress-bar__active {
     font-weight: 600;
@@ -190,161 +206,9 @@
     background: #f5f5f5;
   }
 
-    .l-single-bucket {
-      width: 700px;
-      margin: 0 auto;
-      background: #fff;
-    }
-      .single-bucket__registration {
-        font-size: 18px;
-        font-weight: bold;
-        padding: 32px;
-        line-height: px;
-        text-align: center;
-      }
-      .l-single-bucket__nickname{
-        padding-bottom: 20px;
-      }
-    #user_nickname{
-      height: 30px;
-      width: 400px;
-      margin: 10px 16px 8px;
-      font-size: 16px;
-    }
-    .l-single-bucket__email {
-      padding-bottom: 20px;
-    }
-    #user_email{
-      height: 30px;
-      width: 400px;
-      margin: 10px 16px 8px;
-      font-size: 16px;
-    }
-    .l-single-bucket__password{
-      padding-bottom: 20px;
-    }
-    .password__text{
-      padding-top: 10px;
-    }
-    #user_password{
-      height: 30px;
-      width: 400px;
-      margin: 10px 16px 8px;
-      font-size: 16px;
-    }
-    .l-single-bucket__password__confimation{
-      padding-bottom: 20px; 
-    }
-
-    #user_password_confirmation{
-      height: 30px;
-      width: 400px;
-      margin: 10px 16px 8px;
-      font-size: 16px;
-    }
-    .l-single-bucket__name{
-      display: inline-flex;
-    }
-    .l-single-bucket__name__form{
-      padding-bottom: 0px; 
-    }
-    #user_family_name{
-      height: 30px;
-      width: 200px;
-      margin: 10px 16px 8px;
-      font-size: 16px;
-    }
-    #user_first_name{
-      height: 30px;
-      width: 200px;
-      margin: 10px 16px 8px;
-      font-size: 16px;
-    }
-    .l-single-bucket__name__kana{
-      padding-bottom: 20px; 
-    }
-
-    #user_family_name_kana{
-      height: 30px;
-      width: 200px;
-      margin: 10px 16px 8px;
-      font-size: 16px;
-    }
-    #user_first_name_kana{
-      height: 30px;
-      width: 200px;
-      margin: 10px 16px 8px;
-      font-size: 16px;
-    }
-    .birthday-select-wrap{
-      padding-bottom: 20px; 
-    }
-
-    #user_birth_day_1i{
-      height: 30px;
-      width: 100px;
-      margin: 10px 16px 8px;
-      font-size: 16px;
-    }
-    #user_birth_day_2i{
-      height: 30px;
-      width: 70px;
-      margin: 10px 16px 8px;
-      font-size: 16px;
-    }
-    #user_birth_day_3i{
-      height: 30px;
-      width: 70px;
-      margin: 10px 16px 8px;
-      font-size: 16px;
-    }
-  
-  .l-single-content__require {
-    background: #ea352d;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    right: 12px;
-  }
-  .single-header{
-    background-color:#F5F5F5;
-  }
-  .next-btn{
-    width: 300px;
-    font-size: 14px;
-    height: 50px;
-    background-color: #3ccace;
-    color: #fff;
-    margin-bottom: 20px; 
-
-  }
-  .p{
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    color: gray;
-    vertical-align: middle; 
-  }
-  .l-single-bucket__name{
-    display: inline-flex;
-    text-align: center;
-  }
-  .l-single-bucket__kana__name
-  {
-    display: inline-flex;
-    text-align: center;
-  }
 
 .single-footer{
-  background-color: #f5f5f5f5;
-  width: 100%;
-  height: 220px;
-  padding: 40px;
-  line-height: 100%;
-  margin:0 auto;
+
 }
 
 .form-require{
@@ -385,4 +249,5 @@ padding-bottom: 20px;
 }
 .signup__footer__detail{
   font-size: 15px;
+}
 }
