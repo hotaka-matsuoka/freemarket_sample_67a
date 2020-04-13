@@ -55,14 +55,17 @@ gem 'haml-rails'
 gem 'ancestry'
 gem 'devise'
 gem 'active_hash'
+gem 'factory_bot_rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
+
 group :production do
   gem 'unicorn', '5.5.4'
 end
+
 group :development, :test do
   gem 'capistrano'
   gem 'capistrano-rbenv'
@@ -75,3 +78,5 @@ group :development, :test do
   gem 'faker'
   gem 'gimei'
 end
+
+gem 'fog-aws'
