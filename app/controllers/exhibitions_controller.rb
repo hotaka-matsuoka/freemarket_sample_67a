@@ -23,7 +23,8 @@ class ExhibitionsController < ApplicationController
   end
 
   def update
-    if @exhibition.update(exhibition_params)
+    if @exhibition.user_id == current_user.id
+      @exhibition.update(exhibition_params)
       redirect_to exhibitions_path
     else
       render :edit
@@ -31,8 +32,11 @@ class ExhibitionsController < ApplicationController
   end
 
   def destroy
-    @exhibition.destroy
-    redirect_to exhibitions_path
+    if @exhibition.user_id == current_user.id
+      @exhibition.destroy
+      redirect_to exhibitions_path
+      render :new
+    end
   end
 
   private
