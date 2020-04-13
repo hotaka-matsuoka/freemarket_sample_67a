@@ -7,7 +7,7 @@ worker_processes 1
 working_directory "#{app_path}/current"
 
 #Unicornの起動に必要なファイルの設置場所を指定
-listen "#{app_path}/tmp/sockets/unicorn.sock"
+listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
 pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
 stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
