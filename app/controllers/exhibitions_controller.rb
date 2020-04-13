@@ -35,6 +35,7 @@ class ExhibitionsController < ApplicationController
     if @exhibition.user_id == current_user.id
       @exhibition.destroy
       redirect_to exhibitions_path
+    else
       render :new
     end
   end
