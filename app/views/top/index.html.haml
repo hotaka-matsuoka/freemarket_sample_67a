@@ -1,3 +1,5 @@
+.header
+  = render 'top/header'
 .wrapper
   .toppage-main-contents
     .top-img
@@ -116,3 +118,10 @@
           %li.appBanner__banner
             =link_to "#", class:"btn play" do
               = image_tag "icon/google.svg",size:'180x53'
+.footer
+  = render 'top/footer'
+=link_to '#' do
+  .camera
+    %p.exhibition
+      出品する
+    = image_tag 'icon/icon_camera.png',size:'60x60'
