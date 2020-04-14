@@ -1,6 +1,6 @@
 .header__icon
-  =link_to "#" do
-    %img.logo__img{:height => "41", :src => "/assets/logo/logo.png", :width => "142"}
+  = link_to root_path do
+    = image_tag 'logo/logo.png',size:'200x60' 
 %nav.progress-bar 
   %ol.cleafix
     %li.progress-bar__active
