@@ -58,7 +58,7 @@ gem 'active_hash'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
 group :production do
-  gem 'unicorn', '5.4.1'
+  gem 'unicorn', '5.5.4'
 end
 group :development, :test do
   gem 'capistrano'
@@ -69,5 +69,5 @@ group :development, :test do
 end
 
 gem 'fog-aws'
-gem 'carrierwave'
-gem 'mini_magick'
+# gem 'carrierwave'
+# gem 'mini_magick'
