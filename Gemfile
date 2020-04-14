@@ -68,6 +68,6 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
-gem 'fog-aws'
-gem 'carrierwave'
-gem 'mini_magick'
+# gem 'fog-aws'
+# gem 'carrierwave'
+# gem 'mini_magick'
