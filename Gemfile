@@ -56,7 +56,7 @@ gem 'ancestry'
 gem 'devise'
 gem 'active_hash'
 gem 'factory_bot_rails'
-gem 'carrierwave'
+# gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
 gem 'jquery-rails'
@@ -78,7 +78,3 @@ group :development, :test do
   gem 'faker'
   gem 'gimei'
 end
-
-gem 'fog-aws'
-gem 'carrierwave'
-gem 'mini_magick'
