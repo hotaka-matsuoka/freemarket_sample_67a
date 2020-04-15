@@ -79,6 +79,6 @@ group :development, :test do
   gem 'gimei'
 end
 
-# gem 'fog-aws'
-# gem 'carrierwave'
-# gem 'mini_magick'
+gem 'fog-aws'
+gem 'carrierwave'
+gem 'mini_magick'
