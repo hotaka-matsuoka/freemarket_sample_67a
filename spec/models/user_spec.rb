@@ -16,7 +16,7 @@ describe User do
       expect(user.errors[:email]).to include("can't be blank")
     end
     it "重複したメールアドレスが存在する場合は登録できないこと" do
-      user = create(:user)
+      user = create(:user, email: "kkk@gmail.com")
       another_user = build(:user, email: "kkk@gmail.com")
       another_user.valid?
       expect(another_user.errors[:email]).to include("has already been taken")

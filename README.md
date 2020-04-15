@@ -107,7 +107,7 @@
 |price|integer|null: false|
 |explanation|string|null: false|
 |status|string|null: false|
-|size|string|
+|size|string|null: false|
 |good|integer|
 |shipping_charge|integer|null: false|
 |shipping_method|intger|null: false|

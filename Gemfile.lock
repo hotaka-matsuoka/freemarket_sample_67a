@@ -93,6 +93,8 @@ GEM
     factory_bot_rails (5.1.1)
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
+    faker (2.10.2)
+      i18n (>= 1.6, < 2)
     ffi (1.12.2)
     fog-aws (3.5.2)
       fog-core (~> 2.1)
@@ -110,7 +112,11 @@ GEM
     fog-xml (0.1.3)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
+    font-awesome-sass (5.12.0)
+      sassc (>= 1.11)
     formatador (0.2.5)
+    gimei (0.5.0)
+      romaji
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     haml (5.1.2)
@@ -181,6 +187,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.4.2)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.4)
+      actionpack (>= 5.0.1.x)
+      actionview (>= 5.0.1.x)
+      activesupport (>= 5.0.1.x)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -200,6 +210,9 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rmagick (4.1.1)
+    romaji (0.2.4)
+      rake (>= 0.8.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
     rspec-expectations (3.9.1)
@@ -230,6 +243,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (2.2.1)
+      ffi (~> 1.9)
     sexp_processor (4.14.1)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
@@ -285,7 +300,10 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   factory_bot_rails
+  faker
   fog-aws
+  font-awesome-sass
+  gimei
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
@@ -293,7 +311,9 @@ DEPENDENCIES
   mysql2 (>= 0.4.4, < 0.6.0)
   puma (~> 3.11)
   rails (= 5.2.4.2)
-  rspec-rails
+  rails-controller-testing
+  rmagick
+  rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
