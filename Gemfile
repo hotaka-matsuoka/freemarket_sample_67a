@@ -61,6 +61,7 @@ gem 'rmagick'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
+gem 'fog-aws'
 
 group :production do
   gem 'unicorn', '5.4.1'
