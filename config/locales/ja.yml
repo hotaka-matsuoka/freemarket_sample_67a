@@ -1,0 +1,6 @@
+ja:
+  enums:              
+    exhibition:           
+      salse_status:           
+        on_sale: 販売中     
+        sold_out: 売り切れ

@@ -11,11 +11,19 @@ class ExhibitionsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array<< parent.name
     end
-    @exhibition = Exhibition.new()
+    @exhibition = Exhibition.new
+
+  before_action :set_exhibition, except: [:index, :new, :create]
+
+  def index
+    @exhibitions = Exhibition.includes(:images).order('created_at DESC')
+  end
+
     @exhibition.images.new
   end
   
   def create
+
     Exhibition.create(exhibition_params)
     redirect_to root_path
   end
@@ -44,9 +52,43 @@ class ExhibitionsController < ApplicationController
     end
  end
 
+    @exhibition = Exhibition.new(exhibition_params)
+    if @exhibition.save
+      redirect_to exhibitions_path
+    else
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @exhibition.user_id == current_user.id && @exhibition.update(exhibition_params)
+      redirect_to exhibitions_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @exhibition.user_id == current_user.id && @exhibition.destroy
+      redirect_to exhibitions_path
+    else
+      render :new
+    end
+  end
+
+
   private
 
   def exhibition_params
+
     params.require(:exhibition).permit(:name, :explanation,:brand_name, :size_id, :price, :status_id, :shipping_method_id, :shipping_date_id, :category_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:exhibition).permit(:name, :explanation, :brand, :price, :condition_id, :shipping_method_id, :shipping_date_id, :category_id, :prefecture_id, :salse_status, images_attributes:  [:image_url, :_destroy, :id]).merge(user_id: current_user.id)
+  end
+
+  def set_exhibition
+
   end
 end

@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_04_14_024814) do
 
+
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zipcode", null: false
     t.string "municipality", null: false
@@ -67,11 +68,16 @@ ActiveRecord::Schema.define(version: 2020_04_14_024814) do
     t.string "brand_name"
     t.bigint "shipping_method_id", null: false
     t.bigint "shipping_date_id", null: false
+
     t.bigint "size_id"
     t.bigint "status_id", null: false
     t.bigint "user_id", null: false
+
+    t.bigint "condition_id", null: false
+
     t.bigint "prefecture_id", null: false
     t.bigint "category_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_exhibitions_on_category_id"
@@ -80,11 +86,15 @@ ActiveRecord::Schema.define(version: 2020_04_14_024814) do
     t.index ["shipping_method_id"], name: "index_exhibitions_on_shipping_method_id"
     t.index ["size_id"], name: "index_exhibitions_on_size_id"
     t.index ["status_id"], name: "index_exhibitions_on_status_id"
+    t.integer "sales_status", default: 0
+    t.index ["condition_id"], name: "index_exhibitions_on_condition_id"
+    t.index ["sales_status"], name: "index_exhibitions_on_sales_status"
     t.index ["user_id"], name: "index_exhibitions_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image"
+
+    t.string "image_url", null: false
     t.bigint "exhibition_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -96,6 +106,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_024814) do
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -116,4 +127,5 @@ ActiveRecord::Schema.define(version: 2020_04_14_024814) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "exhibitions", "users"
 end
