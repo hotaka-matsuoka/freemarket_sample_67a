@@ -10,8 +10,6 @@
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
         = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドバイス", class: 'input__form--login'
-        - @user.errors.full_messages_for(:email).each do |message|
-          %li.error__message= message
       .field
         = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: 'input__form--login'
       .actions
