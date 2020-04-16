@@ -57,7 +57,7 @@ baby_kids_child_array = ['ベビー服','キッズ服','キッズ靴','その他
 baby_kids_grandchild_array = [['トップス','アウター','その他'],
                               ['コート','ジャケット/上着','その他'],
                               ['スニーカ','サンダル','その他'],
-                              ['母子手帳用品''その他']]
+                              ['母子手帳用品','その他']]
 
 parent = Category.create(name: 'ベビー・キッズ')
 baby_kids_child_array.each_with_index do |child, i|

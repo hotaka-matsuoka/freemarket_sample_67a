@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   }
   root 'top#index'
   resources :top,        only:[:index]
-  resources :exibitions, only:[:index, :new, :create]
+  resources :exibitions, only:[:index, :new, :create] do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_size', defaults: { format: 'json' }
+    end
+  end
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'

@@ -25,7 +25,7 @@
     height: 340px;
     width: calc(90% - 10px);
     border-bottom: 1px solid #eee;
-    padding: 40px;
+    padding: 40px 40px 50px 40px;
     .none{
       display: none;
     }
@@ -50,7 +50,7 @@
       padding: 0 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      margin: 0 0 40px 0;
+      margin: 0 0 35px 0;
     }
     select:hover{
       cursor: pointer;
@@ -59,6 +59,12 @@
       height: 150px;
       padding: 10px;
       margin-bottom: 15px;
+    }
+    #exibition_name, #exibition_explanation, #exibition_brand_id{
+      width: calc(100% - 20px);
+    }
+    #parent_category, #child_category,#grandchild_category{
+      margin-bottom: 20px;
     }
     .items{
       color: #999;
@@ -135,4 +141,3 @@
     }
   }
 }
-  

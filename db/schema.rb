@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_024814) do
+ActiveRecord::Schema.define(version: 2020_04_16_085635) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zipcode", null: false
@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 2020_04_14_024814) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "blands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "bland"
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bland"], name: "index_blands_on_bland"
+    t.index ["brand"], name: "index_brands_on_brand"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -42,13 +42,13 @@ ActiveRecord::Schema.define(version: 2020_04_14_024814) do
     t.index ["name"], name: "index_categories_on_name"
   end
 
-  create_table "category_blands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "category_brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "category_id"
-    t.bigint "bland_id"
+    t.bigint "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bland_id"], name: "index_category_blands_on_bland_id"
-    t.index ["category_id"], name: "index_category_blands_on_category_id"
+    t.index ["brand_id"], name: "index_category_brands_on_brand_id"
+    t.index ["category_id"], name: "index_category_brands_on_category_id"
   end
 
   create_table "category_sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_024814) do
     t.string "price", null: false
     t.bigint "shipping_method_id", null: false
     t.bigint "shipping_date_id", null: false
-    t.bigint "brand_id"
+    t.string "brand_name"
     t.bigint "size_id"
     t.bigint "status_id", null: false
     t.bigint "user_id", null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_024814) do
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brand_id"], name: "index_exibitions_on_brand_id"
+    t.index ["brand_name"], name: "index_exibitions_on_brand_name"
     t.index ["category_id"], name: "index_exibitions_on_category_id"
     t.index ["prefecture_id"], name: "index_exibitions_on_prefecture_id"
     t.index ["shipping_date_id"], name: "index_exibitions_on_shipping_date_id"
@@ -117,4 +117,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_024814) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "category_brands", "brands", name: "category_brands_ibfk_2"
+  add_foreign_key "category_brands", "categories", name: "category_brands_ibfk_1"
+  add_foreign_key "category_sizes", "categories", name: "category_sizes_ibfk_1"
+  add_foreign_key "category_sizes", "sizes", name: "category_sizes_ibfk_2"
 end
