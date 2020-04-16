@@ -1,6 +1,13 @@
 @import 'reset';
 @import 'pertials/variables.scss';
+
+@import 'pertials/style.scss';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import 'pertials/exhibitions.scss';
+
 @import 'pertials/header.scss';
 @import 'pertials/top-page.scss';
 @import 'pertials/pickup.scss';
 @import 'pertials/footer.scss'
+

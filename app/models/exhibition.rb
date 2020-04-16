@@ -1,9 +1,15 @@
 class Exhibition < ApplicationRecord
-  enum sales_status:    { on_sale: 0, sold_out: 1 }
 
   belongs_to :user
-  has_many  :images, dependent: :destroy
+  belongs_to :category
+  belongs_to :size
+  has_many  :images, dependent: :destroy 
   accepts_nested_attributes_for :images, allow_destroy: true
+
+
+  enum sales_status:    { on_sale: 0, sold_out: 1 }
+
+
 
   validates :name,        presence: true, length: { maximum:40 }
   validates :explanation, presence: true, length: { maximum:1000 }
@@ -18,6 +24,7 @@ class Exhibition < ApplicationRecord
   def images_size_validate
     errors.add(:images, "枚数オーバー") if self.images.size > IMAGE_MAX
   end
+
 
 
 end
