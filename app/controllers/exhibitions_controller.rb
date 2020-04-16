@@ -1,7 +1,7 @@
-class ExibitionsController < ApplicationController
+class ExhibitionsController < ApplicationController
 
   def index
-    @exibitons = Exibition.all
+    @exhibitons = Exhibition.all
   end
 
   def new
@@ -11,15 +11,12 @@ class ExibitionsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array<< parent.name
     end
-    @exibition = Exibition.new()
-    # @exibition.images.new
+    @exhibition = Exhibition.new()
+    @exhibition.images.new
   end
   
   def create
-    
-    binding.pry
-    
-    Exibition.create!(exibition_params)
+    Exhibition.create(exhibition_params)
     redirect_to root_path
   end
 
@@ -49,7 +46,7 @@ class ExibitionsController < ApplicationController
 
   private
 
-  def exibition_params
-    params.require(:exibition).permit(:name, :explanation,:brand_name, :size_id, :price, :status_id, :shipping_method_id, :shipping_date_id, :category_id, :prefecture_id).merge(user_id: current_user.id)
+  def exhibition_params
+    params.require(:exhibition).permit(:name, :explanation,:brand_name, :size_id, :price, :status_id, :shipping_method_id, :shipping_date_id, :category_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 end

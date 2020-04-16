@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   }
   root 'top#index'
   resources :top,        only:[:index]
-  resources :exibitions, only:[:index, :new, :create] do
+  resources :exhibitions, only:[:index, :new, :create] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }

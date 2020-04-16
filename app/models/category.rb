@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  has_many :exibitions
+  has_many :exhibitions
   has_many :category_sizes
   has_many :sizes, through: :category_sizes
   has_many :category_brands
