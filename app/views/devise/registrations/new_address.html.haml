@@ -1,5 +1,6 @@
 .wrapper
   .signup__header
+    = render  'devise/shared/header_icon'
     = render  'devise/shared/progress_header' 
     
   .form__wrapper
@@ -44,7 +45,7 @@
         - @address.errors.full_messages_for(:tel).each do |message|
           %li.error__message= message
       .actions
-        = f.submit "登録", class: 'next__btn'
+        = f.submit "登録", class: 'submit__btn'
 
   .signup__footer
     .signup__footer--detail

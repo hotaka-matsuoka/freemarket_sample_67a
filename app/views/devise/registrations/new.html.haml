@@ -1,5 +1,6 @@
 .wrapper
   .signup__header
+    = render  'devise/shared/header_icon'
     = render  'devise/shared/progress_header' 
 
   .form__wrapper
@@ -76,7 +77,7 @@
         に同意したものとみなします
 
       .actions
-        = f.submit "次へ進む", class: 'next__btn'
+        = f.submit "次へ進む", class: 'submit__btn'
       
       .personal__info
         %a(href="#")本人情報について
