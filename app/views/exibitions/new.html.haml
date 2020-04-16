@@ -4,15 +4,7 @@
       = image_tag 'logo/logo.png',size:'142x41'
   .exhibition-main
     = form_for @exibition do |f|
-      .exhibition-container.size
-        .item
-          .item__label 商品画像
-          .item__required 必須
-        %p.font 最大10枚までアップロードできます
-        = f.fields_for :images, @exibition.images.build do |i|
-          = i.label :image do
-            = i.file_field :image, multiple: true, class:"none"
-            %i(class="fa fa-camera")
+      
       .exhibition-container
         .item
           .item__label 商品名
@@ -23,17 +15,19 @@
           .item__required 必須
         = f.text_area :explanation, placeholder: "商品の説明（1,000文字以内）\n（色、素材、重さ、定価、注意点など）"
         .count 0/1000
-      .exhibition-container
+      #exhibition-container.exhibition-container
         .items
           .items__label 商品の詳細
         .item
           .item__label カテゴリー
           .item__required 必須
-        = f.collection_select :category_id, Exibition_category.all, :id, :category
+        .select-wrapper
+          = f.number_field :size_id, value:1,class:"none"
+          = f.select :category_id, @category_parent_array,{},{class: 'select', id: 'parent_category'}
         .item
           .item__label ブランド
           .item__required--not 任意
-        = f.text_field :brand, placeholder: "例）シャネル"
+        = f.text_field :brand_name, placeholder: "例）シャネル"
         .item
           .item__label 商品の状態
           .item__required 必須
@@ -47,7 +41,7 @@
         .item
           .item__label 配送料の負担
           .item__required 必須
-        = f.collection_select :shipping_method, Exibition_shipping_method.all, :id, :burden
+        = f.collection_select :shipping_method_id, Exibition_shipping_method.all, :id, :burden
         .item
           .item__label 配送元の地域
           .item__required 必須
@@ -55,7 +49,7 @@
         .item
           .item__label 発送までの日数
           .item__required 必須
-        = f.collection_select :shipping_date, Exibition_shipping_date.all, :id, :date
+        = f.collection_select :shipping_date_id , Exibition_shipping_date.all, :id, :date
       .exhibition-container
         .items 
           .items__label 価格（¥300〜9,999,999)
