@@ -31,6 +31,12 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      address:
+        zipcode: 郵便番号
+        municipality: 市町村区
+        address: 住所
+        building_name: 建物名
+        tel: 電話番号
 
     models:
       user: ユーザ
