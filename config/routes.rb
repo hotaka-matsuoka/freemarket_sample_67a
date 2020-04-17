@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   }
   root 'top#index'
   resources :top,  only:[:index]
-  get 'logout', to: 'top#logout'
+  get 'logout', to: 'logout#index'
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
