@@ -140,4 +140,23 @@
       }
     }
   }
+  .exhibition-footer{
+    height: 140px;
+    padding: 30px 0 10px 0;
+    ul{
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      a{
+        color: black;
+        text-decoration: none;
+        padding: 0 7px;
+      }
+    }
+    .logo-center{
+      padding-top: 15px;
+      display: flex;
+      justify-content: center;
+    }
+  }
 }

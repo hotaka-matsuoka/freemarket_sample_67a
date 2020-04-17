@@ -12,7 +12,7 @@ $(function () {
                         <div class='item__required' size>必須</div>
                       </div>
                       <div class="selectbox" id= 'size_wrapper'>
-                        <select class="selectbox" id="size" name="exibition[size_id]">
+                        <select class="selectbox" id="size" name="exhibition[size_id]">
                           <option value="0">選択してください</option>
                           ${insertHTML}
                         </select>
@@ -30,7 +30,7 @@ $(function () {
     var childSelectHtml = '';
     childSelectHtml = `<div class='select-wrapper__added' id= 'children_wrapper'>
                         <div class='select'>
-                          <select class="selectbox" id="child_category" name="exibition[category_id]">
+                          <select class="selectbox" id="child_category" name="exhibition[category_id]">
                             <option value="0" data-category="0">選択してください</option>
                             ${insertHTML}
                           </select>
@@ -44,7 +44,7 @@ $(function () {
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='select-wrapper__added' id= 'grandchildren_wrapper'>
                               <div class='select'>
-                                <select class="selectbox" id="grandchild_category" name="exibition[category_id]">
+                                <select class="selectbox" id="grandchild_category" name="exhibition[category_id]">
                                   <option value="0" data-category="0">選択してください</option>
                                   ${insertHTML}
                                 </select>
@@ -53,6 +53,7 @@ $(function () {
     $('#exhibition-container').css('padding-bottom', '190px');
     $('.select-wrapper').append(grandchildSelectHtml);
   }
+
 
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){

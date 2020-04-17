@@ -1,31 +1,23 @@
 class ExhibitionsController < ApplicationController
-
-  def index
-    @exhibitons = Exhibition.all
-  end
-
-  def new
-    #セレクトボックスの初期値設定
-    @category_parent_array = ["選択してください"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array<< parent.name
-    end
-    @exhibition = Exhibition.new
-
-  before_action :set_exhibition, except: [:index, :new, :create]
+  before_action :set_exhibition, except: [:index, :new, :create,'get_category_children','get_category_grandchildren','get_size']
+  before_action :set_category  , only:   [:new, :create]
 
   def index
     @exhibitions = Exhibition.includes(:images).order('created_at DESC')
   end
 
+  def new
+    @exhibition = Exhibition.new
     @exhibition.images.new
   end
   
   def create
-
-    Exhibition.create(exhibition_params)
-    redirect_to root_path
+    @exhibition = Exhibition.new(exhibition_params)
+    if @exhibition.save
+      redirect_to exhibitions_path
+    else
+      render :new
+    end
   end
 
   # 親カテゴリーが選択された後に動くアクション
@@ -49,14 +41,6 @@ class ExhibitionsController < ApplicationController
        if related_size_parent = selected_child.sizes[0] #孫カテゴリーの親と紐付くサイズ（親）があれば取得
           @sizes = related_size_parent.children #紐づいたサイズ（親）の子供の配列を取得
        end
-    end
- end
-
-    @exhibition = Exhibition.new(exhibition_params)
-    if @exhibition.save
-      redirect_to exhibitions_path
-    else
-      render :new
     end
   end
 
@@ -83,12 +67,19 @@ class ExhibitionsController < ApplicationController
   private
 
   def exhibition_params
-
-    params.require(:exhibition).permit(:name, :explanation,:brand_name, :size_id, :price, :status_id, :shipping_method_id, :shipping_date_id, :category_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
-    params.require(:exhibition).permit(:name, :explanation, :brand, :price, :condition_id, :shipping_method_id, :shipping_date_id, :category_id, :prefecture_id, :salse_status, images_attributes:  [:image_url, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:exhibition).permit(:name, :explanation, :brand_name, :size_id, :price, :condition_id, :shipping_method_id, :shipping_date_id, :category_id, :prefecture_id, :salse_status, images_attributes:  [:image_url, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_exhibition
+    @exhibition = Exhibition.find(params[:id])
+  end
 
+  def set_category
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["選択してください"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array<< parent.name
+    end
   end
 end

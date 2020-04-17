@@ -9,7 +9,6 @@ class CreateExibitions < ActiveRecord::Migration[5.2]
       t.references :shipping_date,   null: false
       t.references :size
       t.references :status,          null: false
-      t.references :user,            null: false
       t.references :condition,       null: false
       t.references :prefecture,      null: false  
       t.references :category,        null: false     

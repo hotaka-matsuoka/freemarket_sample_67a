@@ -7,13 +7,13 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    .header
-      = render 'top/header'
+    -# .header
+      -# = render 'top/header'
     = yield
-    .footer
-      = render 'top/footer'
-    =link_to 'exhibitions/new' do
-      .camera
-        %p.exhibition
-          出品する
-        = image_tag 'icon/icon_camera.png',size:'60x60'
+    -# .footer
+    -#   = render 'top/footer'
+    -# =link_to 'exhibitions/new' do
+    -#   .camera
+    -#     %p.exhibition
+    -#       出品する
+    -#     = image_tag 'icon/icon_camera.png',size:'60x60'
