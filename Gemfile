@@ -62,6 +62,7 @@ gem 'rmagick'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
+gem 'fog-aws'
 
 group :production do
   gem 'unicorn', '5.4.1'
@@ -80,6 +81,3 @@ group :development, :test do
   gem 'gimei'
 end
 
-gem 'fog-aws'
-gem 'carrierwave'
-gem 'mini_magick'
