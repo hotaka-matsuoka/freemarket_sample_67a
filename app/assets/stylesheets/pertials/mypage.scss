@@ -81,170 +81,149 @@ a{
 //ここから川井が実装
 
 .mypage-contents__tab{
-  height:400px;
+  height:300px;
   width:700px;
-}
-.mypage-contents__tab__tabs{
-  display: flex;
-  justify-content: space-around;
-}
 
-  .mypage-contents__tab__tabs__left{
-    background-color: #eee;
-    text-align: center;
-    font-size: 16px;
-    line-height: 72px;
-    width: 50%;
-}
-
-  .mypage-contents__tab__tabs__right{
-    background-color: #fff;
-    text-align: center;
-    font-size: 16px;
-    line-height: 72px;
-    width: 50%;
-}
-
-.mypage-contents__tab__contents-box{
-}
-  .mypage-contents__tab__contents-box__nontification-one{
-    background-color: #fff;
-    display: block;
-    min-height: 60px;
-  }
-  .mypage-contents__tab__contents-box__nontification-one__inner{
+  &__tabs{
     display: flex;
-    position: relative;
-  }
-  .mypage-contents__tab__contents-box__nontification-one__inner__image{
-  }
-  .mypage-contents__tab__contents-box__nontification-one__inner__box{
-    margin: 5px 30px 0 40px;
-  }
-    .mypage-contents__tab__contents-box__nontification-one__inner__box__message{
-    }
-    .mypage-contents__tab__contents-box__nontification-one__inner__box__timebox{
-      display: flex;
-      margin-top: 5px;
-    }
-      .mypage-contents__tab__contents-box__nontification-one__inner__box_timebox__icon
-      .mypage-contents__tab__contents-box__nontification-one__inner__box_timebox__days{
+    justify-content: space-around;
+
+    .mypage-contents__tab__tabs__left{
+      background-color: #fff;
+      text-align: center;
+      font-size: 16px;
+      line-height: 72px;
+      width: 50%;
       }
 
-      .mypage-contents__tab__contents-box__nontification-one__inner__icon-arrow-right{
-        position: absolute;
-        bottom: 5px;
-        right: 10px;
-        margin-top: 25px;
+    .mypage-contents__tab__tabs__right{
+      background-color: #eee;
+      text-align: center;
+      font-size: 16px;
+      line-height: 72px;
+      width: 50%;
+     }
+  }
+
+//上の段
+  &__contents-box{
+    .mypage-contents__tab__contents-box__nontification-one{
+      background-color: #fff;
+      display: block;
+      min-height: 60px;
+      display: flex;
+    }
+      .mypage-contents__tab__contents-box__nontification-one__image
+      .mypage-contents__tab__contents-box__nontification-one__message{
+        margin: 0 40px 0 68px;
+      }
+      .mypage-contents__tab__contents-box__nontification-one__icon-arrow-right{
+        margin-top: 15px;
+        margin-right: 50px;
         font-size: 30px;
       }
-      //下の一覧
-      .mypage-contents__tab__contents-box{
-        background-color: #fff;
-        min-height: 60px;
-        padding: 16px;
-        border-bottom: #eee 2px solid;
-      }
-         .mypage-contents__tab__contents-box__footer{
-          display: block;
-          height: 56px;
-          margin: 0 auto;
-          background: #eee;
-          color: #333;
-          line-height: 56px;
-          text-align: center;
-        }
+  }
 
-
+    //下の一覧
+  &__contents-box{
+      background-color: #fff;
+      min-height: 60px;
+      padding: 16px;
+      border-bottom: #eee 2px solid;
+  }
+    &__contents-box__footer{
+      display: block;
+      height: 56px;
+      margin: 0 auto;
+      background: #eee;
+      color: #333;
+      line-height: 56px;
+      text-align: center;
+    }
+}
      //二段目
-      .mypage-contents__container{
-        height:500px;
-        width:700px;
-        background-color: #fff;
-      }
-    .mypage-contents__container__head{
+  .mypage-contents__container{
+    height:500px;
+    width:700px;
+    background-color: #fff;
+  
+    &__head{
       line-height: 72px;
       font-size: 16px;
       border-bottom:$bg-color 2px solid
     }
-    .mypage-contents__container__head__message{
-      margin-left: 30px;
-    }
-    .mypage-contents__container__tabs{
+      &__head__message{
+        margin-left: 30px;
+     }
+      &__tabs{
       display: flex;
     }
-      .mypage-contents__container__tabs__left{
-        background-color: #eee;
+      &__tabs__left{
+        background-color: #fff;
         text-align: center;
         font-size: 16px;
         line-height: 72px;
         width: 50%
       }
         
-      .mypage-contents__container__tabs__right{
-        background-color: #fff;
+      &__tabs__right{
+        background-color: #eee;
         text-align: center;
         font-size: 16px;
         line-height: 72px;
         width: 50%
       }
-    .mypage-contents__container__main
-      .mypage-contents__tab__contents__main__nontification-one{
-        min-height: 60px;
-        padding: 16px;
-        border-bottom: #eee 2px solid;
+  }
+
+
+
+  .mypage-contents__tab__contents-main{
+    &__nontification-one{
+      display: flex;
+      min-height: 60px;
+      padding: 16px;
+      border-bottom: #eee 2px solid;
+    }
+
+    &__nontification-one__icon-arrow-right{
+      bottom: 5px;
+      right: 10px;
+      margin-top: 25px;
+      font-size: 30px;
       }
-        .mypage-contents__tab__contents__main__nontification-one__inner{
-          display: flex;
-          position: relative;
-        }
+  }   
+  
+  .mypage-contents__container__contents-box{
+    background-color: #fff;
+    min-height: 60px;
+    padding: 16px;
+    border-bottom: #eee 2px solid;
 
-          .mypage-contents__tab__contents__main__nontification-one__inner__image{
-          }
-          .mypage-contents__tab__contents__main__nontification-one__inner__box{
-            margin: 5px 30px 0 40px;
-          }
-            .mypage-contents__tab__contents__main__nontification-one__inner__box__message
-            .mypage-contents__tab__contents__main__nontification-one__inner__box__assessment{
-            }
-              .mypage-contents__tab__contents__main__nontification-one__inner__box__assessment__box{
-              margin-top: 5px;
-              padding: 5px 6px;
-              background-color: red;
-              display: inline-block;
-              font-size: 12px;
-              color: #fff;
-              }
-          .mypage-contents__tab__contents__main__nontification-one__inner__icon-arrow-right{
-            position: absolute;
-            bottom: 5px;
-            right: 10px;
-            margin-top: 25px;
-            font-size: 30px;
-          }
+    &__footer{
+      display: block;
+      height: 56px;
+      margin: 0 auto;
+      background: #eee;
+      color: #333;
+      line-height: 56px;
+      text-align: center;
+    }
+  }
 
-          .mypage-contents__container__contents-box{
-            background-color: #fff;
-            min-height: 60px;
-            padding: 16px;
-            border-bottom: #eee 2px solid;
-          }
-            .mypage-contents__container__contents-box__footer{
-              display: block;
-              height: 56px;
-              margin: 0 auto;
-              background: #eee;
-              color: #333;
-              line-height: 56px;
-              text-align: center;
-            }
-
-
-.logput-contents{
-
-}
-.logout-contents__inner{
-
+a.font-left{
+  margin-left: 20px;
 }
 
- 
+a.display{
+  display: flex;
+}
+
+a.backcolor-red{
+  margin-left: 20px;
+  margin-top: 10px;
+  padding: 5px 6px;
+  background-color: red;
+  display: inline-block;
+  font-size: 12px;
+  color: #fff;
+}
