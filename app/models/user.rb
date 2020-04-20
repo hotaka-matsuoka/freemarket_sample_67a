@@ -9,8 +9,7 @@ class User < ApplicationRecord
   VALID_NAME_REGEX = /\A[一-龥ぁ-ん]/
   VALID_NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/
   validates :nickname,                           presence: true, length: { maximum:20 }
-  validates :email,                              uniqueness: true
-  validate  :email_error
+  validates :email,                              uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validate  :family_name_error
   validate  :first_name_error
   validate  :family_name_kana_error
@@ -20,13 +19,6 @@ class User < ApplicationRecord
   has_one :address, dependent: :destroy
   has_one :card
 
-  def email_error
-    if email.blank?
-        errors.add(:email, 'メールアドレスを入力してください')
-    elsif email.match(VALID_EMAIL_REGEX) == nil
-        errors.add(:email, 'のフォーマットが不適切です')
-    end
-  end
   def family_name_error
     if family_name.blank?
       errors.add(:family_name, 'を入力してください')

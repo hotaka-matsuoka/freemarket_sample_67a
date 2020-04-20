@@ -18,8 +18,8 @@
         %span.form__require 必須
         %br/
         = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: 'input__form'
-        - @user.errors.full_messages_for(:email).each do |message|
-          %li.error__message= message
+        .error__message
+          = @user.errors.full_messages_for(:email).first
       .field
         = f.label :パスワード
         %span.form__require 必須
@@ -64,24 +64,19 @@
         = f.label :生年月日
         %span.form__require 必須
         %br/
-        = f.date_select :birth_day, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year ), include_blank: true
+        = f.date_select :birth_day, use_month_numbers: true, start_year: (Time.now.year), end_year: 1930, include_blank: true
         - @user.errors.full_messages_for(:birth_day).each do |message|
           %li.error__message= message
-
       %p.attention__msg 
         ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-
       %p.consent__msg
         「次へ進む」のボタンを押すことにより、
         %a(href="#")利用規約
         に同意したものとみなします
-
       .actions
         = f.submit "次へ進む", class: 'submit__btn'
-      
       .personal__info
         %a(href="#")本人情報について
-
       .app__info
         %p 
           This site is protected by reCAPTCHA and the Google 
