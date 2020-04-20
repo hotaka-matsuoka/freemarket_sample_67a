@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   root 'top#index'
   resources :top,  only:[:index]
+  resources :card, only: [:index, :new, :create, :show, :destroy]
 end

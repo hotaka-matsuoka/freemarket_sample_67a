@@ -18,6 +18,7 @@ class User < ApplicationRecord
   validates :birth_day,                          presence: true
 
   has_one :address, dependent: :destroy
+  has_one :card
 
   def email_error
     if email.blank?
