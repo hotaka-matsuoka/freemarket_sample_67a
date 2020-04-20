@@ -1,3 +1,4 @@
+$base-collor: #3ccace;
 .wrapper{
   background: #f5f5f5;
 }
@@ -97,7 +98,7 @@
   }
   .submit__btn {
     padding: 15px 0;
-    background-color: #3ccace;
+    background-color: $base-collor;
     color: #ffffff;
     font-size: 17px;
     margin: 50px 0 40px;
@@ -149,7 +150,7 @@
 }
 
 .form__require{
-  background-color: #3ccace;
+  background-color: $base-collor;
   margin: 0 0 0 8px;
   padding: 2px 4px;
   color: #fff;
