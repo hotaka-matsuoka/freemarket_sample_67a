@@ -80,46 +80,47 @@ a{
 
 //ここから川井が実装
 
-.mypage-contents__tab{
+.mypage-contents__message{
   height:300px;
   width:700px;
 
-  &__tabs{
+  .mypage-contents__message-tabs{
     display: flex;
-    justify-content: space-around;
-
-    .mypage-contents__tab__tabs__left{
+  }
+    .mypage-contents__message-tabs__tab{
       background-color: #fff;
       text-align: center;
       font-size: 16px;
       line-height: 72px;
       width: 50%;
-      }
 
-    .mypage-contents__tab__tabs__right{
+    &--right{
       background-color: #eee;
       text-align: center;
       font-size: 16px;
       line-height: 72px;
       width: 50%;
-     }
+    }
   }
+
+ul.abc{
+display: flex;
+}
 
 //上の段
   &__contents-box{
-    .mypage-contents__tab__contents-box__nontification-one{
+    .mypage-contents__message__contents-box__nontification-one{
       background-color: #fff;
-      display: block;
       min-height: 60px;
       display: flex;
     }
-      .mypage-contents__tab__contents-box__nontification-one__image
-      .mypage-contents__tab__contents-box__nontification-one__message{
-        margin: 0 40px 0 68px;
+      .mypage-contents__message__contents-box__nontification-one__message{
+        margin-left:20px;
+        width:650px;
       }
-      .mypage-contents__tab__contents-box__nontification-one__icon-arrow-right{
+      .mypage-contents__message__contents-box__nontification-one__icon-arrow-right{
         margin-top: 15px;
-        margin-right: 50px;
+        margin-right: 20px;
         font-size: 30px;
       }
   }
@@ -143,7 +144,7 @@ a{
 }
      //二段目
   .mypage-contents__container{
-    height:500px;
+    height:300px;
     width:700px;
     background-color: #fff;
   

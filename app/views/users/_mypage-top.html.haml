@@ -5,32 +5,33 @@
     %p.exhibitions
       出品数: 0
 
-  .mypage-contents__tab
-    .mypage-contents__tab__tabs
-      .mypage-contents__tab__tabs__left
+  .mypage-contents__message
+    .mypage-contents__message-tabs
+      .mypage-contents__message-tabs__tab
         =link_to '#' do
           お知らせ
-      .mypage-contents__tab__tabs__right
+      .mypage-contents__message-tabs__tab--right
         =link_to '#' do
           やることリスト
-    .mypage-contents__tab__contents-box
-      .mypage-contents__tab__contents-box__nontification-one
-        .mypage-contents__tab__contents-box__nontification-one__image
+    .mypage-contents__message__contents-box
+      .mypage-contents__message__contents-box__nontification-one
+        .mypage-contents__message__contents-box__nontification-one__image
           = image_tag 'pict/pict-reason-01.jpg',size:'48x48'
-        .mypage-contents__tab__contents-box__nontification-one__message
-        %ul
-          = link_to '#',class:'#' do
-            事務所からのメッセージ
-          %li
-          = link_to '#',class:'#' do
-            🕙
-          %li
-          = link_to '#',class:'#' do
-            7日前
-        .mypage-contents__tab__contents-box__nontification-one__icon-arrow-right
+        .mypage-contents__message__contents-box__nontification-one__message
+          %p
+            = link_to '#',class:'#' do
+              事務所からのメッセージ
+          %ul.abc
+            %li
+            = link_to '#',class:'#' do
+              🕙
+            %li
+            = link_to '#',class:'#' do
+              7日前
+        .mypage-contents__message__contents-box__nontification-one__icon-arrow-right
           ›
-    .mypage-contents__tab__contents-box
-      .mypage-contents__tab__contents-box__footer
+    .mypage-contents__message__contents-box
+      .mypage-contents__message__contents-box__footer
         =link_to '#' do
           一覧を見る
 
@@ -38,15 +39,12 @@
 
   .mypage-contents__container
     .mypage-contents__container__head
-      .mypage-contents__container__head__message
-        購入した商品
+      購入した商品
     .mypage-contents__container__tabs
-      .mypage-contents__container__tabs__left
-        =link_to '#' do
-          取引中
-      .mypage-contents__container__tabs__right
-        =link_to '#' do
-          過去の取引
+      =link_to '#' do
+        取引中
+      =link_to '#' do
+        過去の取引
     .mypage-contents__tab__contents-main
       .mypage-contents__tab__contents-main__nontification-one
         .mypage-contents__tab__contents-main__nontification-one__image
