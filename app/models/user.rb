@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validate  :first_name_kana_error
   validates :birth_day,                          presence: true
 
+  has_many :exhibitions
   has_one :address, dependent: :destroy
   has_one :card
 

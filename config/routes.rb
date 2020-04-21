@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
+  root 'top#index'
+  resources :top,        only:[:index]
+  resources :exhibitions, except: :show
   devise_scope :user do
     get  'users',     to: redirect("/users/sign_up")
     get  'addresses', to: 'users/registrations#new_address'
@@ -9,5 +12,5 @@ Rails.application.routes.draw do
   end
   root 'top#index'
   resources :top,  only: [:index]
-  resources :card, only: [:index, :new, :create, :show, :destroy]
+  resources :card, except: :edit
 end
