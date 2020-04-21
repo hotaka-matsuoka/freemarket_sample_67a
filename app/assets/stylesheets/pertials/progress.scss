@@ -1,5 +1,5 @@
 .progress {
-  padding-left: 44px;
+  padding-top: 20px;
   border: 0;
   display: inline-block;
   vertical-align: top;
@@ -8,7 +8,7 @@
   &-bar {
     margin: 0;
     li {
-      margin: 0 40px 0 0;
+      margin-right: 40px;
       padding: 0;
       position: relative;
       z-index: 40;
@@ -41,10 +41,6 @@ background: gray;
 z-index: 10;
 }
 
-
-.end .progress-status__bar {
-width: 0px;
-}
 .payment .progress-status__bar {
 width: 100px;
 }

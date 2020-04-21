@@ -1,6 +1,6 @@
 class CardController < ApplicationController
-   require "payjp"
-   before_action :set_card
+  require "payjp"
+  before_action :set_card
 
   def index
     if @card.present?
@@ -10,6 +10,8 @@ class CardController < ApplicationController
       @card_brand = @card_info.brand
       @exp_month = @card_info.exp_month.to_s
       @exp_year = @card_info.exp_year.to_s.slice(2,3) 
+    else
+      redirect_to action: "new"
     end
   
   end
@@ -58,6 +60,10 @@ class CardController < ApplicationController
 
   private
   def set_card
-    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    if user_signed_in?
+      @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+    else
+      redirect_to new_user_registration_path
+    end
   end
 end

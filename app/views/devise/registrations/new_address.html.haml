@@ -1,7 +1,5 @@
 .wrapper
-  .signup__header
-    = render  'devise/shared/header_icon'
-    = render  'devise/shared/progress_header'
+  = render 'devise/shared/signup_header'
     
   .form__wrapper
     %h2 発送元・お届け先住所
@@ -47,15 +45,4 @@
       .actions
         = f.submit "登録", class: 'submit__btn'
 
-  .signup__footer
-    .signup__footer--detail
-      = link_to "#" do
-        プライバシーポリシー
-      = link_to "#" do
-        furima利用規約
-      = link_to "#" do
-        特定商取引に関する表記
-    .signup__footer--logo
-      = link_to root_path do
-        = image_tag 'logo/logo.png',size:'142x41'
-        %p © FURIMA,inc
+  = render 'devise/shared/signup_footer'

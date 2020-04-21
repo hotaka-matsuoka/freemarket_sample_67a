@@ -1,6 +1,5 @@
 .wrapper
-  .signup__header
-    = render  'devise/shared/header_icon' 
+  = render 'devise/shared/header_icon' 
 
   .form__wrapper--login
     .sign-up__wrapper--login
@@ -14,17 +13,6 @@
         = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: 'input__form--login'
       .actions
         = f.submit "ログイン", class: 'submit__btn--login'
-    = render "devise/shared/links"
+    = render 'devise/shared/links'
 
-  .signup__footer
-    .signup__footer--detail
-      = link_to "#" do
-        プライバシーポリシー
-      = link_to "#" do
-        furima利用規約
-      = link_to "#" do
-        特定商取引に関する表記
-    .signup__footer--logo
-      = link_to root_path do
-        = image_tag 'logo/logo.png',size:'142x41'
-        %p © FURIMA,inc
+  = render 'devise/shared/signup_footer'

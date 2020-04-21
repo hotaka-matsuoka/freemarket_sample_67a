@@ -8,7 +8,6 @@ $base-collor: #3ccace;
   padding: 50px 0;
   .header__icon {
     text-align: center;
-    padding-bottom: 20px;
   }
   .logo__img {
     margin-bottom: 20px;
@@ -102,7 +101,7 @@ $base-collor: #3ccace;
     color: #ffffff;
     font-size: 17px;
     margin: 50px 0 40px;
-    width: 400px;
+    width: 100%;
   }
   .personal__info {
     text-align: right;
@@ -123,6 +122,50 @@ $base-collor: #3ccace;
         text-decoration: none;
         color: #4eb8ff;
       }
+    }
+  }
+}
+
+.form__wrapper--card {
+  width: 300px;
+  margin: 0 auto;
+  padding: 50px 100px;
+  background-color: #ffffff;
+  h2 {
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 70px;
+  }
+  .input__form--card {
+    margin: 8px 0;
+    font-size: 16px;
+    padding-left: 10px;
+    height: 45px;
+    width: 290px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .field {
+    margin-bottom: 20px;
+    select {
+      width: 100px;
+      height: 40px;
+      margin: 8px 10px 10px 0;
+    }
+  }
+  .submit__btn {
+    padding: 15px 0;
+    background-color: $base-collor;
+    color: #ffffff;
+    font-size: 17px;
+    margin: 50px 0 40px;
+    width: 100%;
+  }
+  .use__link {
+    text-align: right;
+    a {
+      text-decoration: none;
+      color: #4eb8ff;
     }
   }
 }
