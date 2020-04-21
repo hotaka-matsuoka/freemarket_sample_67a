@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_024814) do
+ActiveRecord::Schema.define(version: 2020_04_19_014102) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zipcode", null: false
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 2020_04_14_024814) do
     t.bigint "shipping_method_id", null: false
     t.bigint "shipping_date_id", null: false
     t.bigint "size_id"
-    t.bigint "status_id", null: false
     t.bigint "condition_id", null: false
     t.bigint "prefecture_id", null: false
     t.bigint "category_id", null: false
@@ -83,7 +82,6 @@ ActiveRecord::Schema.define(version: 2020_04_14_024814) do
     t.index ["shipping_date_id"], name: "index_exhibitions_on_shipping_date_id"
     t.index ["shipping_method_id"], name: "index_exhibitions_on_shipping_method_id"
     t.index ["size_id"], name: "index_exhibitions_on_size_id"
-    t.index ["status_id"], name: "index_exhibitions_on_status_id"
     t.index ["user_id"], name: "index_exhibitions_on_user_id"
   end
 

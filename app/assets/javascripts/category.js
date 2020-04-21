@@ -1,4 +1,12 @@
 $(function () {
+  // $(".new_exhibition").submit(function () {
+  //   if ($("select[name='exhibition[category_id]").val() == "選択してください" || $("#child_category").val() == "0"|| $("#grandchild_category").val() == "0") {
+  //     alert('カテゴリーを選択してください');
+  //     return false;
+  //   } else {
+  //     $(".new_exhibition").submit();
+  //   }
+  // })
   // サイズセレクトボックスのオプションを作成
   function appendSizeOption(size){
     var html = `<option value="${size.id}">${size.size}</option>`;

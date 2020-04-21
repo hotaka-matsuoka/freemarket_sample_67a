@@ -9,14 +9,15 @@ class ExhibitionsController < ApplicationController
   def new
     @exhibition = Exhibition.new
     @exhibition.images.new
+
   end
   
   def create
     @exhibition = Exhibition.new(exhibition_params)
     if @exhibition.save
-      redirect_to exhibitions_path
+      redirect_to root_path, notice:"出品に成功しました"
     else
-      render :new
+      redirect_to new_exhibition_path, notice:"出品に失敗しました"
     end
   end
 
@@ -67,7 +68,7 @@ class ExhibitionsController < ApplicationController
   private
 
   def exhibition_params
-    params.require(:exhibition).permit(:name, :explanation, :brand_name, :size_id, :price, :condition_id, :shipping_method_id, :shipping_date_id, :category_id, :prefecture_id, :salse_status, images_attributes:  [:image_url, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:exhibition).permit(:name, :explanation, :brand_name, :size_id, :price, :condition_id, :shipping_method_id, :shipping_date_id, :category_id, :prefecture_id, :salse_status, images_attributes: [:image_url, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_exhibition
@@ -79,7 +80,7 @@ class ExhibitionsController < ApplicationController
     @category_parent_array = ["選択してください"]
     #データベースから、親カテゴリーのみ抽出し、配列化
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array<< parent.name
+      @category_parent_array << parent.name
     end
   end
 end

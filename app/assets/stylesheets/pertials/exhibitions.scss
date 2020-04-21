@@ -18,7 +18,7 @@
     background-color: #fff;
     margin: 0 auto;
   }
-  .size{
+  .img{
     max-height: 200px;
   }
   .exhibition-container{
@@ -29,8 +29,89 @@
     .none{
       display: none;
     }
+    #image-box-1{
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      @media screen and (max-width: 700px) {
+        img{
+          width: 85px;
+        }
+      }
+    }
+    .exhibition-num-0{
+      width: 100%;
+    }
+    .exhibition-num-1{
+      width: 78%;
+    }
+    .exhibition-num-2{
+      width: 58%;
+    }
+    .exhibition-num-3{
+      width: 39%;
+    }
+    .exhibition-num-4{
+      width: 19%;
+    }
+    //下段のfile_field
+    .exhibition-num-5{
+      width: 100%;
+    }
+    .exhibition-num-6{
+      width: 78%;
+    }
+    .exhibition-num-7{
+      width: 58%;
+    }
+    .exhibition-num-8{
+      width: 39%;
+    }
+    .exhibition-num-9{
+      width: 19%;
+    }
+    @media screen and (max-width: 700px) {
+      .exhibition-num-0{
+        width: 100%;
+      }
+      .exhibition-num-1{
+        width: 80%;
+      }
+      .exhibition-num-2{
+        width: 60%;
+      }
+      .exhibition-num-3{
+        width: 40%;
+      }
+      .exhibition-num-4{
+        width: 20%;
+      }
+      //下段のfile_field
+      .exhibition-num-5{
+        width: 100%;
+      }
+      .exhibition-num-6{
+        width: 80%;
+      }
+      .exhibition-num-7{
+        width: 60%;
+      }
+      .exhibition-num-8{
+        width: 40%;
+      }
+      .exhibition-num-9{
+        width: 20%;
+      }
+    }
+    .exhibition-image__operetion--delete{
+      text-align: center;
+      &:hover{
+        cursor: pointer;
+        }
+      }
     .fa.fa-camera{
-      height: 150px;
+      height: 145px;
       width: 100%;
       background-color: #eee;
       text-align: center;
@@ -50,7 +131,7 @@
       padding: 0 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      margin: 0 0 35px 0;
+      margin: 0 0 35px ;
     }
     select:hover{
       cursor: pointer;
@@ -60,7 +141,7 @@
       padding: 10px;
       margin-bottom: 15px;
     }
-    #exibition_name, #exibition_explanation, #exibition_brand_id{
+    #exhibition_name, #exhibition_explanation, #exhibition_brand_name{
       width: calc(100% - 20px);
     }
     #parent_category, #child_category,#grandchild_category{
