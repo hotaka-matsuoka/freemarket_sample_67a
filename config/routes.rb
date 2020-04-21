@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   root 'top#index'
-  
   resources :top,        only:[:index]
   resources :exhibitions, except: [:show] do
     collection do

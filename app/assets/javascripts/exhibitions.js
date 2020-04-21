@@ -1,8 +1,6 @@
 
 $(function () {
-
   // 商品説明文字数
-
   $("#exhibition_explanation").on('keyup', function () {
     $(".count").text($(this).val().length + '/1000');
   });
@@ -16,8 +14,6 @@ $(function () {
       $(".sale__right").text('ー');
     }
   });
-
-  
   //DataTransferオブジェクトで、データを格納する箱を作る
   var dataBox = new DataTransfer();
   //querySelectorでfile_fieldを取得
@@ -38,7 +34,7 @@ $(function () {
       fileReader.readAsDataURL(file);
     //画像が10枚になったら超えたらドロップボックスを削除する
       if (num == 10){
-        $('#image-box__container').css('display', 'none')   
+        $('#image-box__container').css('display', 'none')
       }
     //読み込みが完了すると、srcにfileのURLを格納
     fileReader.onloadend = function() {
