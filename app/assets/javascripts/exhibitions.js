@@ -93,7 +93,7 @@ $(function () {
     $('#image-box__container').show()
     $('#image-box__container').attr('class', `exhibition-num-${num}`)
     if (num < 5) {
-      $('.exhibition-container').addClass('img');
+      $('#1').addClass('img');
     }
   })
 });
