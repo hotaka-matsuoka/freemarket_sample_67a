@@ -7,4 +7,4 @@
 = exp_month + " / " + exp_year
 = form_tag(new_card_path, method: :post, id: 'charge-form',  name: "inputForm") do
   %input{ type: "hidden", name: "card_id", value: "" }
-  %button 削除する
+= button_to "削除する", card_path(@card), method: :delete, class: "card__info--delete" 

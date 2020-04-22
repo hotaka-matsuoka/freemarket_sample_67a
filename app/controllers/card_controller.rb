@@ -4,7 +4,6 @@ class CardController < ApplicationController
 
   def index
     if @card.present?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_info = customer.cards.retrieve(customer.default_card)
       @card_brand = @card_info.brand
@@ -13,15 +12,12 @@ class CardController < ApplicationController
     else
       redirect_to action: "new"
     end
-  
   end
 
   def new
-    card = Card.find_by(user_id: current_user.id)
   end
 
   def create
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -36,31 +32,25 @@ class CardController < ApplicationController
   end
 
   def show 
-    card = Card.find_by(user_id: current_user.id)
-    if card.blank?
+    if @card.blank?
       redirect_to action: "new" 
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 
   def destroy 
-    card = Card.find_by(user_id: current_user.id)
-    if card.blank?
-    else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      customer.delete
-      card.delete
-    end
-      redirect_to action: "new"
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    customer.delete
+    @card.delete
+    redirect_to action: "new"
   end
 
   private
   def set_card
     if user_signed_in?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       @card = Card.find_by(user_id: current_user.id) if Card.where(user_id: current_user.id).present?
     else
       redirect_to new_user_registration_path
