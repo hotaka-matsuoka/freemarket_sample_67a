@@ -17,7 +17,7 @@ class CardController < ApplicationController
   end
 
   def new
-    card = Card.where(user_id: current_user.id)
+    card = Card.find_by(user_id: current_user.id)
   end
 
   def create
@@ -36,7 +36,7 @@ class CardController < ApplicationController
   end
 
   def show 
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to action: "new" 
     else
@@ -47,7 +47,7 @@ class CardController < ApplicationController
   end
 
   def destroy 
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -61,7 +61,7 @@ class CardController < ApplicationController
   private
   def set_card
     if user_signed_in?
-      @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+      @card = Card.find_by(user_id: current_user.id) if Card.where(user_id: current_user.id).present?
     else
       redirect_to new_user_registration_path
     end
