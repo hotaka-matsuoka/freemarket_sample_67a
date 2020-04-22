@@ -63,6 +63,8 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 gem 'fog-aws'
 gem 'faker'
+gem 'rails-i18n'
+gem 'payjp'
 
 group :production do
   gem 'unicorn', '5.4.1'
