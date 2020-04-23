@@ -95,7 +95,7 @@ a{
       width: 50%;
 
     &--right{
-      background-color: #eee;
+      background-color: #eeee;
       text-align: center;
       font-size: 16px;
       line-height: 72px;
@@ -107,7 +107,7 @@ ul.abc{
 display: flex;
 }
 
-//上の段
+//一段目
   &__contents-box{
     .mypage-contents__message__contents-box__nontification-one{
       background-color: #fff;
@@ -125,7 +125,6 @@ display: flex;
       }
   }
 
-    //下の一覧
   &__contents-box{
       background-color: #fff;
       min-height: 60px;
@@ -142,86 +141,93 @@ display: flex;
       text-align: center;
     }
 }
-     //二段目
-  .mypage-contents__container{
-    height:300px;
-    width:700px;
-    background-color: #fff;
-  
-    &__head{
-      line-height: 72px;
-      font-size: 16px;
-      border-bottom:$bg-color 2px solid
-    }
-      &__head__message{
-        margin-left: 30px;
-     }
-      &__tabs{
-      display: flex;
-    }
-      &__tabs__left{
-        background-color: #fff;
-        text-align: center;
-        font-size: 16px;
-        line-height: 72px;
-        width: 50%
-      }
-        
-      &__tabs__right{
-        background-color: #eee;
-        text-align: center;
-        font-size: 16px;
-        line-height: 72px;
-        width: 50%
-      }
-  }
+     
 
 
-
-  .mypage-contents__tab__contents-main{
-    &__nontification-one{
-      display: flex;
-      min-height: 60px;
-      padding: 16px;
-      border-bottom: #eee 2px solid;
-    }
-
-    &__nontification-one__icon-arrow-right{
-      bottom: 5px;
-      right: 10px;
-      margin-top: 25px;
-      font-size: 30px;
-      }
-  }   
-  
-  .mypage-contents__container__contents-box{
-    background-color: #fff;
-    min-height: 60px;
-    padding: 16px;
-    border-bottom: #eee 2px solid;
-
-    &__footer{
-      display: block;
-      height: 56px;
-      margin: 0 auto;
-      background: #eee;
-      color: #333;
-      line-height: 56px;
-      text-align: center;
-    }
-  }
-
-a.font-left{
-  margin-left: 20px;
+//二段目
+.mypage-contents__container{
+  height:300px;
+  width:700px;
+}
+.mypage-contents__container-message{
+  width:700px;
+  background-color: #fafafa;
+  font-size: 16px;
+  line-height: 72px;
+  width: 100%;
+  padding-left: 20px;
+  border-bottom:$bg-color 2px solid
 }
 
-a.display{
+.mypage-contents__container-tabs{
   display: flex;
 }
+  .mypage-contents__container-tabs__tab{
+    background-color: #fff;
+    text-align: center;
+    font-size: 16px;
+    line-height: 72px;
+    width: 50%;
+
+  &--right{
+    background-color: #eee;
+    text-align: center;
+    font-size: 16px;
+    line-height: 72px;
+    width: 50%;
+  }
+}
+
+ul.abc{
+display: flex;
+}
+
+
+.mypage-contents__container__contents-box{
+  .mypage-contents__container__contents-box__nontification-one{
+    background-color: #fff;
+    min-height: 60px;
+    display: flex;
+  }
+    .mypage-contents__container__contents-box__nontification-one__message{
+      margin-left:20px;
+      width:700px;
+    }
+    .mypage-contents__tab__contents-main__nontification-one__icon-arrow-right{
+      margin-top: 15px;
+      margin-right: 20px;
+      font-size: 30px;
+    }
+}
+
+.mypage-contents__container__contents-box{
+  background-color: #fff;
+  min-height: 60px;
+  padding: 16px;
+  border-bottom: #eee 2px solid;
+}
+.mypage-contents__container__contents-box__footer{
+    display: block;
+    height: 56px;
+    margin: 0 auto;
+    background: #eee;
+    color: #333;
+    line-height: 56px;
+    text-align: center;
+  }
+
+
+
+
+
+
+
+
+
+
 
 a.backcolor-red{
-  margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 5px;
   padding: 5px 6px;
   background-color: red;
   display: inline-block;

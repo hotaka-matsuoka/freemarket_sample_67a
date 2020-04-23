@@ -38,24 +38,26 @@
 
 
   .mypage-contents__container
-    .mypage-contents__container__head
+    .mypage-contents__container-message
       購入した商品
-    .mypage-contents__container__tabs
-      =link_to '#' do
-        取引中
-      =link_to '#' do
-        過去の取引
-    .mypage-contents__tab__contents-main
-      .mypage-contents__tab__contents-main__nontification-one
-        .mypage-contents__tab__contents-main__nontification-one__image
+    .mypage-contents__container-tabs
+      .mypage-contents__container-tabs__tab
+        =link_to '#' do
+          取引中
+      .mypage-contents__container-tabs__tab--right
+        =link_to '#' do
+          過去の取引
+    .mypage-contents__container__contents-box
+      .mypage-contents__container__contents-box__nontification-one
+        .mypage-contents__container__contents-box__nontification-one__image
           = image_tag 'pict/pict-reason-01.jpg',size:'48x48'
-        .mypage-contents__tab__contents-main__nontification-one__message
-        %ul
-          = link_to '#',class:'font-left' do
-            ○○を購入しました。受取評価をお願いします。
-          %li
-            = link_to '#',class:'backcolor-red' do
-              受取評価待ち
+        .mypage-contents__container__contents-box__nontification-one__message
+          %ul
+            = link_to '#',class:'font-left' do
+              ○○を購入しました。受取評価をお願いします。
+            %li.abc
+              = link_to '#',class:'backcolor-red' do
+                受取評価待ち
         .mypage-contents__tab__contents-main__nontification-one__icon-arrow-right
           ›
     .mypage-contents__container__contents-box
