@@ -72,10 +72,11 @@ ActiveRecord::Schema.define(version: 2020_04_18_064740) do
   create_table "exhibitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "explanation", null: false
-    t.string "brand"
     t.string "price", null: false
+    t.string "brand_name"
     t.bigint "shipping_method_id", null: false
     t.bigint "shipping_date_id", null: false
+    t.bigint "size_id"
     t.bigint "condition_id", null: false
     t.bigint "prefecture_id", null: false
     t.bigint "category_id", null: false
@@ -87,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_064740) do
     t.index ["prefecture_id"], name: "index_exhibitions_on_prefecture_id"
     t.index ["shipping_date_id"], name: "index_exhibitions_on_shipping_date_id"
     t.index ["shipping_method_id"], name: "index_exhibitions_on_shipping_method_id"
+    t.index ["size_id"], name: "index_exhibitions_on_size_id"
     t.index ["user_id"], name: "index_exhibitions_on_user_id"
   end
 
