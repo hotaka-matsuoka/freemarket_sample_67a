@@ -1,5 +1,4 @@
-
-$(function () {
+document.addEventListener("turbolinks:load",function () {
   // 商品説明文字数
   $("#exhibition_explanation").on('keyup', function () {
     $(".count").text($(this).val().length + '/1000');

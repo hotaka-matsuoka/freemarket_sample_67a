@@ -54,7 +54,7 @@ GEM
     bcrypt (3.1.13)
     bindex (0.8.1)
     builder (3.2.4)
-    byebug (11.1.1)
+    byebug (11.1.2)
     capistrano (3.13.0)
       airbrussh (>= 1.0.0)
       i18n
@@ -108,7 +108,7 @@ GEM
     faker (2.11.0)
       i18n (>= 1.6, < 2)
     ffi (1.12.2)
-    fog-aws (3.6.2)
+    fog-aws (3.6.3)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
       fog-xml (~> 0.1)
@@ -193,15 +193,13 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
-
+    payjp (0.0.7)
+      rest-client (~> 2.0)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    payjp (0.0.7)
-      rest-client (~> 2.0)
-
     public_suffix (4.0.4)
     puma (3.12.4)
     rack (2.2.2)
@@ -246,13 +244,11 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
-
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-
     rmagick (4.1.2)
     romaji (0.2.4)
       rake (>= 0.8.0)
@@ -360,11 +356,8 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_magick
   mysql2 (>= 0.4.4, < 0.6.0)
-
-  pry-rails
-
   payjp
-
+  pry-rails
   puma (~> 3.11)
   rails (= 5.2.4.2)
   rails-controller-testing
