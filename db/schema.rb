@@ -35,33 +35,33 @@ ActiveRecord::Schema.define(version: 2020_04_18_064740) do
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
-  create_table "exibitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "exhibitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "explanation", null: false
     t.string "brand"
     t.string "price", null: false
     t.bigint "shipping_method_id", null: false
     t.bigint "shipping_date_id", null: false
-    t.bigint "status_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "condition_id", null: false
     t.bigint "prefecture_id", null: false
     t.bigint "category_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_exibitions_on_category_id"
-    t.index ["prefecture_id"], name: "index_exibitions_on_prefecture_id"
-    t.index ["shipping_date_id"], name: "index_exibitions_on_shipping_date_id"
-    t.index ["shipping_method_id"], name: "index_exibitions_on_shipping_method_id"
-    t.index ["status_id"], name: "index_exibitions_on_status_id"
-    t.index ["user_id"], name: "index_exibitions_on_user_id"
+    t.index ["category_id"], name: "index_exhibitions_on_category_id"
+    t.index ["condition_id"], name: "index_exhibitions_on_condition_id"
+    t.index ["prefecture_id"], name: "index_exhibitions_on_prefecture_id"
+    t.index ["shipping_date_id"], name: "index_exhibitions_on_shipping_date_id"
+    t.index ["shipping_method_id"], name: "index_exhibitions_on_shipping_method_id"
+    t.index ["user_id"], name: "index_exhibitions_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image"
-    t.bigint "exibition_id"
+    t.string "image_url", null: false
+    t.bigint "exhibition_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["exibition_id"], name: "index_images_on_exibition_id"
+    t.index ["exhibition_id"], name: "index_images_on_exhibition_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -83,4 +83,5 @@ ActiveRecord::Schema.define(version: 2020_04_18_064740) do
   end
 
   add_foreign_key "cards", "users"
+  add_foreign_key "exhibitions", "users"
 end
