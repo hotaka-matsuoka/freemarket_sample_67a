@@ -6,14 +6,14 @@ function changeProgressBar() {
   let bar__address = document.getElementById("bar__address");
   let status__payment = document.getElementById("status__payment");
 
-  var url = location.href;
-  if (url == "http://localhost:3000/addresses"){
+  var path = location.pathname;
+  if (path == "/addresses") {
     address.style.color = '#ea352d';
     status__address.style.backgroundColor = '#ea352d';
     bar__user.style.backgroundColor = '#ea352d'
   };
 
-  if (url == "http://localhost:3000/card/new") {
+  if (path == "/card/new") {
     address.style.color = '#ea352d';
     status__address.style.backgroundColor = '#ea352d';
     bar__user.style.backgroundColor = '#ea352d'
