@@ -18,8 +18,10 @@
   = link_to "商品の削除", exhibition_path(@exhibition), method: :delete
 - elsif user_signed_in?
   = button_to "購入する"
-
-= link_to "前の商品",   exhibition_path(@exhibition.previous) if @exhibition.previous
-= link_to "次の商品", exhibition_path(@exhibition.next) if @exhibition.next
-
-= link_to "#{@exhibition.category.parent.parent.name}をもっと見る"
+  = link_to "前の商品",   exhibition_path(@exhibition.previous) if @exhibition.previous
+  = link_to "次の商品", exhibition_path(@exhibition.next) if @exhibition.next
+  = link_to "#{@exhibition.category.parent.parent.name}をもっと見る"
+- else
+  = link_to "前の商品",   exhibition_path(@exhibition.previous) if @exhibition.previous
+  = link_to "次の商品", exhibition_path(@exhibition.next) if @exhibition.next
+  = link_to "#{@exhibition.category.parent.parent.name}をもっと見る"
