@@ -1,0 +1,25 @@
+- @exhibition.images.each do |image|
+  = image_tag image.image_url.url
+.content
+  %p= "出品者  #{@exhibition.user.nickname}"
+  %p= @exhibition.name
+  %p= "¥#{@exhibition.price}"
+  %p= "カテゴリー #{@exhibition.category.parent.parent.name}"
+  %p= "カテゴリー #{@exhibition.category.parent.name}"
+  %p= "カテゴリー #{@exhibition.category.name}"
+  %p= "ブランド  #{@exhibition.brand_name}"
+  %p= "商品の状態  #{@exhibition.condition.name}"
+  %p= "配送料の負担  #{@exhibition.shipping_method.name}"
+  %p= "配送元の地域  #{@exhibition.prefecture.name}"
+  %p= "発送日の目安  #{@exhibition.shipping_date.name}"
+
+- if user_signed_in? && current_user.id == @exhibition.user_id
+  = link_to "商品の編集", edit_exhibition_path(@exhibition.id)
+  = link_to "商品の削除", exhibition_path(@exhibition), method: :delete
+- elsif user_signed_in?
+  = button_to "購入する"
+
+= link_to "前の商品",   exhibition_path(@exhibition.previous) if @exhibition.previous
+= link_to "次の商品", exhibition_path(@exhibition.next) if @exhibition.next
+
+= link_to "#{@exhibition.category.parent.parent.name}をもっと見る"
