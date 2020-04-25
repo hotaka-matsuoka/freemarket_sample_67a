@@ -33,6 +33,38 @@
     .mypage-contents__message__contents-box
       .mypage-contents__message__contents-box__footer
         =link_to '#' , class:'hover'do
+    .mypage-contents__tab__contents-box
+      .mypage-contents__tab__contents-box__nontification-one
+        .mypage-contents__tab__contents-box__nontification-one__image
+          = image_tag 'pict/pict-reason-01.jpg',size:'48x48'
+        .mypage-contents__tab__contents-box__nontification-one__message
+          %ul
+            事務所からのメッセージ
+            %li
+              🕙
+            %li
+              7日前
+        .mypage-contents__tab__contents-box__nontification-one__icon-arrow-right
+          ›
+
+    .mypage-contents__tab__contents-box
+      .mypage-contents__tab__contents-box__nontification-one
+        .mypage-contents__tab__contents-box__nontification-one__inner
+          .mypage-contents__tab__contents-box__nontification-one__inner__image
+            = image_tag 'pict/pict-reason-01.jpg',size:'48x48'
+          .mypage-contents__tab__contents-box__nontification-one__inner__box
+            .mypage-contents__tab__contents-box__nontification-one__inner__box__message
+              事務所からのメッセージ
+            .mypage-contents__tab__contents-box__nontification-one__inner__box__timebox
+              .mypage-contents__tab__contents-box__nontification-one__inner__box__timebox__icon
+                🕙
+              .mypage-contents__tab__contents-box__nontification-one__inner__box__timebox__days
+                7日前
+          .mypage-contents__tab__contents-box__nontification-one__inner__icon-arrow-right
+            ›
+    .mypage-contents__tab__contents-box
+      .mypage-contents__tab__contents-box__footer
+        =link_to '#' do
           一覧を見る
 
   .mypage-contents__container
