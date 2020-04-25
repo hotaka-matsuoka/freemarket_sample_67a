@@ -7,7 +7,9 @@
       %h1.exhibition-detail__title
         = @exhibition.name
       .exhibition-detail__image--preview
-        -# = @exhibition
+        %ul
+          - @exhibition.images.each do |image|
+            %li= image_tag image.image_url.url
       .exhibition-detail__image--list
         %ul
           - @exhibition.images.each do |image|

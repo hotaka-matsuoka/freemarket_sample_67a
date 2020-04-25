@@ -1,15 +1,14 @@
 class ExhibitionsController < ApplicationController
   before_action :set_exhibition, except: [:index, :new, :create,'get_category_children','get_category_grandchildren','get_size']
-  before_action :set_category  , only:   [:new, :create]
-
+  before_action :set_category  , except: [:new, :create]
+  
   def index
     @exhibitions = Exhibition.includes(:images).order('created_at DESC')
   end
-
+  
   def new
     @exhibition = Exhibition.new
     @exhibition.images.new
-
   end
   
   def create
@@ -77,7 +76,6 @@ class ExhibitionsController < ApplicationController
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
   end
-
   def set_category
     #セレクトボックスの初期値設定
     @category_parent_array = ["選択してください"]

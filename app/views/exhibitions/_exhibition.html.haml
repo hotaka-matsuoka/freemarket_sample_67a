@@ -3,4 +3,4 @@
   %p= "#{exhibition.price} 円"
 
   - exhibition.images.each do |i|
-    = link_to image_tag(i.image_url.url), "exhibitions/#{exhibition.id}"
+    = link_to image_tag(i.image_url.url), exhibition_path(exhibition.id)

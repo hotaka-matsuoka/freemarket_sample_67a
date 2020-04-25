@@ -3,7 +3,7 @@
 
   .form__wrapper
     %h2 会員情報入力
-    = form_for(@user, url: user_registration_path)  do |f|
+    = form_for(@user, url: user_registration_path) do |f|
       .field
         = f.label :ニックネーム
         %span.form__require 必須
