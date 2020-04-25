@@ -22,6 +22,14 @@ $base-collor: #3ccace;
           display: flex;
           justify-content: center;
         }
+        .img-wrap {
+          cursor: pointer;
+          transition-duration: 0.2s;
+        }
+        .img-wrap:hover img{
+          opacity: 0.6;
+          transition-duration: 0.2s;
+        }
       }
       &__price {
         text-align: center;

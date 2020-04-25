@@ -13,7 +13,7 @@
       .exhibition-detail__image--list
         %ul
           - @exhibition.images.each do |image|
-            %li= image_tag image.image_url.url
+            %li.img-wrap= image_tag image.image_url.url
              
       .exhibition-detail__price
         %h1= "¥#{@exhibition.price}"
