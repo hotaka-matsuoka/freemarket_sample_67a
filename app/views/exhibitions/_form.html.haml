@@ -5,45 +5,41 @@
   .exhibition-main
     = form_for @exhibition do |f|
       = render 'layouts/error_messages', model: f.object
-      .exhibition-container.size
+      .exhibition-container.img#1
         .item
           .item__label 商品画像
           .item__required 必須
         %p.font 最大10枚までアップロードできます
-        #image-box
-          = f.fields_for :images do |image|
-            .js-file_group{"data-index" => "#{image.index}"}
-              = image.file_field :image_url, multipart: true, class: 'js-file'
-              %br/
-              %span.js-remove 削除
-            - if @exhibition.persisted?
-              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-          - if @exhibition.persisted?
-            .js-file_group{"data-index" => "#{@exhibition.images.count}"}
-              = file_field_tag :image_url, multipart: true, class: 'js-file', name: "exhbition[images_attributes][#{@exhibition.images.count}][image_url]"
-              .js-remove 削除
-              %i(class="fa fa-camera")
+        #image-box-1
+          .exhibition-num-0#image-box__container
+            = f.fields_for :images do |i|
+              .input-area
+                = i.file_field :image_url, accept:"image/jpg,image/jpeg,image/png,image/gif", type: 'file', name: "exhibition[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
+                %label{for: "img-file"}
+                  %i.fa.fa-camera
       .exhibition-container
         .item
           .item__label 商品名
           .item__required 必須
-        = f.text_field :name,  placeholder: "40字まで"
+        = f.text_field :name, required:true, placeholder: "40字まで"
         .item
           .item__label 商品の説明
           .item__required 必須
-        = f.text_area :explanation, placeholder: "商品の説明（1,000文字以内）\n（色、素材、重さ、定価、注意点など）"
+        = f.text_area :explanation, required:true, placeholder: "商品の説明（1,000文字以内）\n（色、素材、重さ、定価、注意点など）" ,id:'exhibition_explanation'
         .count 0/1000
-      .exhibition-container
+      #exhibition-container.exhibition-container
         .items
           .items__label 商品の詳細
         .item
           .item__label カテゴリー
           .item__required 必須
-        = f.collection_select :category_id, Exhibition_category.all, :id, :category
+        .select-wrapper
+          = f.number_field :size_id, value:1,class:"none"
+          = f.select :category_id, @category_parent_array,{},{class: 'select', id: 'parent_category'}
         .item
           .item__label ブランド
           .item__required--not 任意
-        = f.text_field :brand, placeholder: "例）シャネル"
+        = f.text_field :brand_name, placeholder: "例）シャネル"
         .item
           .item__label 商品の状態
           .item__required 必須
@@ -51,9 +47,6 @@
       .exhibition-container
         .items
           .items__label 配送について
-          -# //ガイド//
-          -# = link_to '#' do
-          -#   %i.far.fa-question-circle
         .item
           .item__label 配送料の負担
           .item__required 必須
@@ -69,21 +62,26 @@
       .exhibition-container
         .items 
           .items__label 価格（¥300〜9,999,999)
-          -# //ガイド//
-          -# = link_to '#' do
-          -#   %i.far.fa-question-circle
         .item.item--center
           .item__label 販売価格
           .item__required 必須
           .item__right
             ¥
-            = f.number_field :price, style:"text-align:right", placeholder: "0", class:'price'
+            = f.number_field :price,  required:true, style:"text-align:right count", placeholder: "0", class:'price', id:'exhibition_price'
         .sale 
           %p.font.sale__left 販売手数料（10%）
           .sale__right ー
         .sale.border-top
           %p.font.sale__left 販売利益
-          .sale__right ー
+          .sale__right.two ー
         .actions
           = f.submit "出品する", class:"actions--blue"
           = link_to 'もどる', root_path
+  .exhibition-footer
+    %ul
+      %li= link_to('プライバシーポリシー',"#")
+      %li= link_to('利用規約',"#")
+      %li= link_to('特定商品に関する表記',"#")
+    .logo-center
+      = link_to root_path do
+        = image_tag 'logo/logo.png',size:'200x71'
