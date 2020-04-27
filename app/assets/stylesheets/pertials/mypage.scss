@@ -33,17 +33,16 @@ a{
   }
 }
 .mypage-contents{
-    // height: 100vh;
     width: 68%;
   .mypage-contents__inner{
-    margin:40px;
+    margin-top:40px;
+    width:700px;
   }
   .mypage-contents__user{
     height:150px;
-    width:700px;
     text-align: center;
     background-color: #fff;
-    border-bottom:$bg-color 2px solid
+    border-bottom:$bg-color 4px solid
   }
   h1.user-name{
     font-size:32px;
@@ -55,93 +54,54 @@ a{
   }
 }
 
-// .mypage-contents__flex{
-//   display:flex;
-//   width:700px;
-//   .mypage-contents__menu{
-//     width:50%;
-//     height:80px;
-//     line-height: 80px;
-//     text-align: center;
-//     background-color: #ccc;
-//   }
-// }
-
-// .mypage-contents__window{
-//   width:700px;
-//   height:200px;
-//   line-height: 200px;
-//   text-align: center;
-//   background-color: #eeeeee;
-//   color:#999;
-// }
-
-
-
-//ここから川井が実装
-
-.mypage-contents__message{
-  height:auto;
-  width:700px;
+.mypage-message{
   margin-bottom: 50px;
-
-  &-tabs{
+  .mypage-message__tabs{
     display: flex;
-  }
-    &-tabs__tab{
+    &__tab{
       background-color: #fff;
       text-align: center;
       font-size: 16px;
       line-height: 72px;
       width: 50%;
-    &--right{
-      background-color: #eeee;
-      text-align: center;
-      font-size: 16px;
-      line-height: 72px;
-      width: 50%;
-    }
-  }
-
-
-  &__contents-box{
-    &__nontification-one{
-      background-color: #fff;
-      min-height: 60px;
-      display: flex;
-    }
-      &__nontification-one__message{
-        margin-left:20px;
-        width:650px;
-      }
-      &__nontification-one__icon-arrow-right{
-        margin-top: 15px;
-        margin-right: 20px;
-        font-size: 30px;
+      &--right{
+        background-color: #eee;
       }
     }
-
-  &__contents-box{
-      background-color: #fff;
-      min-height: 60px;
-      padding: 16px;
-      border-bottom: #eee 2px solid;
-  }
-
-  &__contents-box__footer{
-    display: block;
-    height: 56px;
-    margin: 0 auto;
-    background: #eee;
-    color: #333;
-    line-height: 56px;
-    text-align: center;
   }
 }
-     
 
+.mypage-nontification{
+  background-color: #fff;
+  height: 70px;
+  display: flex;
+  margin-bottom: 1px;
+  &__image{
+    text-align: center;
+    margin: auto 0;
+    width:80px;
+  }
+  &__message{
+    width:calc(100% - 120px);
+    margin: auto 0 auto 10px;
+  }
+  &__arrow{
+    width:40px;
+    text-align: center;
+    margin: auto 0;
+    font-size: 30px;
+  }
+  p.nontification-margin{
+    margin-bottom: 5px;
+  }
 
-//二段目
+  ul.flex{
+    display:flex;
+  }
+}
+
+// ここまで修正すみ
+
 .mypage-contents__container{
   height:auto;
   width:700px;
@@ -218,10 +178,6 @@ a.backcolor-red{
   font-size: 12px;
   color: #fff;
 }
-
-ul.abc{
-  display: flex;
-  }
 
 a.hover:hover {
     opacity: 0.6;
