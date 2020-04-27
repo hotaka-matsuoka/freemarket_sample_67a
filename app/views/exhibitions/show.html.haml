@@ -7,13 +7,13 @@
       %h1.exhibition-detail__title
         = @exhibition.name
       .exhibition-detail__image--preview
-        %ul
-          - @exhibition.images.each do |image|
-            %li= image_tag image.image_url.url
-      .exhibition-detail__image--list
-        %ul
-          - @exhibition.images.each do |image|
-            %li.img-wrap= image_tag image.image_url.url
+        %ul.preview
+          - @exhibition.images.each_with_index do |image, i|
+            %li{class: "item#{i}"}= image_tag image.image_url.url
+      .exhibition-detail__image--thumb
+        %ul.thumbnail
+          - @exhibition.images.each_with_index do |image, i|
+            %li{class: "thumb#{i}"}= image_tag image.image_url.url
              
       .exhibition-detail__price
         %h1= "¥#{@exhibition.price}"

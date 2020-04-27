@@ -17,19 +17,29 @@ $base-collor: #3ccace;
         text-align: center;
         font-size: 40px;
       }
-      &__image--list {
+      &__image--preview {
         ul {
           display: flex;
           justify-content: center;
         }
-        .img-wrap {
-          cursor: pointer;
-          transition-duration: 0.2s;
+        img {
+          height: 300px;
+          width: 300px;
         }
-        .img-wrap:hover img{
-          opacity: 0.6;
-          transition-duration: 0.2s;
+      }
+      &__image--thumb {
+        ul {
+          display: flex;
+          justify-content: center;
         }
+        // .thumb {
+        //   cursor: pointer;
+        //   transition-duration: 0.2s;
+        // }
+        // .thumb:hover img{
+        //   opacity: 0.6;
+        //   transition-duration: 0.2s;
+        // }
       }
       &__price {
         text-align: center;
