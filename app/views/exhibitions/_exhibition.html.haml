@@ -1,9 +1,6 @@
 .content
   %p= exhibition.name
-  %p
-    = exhibition.price
-    円
-  - exhibition.images.each do |image|
-    = image_tag image.image_url.url
-= link_to '編集', edit_exhibition_path(@exhibitions.ids)
-= link_to '削除', exhibition_path(exhibition), method: :delete
+  %p= "#{exhibition.price} 円"
+
+  - exhibition.images.each do |i|
+    = link_to image_tag(i.image_url.url), exhibition_path(exhibition.id)

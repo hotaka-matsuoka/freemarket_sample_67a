@@ -1,0 +1,86 @@
+.header
+  = render 'top/header'
+
+.main
+  .detail-wrapper
+    .exhibition-detail
+      %h1.exhibition-detail__title
+        = @exhibition.name
+      .exhibition-detail__image--preview
+        %ul.preview
+          - @exhibition.images.each_with_index do |image, i|
+            %li{class: "item#{i}"}= image_tag image.image_url.url
+      .exhibition-detail__image--thumb
+        %ul.thumbnail
+          - @exhibition.images.each_with_index do |image, i|
+            %li{class: "thumb#{i}"}= image_tag image.image_url.url
+             
+      .exhibition-detail__price
+        %h1= "¥#{@exhibition.price}"
+        %p= @exhibition.shipping_method.name
+
+      - if user_signed_in? && current_user.id != @exhibition.user_id
+        = link_to "購入画面に進む", root_path, class: 'buy-btn'
+      .exhibition-detail__explanation
+        = @exhibition.explanation
+      %table.exhibition-detail__table
+        %tr
+          %th 出品者
+          %td= @exhibition.user.nickname
+        %tr
+          %th カテゴリー
+          %td
+            =link_to "#{@exhibition.category.parent.parent.name}"
+            %br/
+            =link_to "#{@exhibition.category.parent.name}"
+            %br/
+            =link_to "#{@exhibition.category.name}"
+        %tr
+          %th ブランド
+          %td= @exhibition.brand_name
+        %tr
+          %th 商品のサイズ
+          %td= @exhibition.size.size
+        %tr
+          %th 商品の状態
+          %td= @exhibition.condition.name
+        %tr
+          %th 配送料の負担
+          %td= @exhibition.shipping_method.name
+        %tr
+          %th 発送元の地域
+          %td= @exhibition.prefecture.name
+        %tr
+          %th 発送日の目安
+          %td= @exhibition.shipping_date.name
+      %ul.exhibition-detail__buttom
+        %li.good お気に入り
+        %li.report 不適切な商品の通報
+
+    .comment-form
+      %textarea.comment-form__form-area{:name => "body", :type => "text", :value => ""}
+      .comment-form__alert
+        %p 相手のことを考え丁寧なコメントを心がけましょう。 
+        %p 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      .comment-form__btn
+        %button.comment-form__comment-btn{:name => "button", :type => "submit"}
+          コメントする
+
+    - if user_signed_in? && current_user.id == @exhibition.user_id
+      .edit-form
+        = link_to "商品の編集", edit_exhibition_path(@exhibition.id), class: 'edit-form__edit-btn'
+        = link_to "商品の削除", exhibition_path(@exhibition), method: :delete, id: 'delete-btn'
+    
+    .exhibition-buttom
+      - if user_signed_in? && current_user.id != @exhibition.user_id
+        %ul.next-exhibition
+          %li= link_to "前の商品", exhibition_path(@exhibition.previous) if @exhibition.previous
+          %li= link_to "次の商品", exhibition_path(@exhibition.next) if @exhibition.next
+        .category-more
+          = link_to "#{@exhibition.category.parent.parent.name}をもっと見る"
+
+
+.appBanner
+  = render 'top/app_banner'
+.footer
+  = render 'top/footer'
