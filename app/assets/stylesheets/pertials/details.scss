@@ -21,25 +21,29 @@ $base-collor: #3ccace;
         ul {
           display: flex;
           justify-content: center;
+          li {
+            width: 90%;
+            height: 500px;
+            img{
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
+          }
         }
-        img {
-          height: 300px;
-          width: 300px;
+        .item1, .item2, .item3, .item4, .item5, .item6, .item7, .item8, .item9 {
+          display: none;
         }
       }
       &__image--thumb {
         ul {
           display: flex;
           justify-content: center;
+          li {
+            width: 120px;
+            height: 120px;
+          }
         }
-        // .thumb {
-        //   cursor: pointer;
-        //   transition-duration: 0.2s;
-        // }
-        // .thumb:hover img{
-        //   opacity: 0.6;
-        //   transition-duration: 0.2s;
-        // }
       }
       &__price {
         text-align: center;
