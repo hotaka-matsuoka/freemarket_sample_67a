@@ -1,10 +1,8 @@
-$base-collor: #3ccace;
-
 .main {
   background-color: #f8f8f8;
   padding: 40px 0;
   a {
-    color: $base-collor;
+    color: $bg-color;
     text-decoration: none;
   }
   .detail-wrapper {
@@ -61,7 +59,7 @@ $base-collor: #3ccace;
         line-height: 60px;
         height: 60px;
         color: #fff;
-        background-color: $base-collor;
+        background-color: $bg-color;
       }
       &__explanation {
         margin: 20px 0;
@@ -112,7 +110,7 @@ $base-collor: #3ccace;
       &__comment-btn {
         width: 60%;
         padding: 20px 0;
-        background-color: $base-collor;
+        background-color: $bg-color;
         color: #fff;
         font-size: 15px;
         border-radius: 30px;
@@ -130,7 +128,7 @@ $base-collor: #3ccace;
         line-height: 60px;
         height: 60px;
         color: #fff;
-        background-color: $base-collor;
+        background-color: $bg-color;
       }
       #delete-btn {
         background-color: #aaa;
