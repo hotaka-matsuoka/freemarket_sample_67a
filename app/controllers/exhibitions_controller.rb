@@ -1,6 +1,6 @@
 class ExhibitionsController < ApplicationController
   before_action :set_exhibition, except: [:index, :new, :create,'get_category_children','get_category_grandchildren','get_size']
-  before_action :set_category  , except: [:new, :create]
+  before_action :set_category  , only: [:new, :create]
   
   def index
     @exhibitions = Exhibition.includes(:images).order('created_at DESC')
