@@ -1,25 +1,21 @@
-function changeProgressBar() {
-  let address = document.getElementById("address");
-  let status__address = document.getElementById("status__address");
-  let bar__user = document.getElementById("bar__user");
-  let payment = document.getElementById("payment");
-  let bar__address = document.getElementById("bar__address");
-  let status__payment = document.getElementById("status__payment");
-
+window.addEventListener("load", function() {
   var path = location.pathname;
+  if (path == "/users/sign_up") {
+    $(".user").css('font-weight', 'bold');
+  };
   if (path == "/addresses") {
-    address.style.color = '#ea352d';
-    status__address.style.backgroundColor = '#ea352d';
-    bar__user.style.backgroundColor = '#ea352d'
+    $(".address").css('color','#ea352d');
+    $(".address").css('font-weight', 'bold');
+    $("#status__address").css('background-color', '#ea352d');
+    $("#bar__user").css('background-color', '#ea352d');
   };
-
   if (path == "/card/new") {
-    address.style.color = '#ea352d';
-    status__address.style.backgroundColor = '#ea352d';
-    bar__user.style.backgroundColor = '#ea352d'
-    payment.style.color = "#ea352d";
-    bar__address.style.backgroundColor = "#ea352d";
-    status__payment.style.backgroundColor = "#ea352d";
+    $(".address").css('color','#ea352d');
+    $("#status__address").css('background-color', '#ea352d');
+    $("#bar__user").css('background-color', '#ea352d');
+    $(".payment").css('color','#ea352d');
+    $(".payment").css('font-weight', 'bold');
+    $("#status__payment").css('background-color', '#ea352d');
+    $("#bar__address").css('background-color', '#ea352d');
   };
-};
-window.addEventListener("load", changeProgressBar);
+});
