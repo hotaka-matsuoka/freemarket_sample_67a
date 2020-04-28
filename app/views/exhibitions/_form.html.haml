@@ -12,7 +12,7 @@
         %p.font 最大10枚までアップロードできます
         #image-box-1
           .exhibition-num-0#image-box__container
-            = f.fields_for :images do |i|
+            = f.fields_for :image do |i|
               .input-area
                 = i.file_field :image_url, accept:"image/jpg,image/jpeg,image/png,image/gif", type: 'file', name: "exhibition[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
                 %label{for: "img-file"}
