@@ -1,7 +1,8 @@
+
 .mypage-lists__inner
   %ul.mypage-menulists
     %h2.mypage-list-title
-    =link_to users_path do
+    =link_to mypage_path do
       %li.mypage-list
         マイページ
     =link_to '#' do
@@ -19,7 +20,7 @@
     =link_to '#' do
       %li.mypage-list
         住所・発送元
-    =link_to card_path do
+    =link_to card_registration_path do
       %li.mypage-list
         クレジットカードの登録
     =link_to edit_user_registration_path do

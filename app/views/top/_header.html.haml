@@ -19,7 +19,7 @@
     - if user_signed_in?
       %ul.header__inner-bottom--btn
         %li.header__inner-bottom--btn-list
-          = link_to users_path,class:'header-link' do
+          = link_to mypage_path,class:'header-link' do
             マイページ
         %li.header__inner-bottom--btn-list
           = link_to destroy_user_session_path, method: "delete",class:'header-link' do
