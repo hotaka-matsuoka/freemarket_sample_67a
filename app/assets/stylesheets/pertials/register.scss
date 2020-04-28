@@ -1,0 +1,205 @@
+$base-collor: #3ccace;
+.main {
+  background: #f5f5f5;
+  padding: 50px 0;
+  .wrapper{
+    width: 800px;
+    margin: 0 auto;
+    
+    .signup__header {
+      text-align: center;
+      padding-bottom: 50px;
+      .header__icon {
+        text-align: center;
+      }
+      .logo__img {
+        margin-bottom: 20px;
+      }
+    }
+  
+  
+    .error__message {
+      list-style: none;
+      color:#ff4242;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+  
+    .form__wrapper {
+      padding-bottom: 80px;
+      background-color: #ffffff;
+      h2 {
+        font-size: 30px;
+        text-align: center;
+        padding: 70px 0;
+      }
+      .new_user {
+        padding: 0 200px;
+      }
+      .new_address {
+        padding: 0 200px;
+      }
+      .field {
+        label {
+          font-size: 15px;
+        }
+        .input__form {
+          margin: 8px 0 20px;
+          font-size: 16px;
+          padding-left: 10px;
+          height: 45px;
+          width: 385px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+        }
+        &__birth {
+          select {
+            width: 70px;
+            height: 40px;
+            margin: 8px 42px 10px 0;
+          }
+        }
+        &__prefecture {
+          select {
+            width: 100px;
+            height: 40px;
+            margin: 8px 0 10px;
+          }
+        }
+      }
+      .name__fields {
+        display: flex;
+        justify-content: space-between;
+        margin: 8px 0 20px;
+        .input__form--name {
+          height: 45px;
+          font-size: 16px;
+          padding-left: 10px;
+          width: 175px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+        }
+      }
+      .attention__msg {
+        margin-top: 20px;
+        color: #7e7e7e;
+        font-size: 15px;
+        line-height: 25px;
+      }
+      .consent__msg {
+        margin-top: 40px;
+        color: rgb(44, 44, 44);
+        font-size: 15px;
+        text-align: center;
+        a {
+          text-decoration: none;
+          color: #4eb8ff;
+        }
+      }
+      .submit__btn {
+        padding: 15px 0;
+        background-color: $base-collor;
+        color: #ffffff;
+        font-size: 17px;
+        margin: 50px 0 40px;
+        width: 100%;
+      }
+      .personal__info {
+        text-align: right;
+        margin-bottom: 30px;
+        a {
+          text-decoration: none;
+          color: #4eb8ff;
+        }
+      }
+      .app__info {
+        padding: 15px 10px;
+        background-color: #f7f7f7;
+        p {
+          font-size: 5px;
+          color: #7e7e7e;
+          line-height: 18px;
+          a {
+            text-decoration: none;
+            color: #4eb8ff;
+          }
+        }
+      }
+    }
+  
+    .form__wrapper--card {
+      width: 300px;
+      margin: 0 auto;
+      padding: 50px 100px;
+      background-color: #ffffff;
+      h2 {
+        font-size: 30px;
+        text-align: center;
+        padding-bottom: 70px;
+      }
+      .input__form--card {
+        margin: 8px 0;
+        font-size: 16px;
+        padding-left: 10px;
+        height: 45px;
+        width: 290px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      .field {
+        margin-bottom: 20px;
+        select {
+          width: 100px;
+          height: 40px;
+          margin: 8px 10px 10px 0;
+        }
+      }
+      .submit__btn {
+        padding: 15px 0;
+        background-color: $base-collor;
+        color: #ffffff;
+        font-size: 17px;
+        margin: 50px 0 40px;
+        width: 100%;
+      }
+      .use__link {
+        text-align: right;
+        a {
+          text-decoration: none;
+          color: #4eb8ff;
+        }
+      }
+    }
+  
+  
+    .signup__footer {
+      text-align: center;
+      margin-top: 30px;
+      &--detail {
+        a {
+          text-decoration: none;
+          font-size: 10px;
+          padding: 0 10px;
+          color: #9c9c9c;
+        }
+      }
+      &--logo {
+        padding-top: 40px;
+        a {
+          text-decoration: none;
+          color: #9c9c9c;
+        }
+      }
+    }
+  
+    .form__require{
+      background-color: $base-collor;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      color: #fff;
+      font-size: 12px;
+      right: 12px;
+    }
+  }
+
+}

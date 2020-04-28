@@ -65,6 +65,11 @@ gem 'font-awesome-sass'
 gem 'fog-aws'
 gem 'jquery-turbolinks'
 
+gem 'faker'
+gem 'rails-i18n'
+gem 'payjp'
+
+
 group :production do
   gem 'unicorn', '5.4.1'
 end
@@ -78,7 +83,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'gimei'
+
 end
 

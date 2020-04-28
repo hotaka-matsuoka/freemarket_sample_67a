@@ -1,98 +1,23 @@
-.pickup
-  %h1.pickup__title
-    ピックアップカテゴリー
-  %h2.pickup__sub-title
-    =link_to "#",class:'pickup__link--category' do
-      新規投稿商品
-  .pickup__box
-    =link_to '#',class:'pickup__link' do
-      .pickup__content
-        .pickup__img
-          = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png'
-        .pickup__body
-          %h3.name
-            Product3
-          %ul.detail
-            %li.detail-name
-              30000円
-            %li.detail-name
-              ★ 0
-          %p.tax-included
-            (税込) 
-    =link_to '#',class:'pickup__link' do
-      .pickup__content
-        .pickup__img
-          = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png'
-        .pickup__body
-          %h3.name
-            Product2
-          %ul.detail
-            %li.detail-name
-              20000円
-            %li.detail-name
-              ★ 0
-          %p.tax-included
-            (税込)
-    =link_to '#',class:'pickup__link' do
-      .pickup__content
-        .pickup__img
-          = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png'
-        .pickup__body
-          %h3.name
-            Product1
-          %ul.detail
-            %li.detail-name
-              10000円
-            %li.detail-name
-              ★ 0
-          %p.tax-included!
-            (税込)
 
-  %h1.pickup__title
-    ピックアップブランド
-  %h2.pickup__sub-title
-    =link_to "#",class:'pickup__link--category' do
-      アーカイバ
-  .pickup__box
-    =link_to '#',class:'pickup__link' do
-      .pickup__content
-        .pickup__img
-          = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png'
-        .pickup__body
-          %h3.name
-            Product3
-          %ul.detail
-            %li.detail-name
-              30000円
-            %li.detail-name
-              ★ 0
-          %p.tax-included
-            (税込) 
-    =link_to '#',class:'pickup__link' do
-      .pickup__content
-        .pickup__img
-          = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png'
-        .pickup__body
-          %h3.name
-            Product2
-          %ul.detail
-            %li.detail-name
-              20000円
-            %li.detail-name
-              ★ 0
-          %p.tax-included
-            (税込)
-    =link_to '#',class:'pickup__link' do
-      .pickup__content
-        .pickup__img
-          = image_tag 'https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png'
-        .pickup__body
-          %h3.name
-            Product1
-          %ul.detail
-            %li.detail-name
-              10000円
-            %li.detail-name
-              ★ 0
-          %p.tax-included!
-            (税込)
+=link_to product,class:'pickup__link ' do
+  -break if product_counter > 2
+  .pickup__content
+    .pickup__img
+      -if product.sales_status == "sold_out"
+        .pickup__img__sold
+        .pickup__img__sold__font sold
+      - product.images.each_with_index do |image,i|
+        = image_tag image.image_url.url
+        - break if i == 0
+    .pickup__body
+      %h3.name
+        = product.name
+      %ul.detail
+        %li.detail-name
+          = product.price
+        %li.detail-name
+          ★ 0
+      %p.tax-included
+        (税込) 
+
+    

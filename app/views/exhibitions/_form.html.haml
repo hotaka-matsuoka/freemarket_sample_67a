@@ -43,14 +43,17 @@
         .item
           .item__label 商品の状態
           .item__required 必須
-        = f.collection_select  :condition_id, Exhibition_condition.all, :id, :condition
+        = f.collection_select  :condition_id, Condition.all, :id, :name
       .exhibition-container
         .items
           .items__label 配送について
+          -# //ガイド//
+          -# = link_to '#' do
+          -#   %i.far.fa-question-circle
         .item
           .item__label 配送料の負担
           .item__required 必須
-        = f.collection_select :shipping_method_id, Exhibition_shipping_method.all, :id, :burden
+        = f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name
         .item
           .item__label 配送元の地域
           .item__required 必須
@@ -58,10 +61,13 @@
         .item
           .item__label 発送までの日数
           .item__required 必須
-        = f.collection_select :shipping_date_id, Exhibition_shipping_date.all, :id, :date
+        = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name
       .exhibition-container
         .items 
           .items__label 価格（¥300〜9,999,999)
+          -# //ガイド//
+          -# = link_to '#' do
+          -#   %i.far.fa-question-circle
         .item.item--center
           .item__label 販売価格
           .item__required 必須

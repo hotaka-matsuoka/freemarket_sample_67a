@@ -1,3 +1,5 @@
+.header
+  = render 'top/header'
 .wrapper
   .toppage-main-contents
     .top-img
@@ -99,20 +101,53 @@
             お支払いは、クレジットカードだけでなく、
             %br
             ポイントや売上金など多彩な方法があります。
-
-    = render 'pickup'
+    .pickup
+      %h1.pickup__title
+        ピックアップカテゴリー
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          レディース新着アイテム
+      .pickup__box
+        = render partial:'pickup', collection:@redies,as: :product
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          メンズ新着アイテム
+      .pickup__box
+        = render partial:'pickup', collection:@mens,as: :product
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          家電・スマホ・カメラ新着アイテム
+      .pickup__box
+        = render partial:'pickup', collection:@electrical,as: :product
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          おもちゃ・ホビー・グッズ新着アイテム
+      .pickup__box
+        = render partial:'pickup', collection:@kids,as: :product
+      %h1.pickup__title
+        ピックアップブランド
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          シャネル
+      .pickup__box
+        = render partial:'pickup', collection:@chanel,as: :product
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          ナイキ
+      .pickup__box
+        = render partial:'pickup', collection:@nike,as: :product
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          アップル
+      .pickup__box
+        = render partial:'pickup', collection:@apple,as: :product
 
     .appBanner
-      = image_tag 'pict/bg-appBanner-pict.jpg',class:'appBanner__img'
-      .appBanner__inner
-        %h1.appBanner__title
-          だれでもかんたん、人生を変えるフリマアプリ
-        %p.appBanner__download
-          今すぐ無料ダウンロード！
-        %ul.appBanner__contents
-          %li.appBanner__banner
-            =link_to "#", class:"btn play" do
-              = image_tag "icon/app.svg",size:'180x53'
-          %li.appBanner__banner
-            =link_to "#", class:"btn play" do
-              = image_tag "icon/google.svg",size:'180x53'
+      = render 'top/app_banner'
+.footer
+  = render 'top/footer'
+= link_to new_exhibition_path do
+  .camera
+    %p.exhibition
+      出品する
+    = image_tag 'icon/icon_camera.png',size:'60x60'

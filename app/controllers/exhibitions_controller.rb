@@ -1,15 +1,14 @@
 class ExhibitionsController < ApplicationController
-  before_action :set_exhibition, except: [:index, :new, :create,'get_category_children','get_category_grandchildren','get_size']
-  before_action :set_category  , only:   [:new, :create]
-
+  before_action :set_exhibition, except: [:index, :new, :create, 'get_category_children','get_category_grandchildren','get_size']
+  before_action :set_category  , only: [:new, :create, :edit]
+  
   def index
     @exhibitions = Exhibition.includes(:images).order('created_at DESC')
   end
-
+  
   def new
     @exhibition = Exhibition.new
     @exhibition.images.new
-
   end
   
   def create
@@ -20,6 +19,30 @@ class ExhibitionsController < ApplicationController
       redirect_to new_exhibition_path, notice:"出品に失敗しました"
     end
   end
+
+  def show
+  end
+
+
+  def edit
+  end
+
+  def update
+    if @exhibition.user_id == current_user.id && @exhibition.update(exhibition_params)
+      redirect_to exhibitions_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @exhibition.user_id == current_user.id && @exhibition.destroy
+      redirect_to exhibitions_path
+    else
+      render :new
+    end
+  end
+
 
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -45,26 +68,6 @@ class ExhibitionsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-    if @exhibition.user_id == current_user.id && @exhibition.update(exhibition_params)
-      redirect_to exhibitions_path
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    if @exhibition.user_id == current_user.id && @exhibition.destroy
-      redirect_to exhibitions_path
-    else
-      render :new
-    end
-  end
-
-
   private
 
   def exhibition_params
@@ -74,7 +77,6 @@ class ExhibitionsController < ApplicationController
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
   end
-
   def set_category
     #セレクトボックスの初期値設定
     @category_parent_array = ["選択してください"]
