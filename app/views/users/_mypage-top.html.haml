@@ -4,3 +4,74 @@
       = @user
     %p.exhibitions
       出品数: 0
+  .mypage-message
+    .mypage-message__tabs
+      .mypage-message__tabs__tab.mypage-message__tabs__tab--active
+        =link_to '#' , class:'hover'do
+          お知らせ
+      .mypage-message__tabs__tab.mypage-message__tabs__tab--right
+        =link_to '#' , class:'hover'do
+          やることリスト
+    .mypage-nontification
+      .mypage-nontification__image
+        = image_tag 'pict/pict-reason-01.jpg',size:'48x48'
+      .mypage-nontification__message
+        %p.nontification-margin
+          = link_to '#' , class:'hover'do
+            事務所からのメッセージ
+        %ul.flex
+          %li
+            🕙
+          %li
+            7日前
+      .mypage-nontification__arrow
+        ›
+    .mypage-nontification
+      .mypage-nontification__image
+        = image_tag 'pict/pict-reason-01.jpg',size:'48x48'
+      .mypage-nontification__message
+        %p.nontification-margin
+          = link_to '#' , class:'hover'do
+            事務所からのメッセージ
+        %ul.flex
+          %li
+            🕙
+          %li
+            8日前
+      .mypage-nontification__arrow
+        ›
+
+    .mypage-container
+      .mypage-container__box
+        =link_to '#' do
+          一覧を見る
+  -# ここまで修正すみ
+
+  .mypage-transaction
+    購入した商品
+  .mypage-message
+    .mypage-message__tabs
+      .mypage-message__tabs__tab.mypage-message__tabs__tab--active
+        =link_to '#' , class:'hover'do
+          取引中
+      .mypage-message__tabs__tab.mypage-message__tabs__tab--right
+        =link_to '#' , class:'hover'do
+          過去の取引
+
+    .mypage-nontification
+      .mypage-nontification__image
+        = image_tag 'pict/pict-reason-01.jpg',size:'48x48'
+      .mypage-nontification__message
+        %p.nontification-margin
+          = link_to '#' , class:'hover'do
+            ○○を購入しました。受取評価をお願いします。
+        %p
+          = link_to '#',class:'backcolor-red' do
+            受取評価待ち
+      .mypage-nontification__arrow
+        ›
+
+    .mypage-container
+      .mypage-container__box
+        =link_to '#' do
+          一覧を見る

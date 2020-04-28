@@ -1,5 +1,6 @@
 .mypage-wrapper{
   display:flex;
+  background-color: #eee;
 }
 a{
   text-decoration: none;
@@ -24,25 +25,23 @@ a{
     font-size:14px;
     padding-left: 12px;
     line-height: 48px;
-    background-color: #eee;
-    border-bottom:#fff 2px solid;
+    background-color: $white-color;
+    border-bottom:#eee 2px solid;
   }
   li.mypage-list:hover{
     background-color: #ccc;
   }
 }
 .mypage-contents{
-    height: 100vh;
     width: 68%;
   .mypage-contents__inner{
-    margin:40px;
+    margin-top:40px;
+    width:700px;
   }
   .mypage-contents__user{
     height:150px;
-    width:700px;
     text-align: center;
-    background-color: #eee;
-    border-bottom:$bg-color 2px solid
+    background-color: $white-color;
   }
   h1.user-name{
     font-size:32px;
@@ -54,23 +53,150 @@ a{
   }
 }
 
-// .mypage-contents__flex{
-//   display:flex;
-//   width:700px;
-//   .mypage-contents__menu{
-//     width:50%;
-//     height:80px;
-//     line-height: 80px;
-//     text-align: center;
-//     background-color: #ccc;
-//   }
-// }
+.mypage-message{
+  margin-bottom: 50px;
+  .mypage-message__tabs{
+    display: flex;
+    &__tab{
+      background-color: $white-color;
+      text-align: center;
+      font-size: 16px;
+      line-height: 72px;
+      width: 50%;
+      &--active{
+        border-top:2px solid $bg-color;
+      }
+      &--right{
+        background-color: #ddd;
+      }
+    }
+  }
+}
 
-// .mypage-contents__window{
-//   width:700px;
-//   height:200px;
-//   line-height: 200px;
-//   text-align: center;
-//   background-color: #eeeeee;
-//   color:#999;
-// }
+.mypage-nontification{
+  background-color:$white-color;
+  height: 75px;
+  display: flex;
+  margin-bottom: 1px;
+  &__image{
+    text-align: center;
+    margin: auto 0;
+    width:80px;
+  }
+  &__message{
+    width:calc(100% - 120px);
+    margin: auto 0 auto 10px;
+  }
+  &__arrow{
+    width:40px;
+    text-align: center;
+    margin: auto 0;
+    font-size: 30px;
+  }
+  p.nontification-margin{
+    margin-bottom: 5px;
+  }
+
+  ul.flex{
+    display:flex;
+  }
+}
+
+.mypage-container{
+  background-color: $white-color;
+  padding:16px;
+  &__box{
+    display: block;
+    height: 50px;
+    margin: 0 auto;
+    background: #eee;
+    color: #333;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+
+.mypage-transaction{
+  background-color: #fafafa;
+  height:60px;
+  padding-left:20px;
+  line-height: 60px;
+}
+
+  // &-tab{
+  //   width:600px;
+  //   background-color: #fafafa;
+  //   line-height: 72px;
+  //   width: 100%;
+  //   border-bottom:$bg-color 2px solid
+  // }
+  // &-tab_message{
+  //   padding-left: 20px;
+  //   font-size: 16px;
+  // }
+  // &-tabs{
+  //   display: flex;
+
+  //   &__tab{
+  //     background-color: #fff;
+  //     text-align: center;
+  //     font-size: 16px;
+  //     line-height: 72px;
+  //     width: 50%;
+
+  //   &--right{
+  //     background-color: #eee;
+  //     text-align: center;
+  //     font-size: 16px;
+  //     line-height: 72px;
+  //     width: 50%;
+  //     }
+  //   }
+  // }
+
+  //   &__contents-box{
+  //     background-color: #fff;
+  //     min-height: 60px;
+  //     padding: 16px;
+  //     border-bottom: #eee 2px solid;
+
+  //   &__nontification-one{
+  //     background-color: #fff;
+  //     min-height: 60px;
+  //     display: flex;
+  //   }
+  //   &__nontification-one__message{
+  //     margin-left:20px;
+  //     width:700px;
+  //   }
+  //   &__nontification-one__icon-arrow-right{
+  //       margin-top: 15px;
+  //       margin-right: 20px;
+  //       font-size: 30px;
+  //   }
+
+  //   &__footer{
+  //     display: block;
+  //     height: 56px;
+  //     margin: 0 auto;
+  //     background: #eee;
+  //     color: #333;
+  //     line-height: 56px;
+  //     text-align: center;
+  //   }
+  // }
+
+
+a.backcolor-red{
+  margin-top: 5px;
+  padding: 5px 6px;
+  background-color:$bg-color;
+  display: inline-block;
+  font-size: 12px;
+  color: #fff;
+}
+
+a.hover:hover {
+    opacity: 0.6;
+  }
+

@@ -1,0 +1,9 @@
+.mypage-wrapper
+  .mypage-lists
+    =render'users/mypage-lists'
+
+  .logout
+    .logout-contents
+      .logout-contents__btn
+        =link_to destroy_user_session_path,method: :delete ,class:'color' do
+          ログアウト
