@@ -1,0 +1,243 @@
+// ? icon
+// .far.fa-question-circle{
+//   color: #3CCACE; 
+//   margin-left: 10px;
+// }
+
+.exhibition-wrapper{
+  background-color: #eee;
+  .exhibition-header{
+    height: 100px;
+    width: 100%;
+    line-height: 120px;
+    text-align: center;
+  }
+  .exhibition-main{
+    width: 100%;
+    max-width: 700px;
+    background-color: #fff;
+    margin: 0 auto;
+  }
+  .img{
+    max-height: 200px;
+  }
+  .exhibition-container{
+    height: 340px;
+    width: calc(90% - 10px);
+    border-bottom: 1px solid #eee;
+    padding: 40px 40px 50px 40px;
+    .none{
+      display: none;
+    }
+    #image-box-1{
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      @media screen and (max-width: 700px) {
+        img{
+          width: 85px;
+        }
+      }
+    }
+    .exhibition-num-0{
+      width: 100%;
+    }
+    .exhibition-num-1{
+      width: 78%;
+    }
+    .exhibition-num-2{
+      width: 58%;
+    }
+    .exhibition-num-3{
+      width: 39%;
+    }
+    .exhibition-num-4{
+      width: 19%;
+    }
+    //下段のfile_field
+    .exhibition-num-5{
+      width: 100%;
+    }
+    .exhibition-num-6{
+      width: 78%;
+    }
+    .exhibition-num-7{
+      width: 58%;
+    }
+    .exhibition-num-8{
+      width: 39%;
+    }
+    .exhibition-num-9{
+      width: 19%;
+    }
+    @media screen and (max-width: 700px) {
+      .exhibition-num-0{
+        width: 100%;
+      }
+      .exhibition-num-1{
+        width: 80%;
+      }
+      .exhibition-num-2{
+        width: 60%;
+      }
+      .exhibition-num-3{
+        width: 40%;
+      }
+      .exhibition-num-4{
+        width: 20%;
+      }
+      //下段のfile_field
+      .exhibition-num-5{
+        width: 100%;
+      }
+      .exhibition-num-6{
+        width: 80%;
+      }
+      .exhibition-num-7{
+        width: 60%;
+      }
+      .exhibition-num-8{
+        width: 40%;
+      }
+      .exhibition-num-9{
+        width: 20%;
+      }
+    }
+    .exhibition-image__operetion--delete{
+      text-align: center;
+      &:hover{
+        cursor: pointer;
+        }
+      }
+    .fa.fa-camera{
+      height: 145px;
+      width: 100%;
+      background-color: #eee;
+      text-align: center;
+      line-height: 150px;
+      border: 2px dotted #ccc;
+      margin-top: 2px;
+      display: inline-block;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+    input, select, textarea{
+      height: 48px;
+      width: 100%;
+      font-size: 16px;;
+      background-color: white;
+      padding: 0 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin: 0 0 35px ;
+    }
+    select:hover{
+      cursor: pointer;
+    }
+    textarea{
+      height: 150px;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+    #exhibition_name, #exhibition_explanation, #exhibition_brand_name{
+      width: calc(100% - 20px);
+    }
+    #parent_category, #child_category,#grandchild_category{
+      margin-bottom: 20px;
+    }
+    .items{
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 24px;
+      display: flex;
+    }
+    .item{
+      display: flex;
+      margin-bottom: 16px;
+      &--center{
+        align-items: center;
+      }
+      &__label{
+        font-size: 14px;
+        font-weight: bold;
+        padding-top: 2px;
+      }
+      &__required,&__required--not{
+        height: 12px;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 2px;
+        color: white;
+        background-color: #3CCACE;
+        padding: 3px;
+        margin-left: 10px;
+      }
+      &__required--not{
+        background-color: #999;
+      }
+      &__right{
+        width: 40%;
+        margin: 0 0 0 auto;
+        line-height: 50px;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+    .count{
+      font-size: 11px;
+      color: #666;
+      float: right;
+    }
+    .font{
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .price{
+      width: 80%;
+      padding: 0 16px;
+      line-height: 50px;
+      margin: 0 0 0 5px;
+    }
+    .sale{
+      height: 40px;
+      width: 100%;
+      line-height: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .border-top{
+      border-top: 1px solid #eee;
+      margin-bottom: 10px;
+    }
+    .actions{
+      text-align: center;
+      .actions--blue{
+        background-color: #3CCACE;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .exhibition-footer{
+    height: 140px;
+    padding: 30px 0 10px 0;
+    ul{
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      a{
+        color: black;
+        text-decoration: none;
+        padding: 0 7px;
+      }
+    }
+    .logo-center{
+      padding-top: 15px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

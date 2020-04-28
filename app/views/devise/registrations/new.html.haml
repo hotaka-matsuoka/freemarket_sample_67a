@@ -1,40 +1,87 @@
-%h2 会員情報入力
-= form_for(@user, url: user_registration_path)  do |f|
-  = render "devise/shared/error_messages", resource: @user
-  .field
-    = f.label :ニックネーム
-    %br/
-    = f.text_field :nickname, autofocus: true, placeholder: "例）フリマ太郎"
-  .field
-    = f.label :メールアドレス
-    %br/
-    = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
-    %p メールアドレスを入力してください
-  .field
-    = f.label :パスワード
-    %br/
-    = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字"
-    %p パスワードを入力してください
-  .field
-    = f.label :確認パスワード
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "7文字以上の半角英数字"
-    %p 再度パスワードを入力してください
-  .field
-    = f.label :お名前（全角）
-    %br/
-    = f.text_field :family_name, placeholder: "例）山田"
-  .field
-    = f.text_field :first_name, placeholder: "例）彩"
-  .field
-    = f.label :お名前カナ（全角）
-    %br/
-    = f.text_field :family_name_kana, placeholder: "例）ヤマダ"
-  .field
-    = f.text_field :first_name_kana, placeholder: "例）アヤ"
-  .field
-    = f.label :生年月日
-    %br/
-    = f.date_select :birth_day, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year ), include_blank: true
-  .actions
-    = f.submit "次へすすむ"
+.main
+  .wrapper
+    = render 'devise/shared/signup_header'
+
+    .form__wrapper
+      %h2 会員情報入力
+      = form_for(@user, url: user_registration_path)  do |f|
+        .field
+          = f.label :ニックネーム
+          %span.form__require 必須
+          %br/
+          = f.text_field :nickname, autofocus: true, placeholder: "例）フリマ太郎", class: 'input__form'
+          - @user.errors.full_messages_for(:nickname).each do |message|
+            %li.error__message= message
+        .field
+          = f.label :メールアドレス
+          %span.form__require 必須
+          %br/
+          = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: 'input__form'
+          .error__message
+            = @user.errors.full_messages_for(:email).first
+        .field
+          = f.label :パスワード
+          %span.form__require 必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class: 'input__form'
+          - @user.errors.full_messages_for(:password).each do |message|
+            %li.error__message= message
+        .field
+          = f.label :確認パスワード
+          %span.form__require 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "7文字以上の半角英数字", class: 'input__form'
+          - @user.errors.full_messages_for(:password_confirmation).each do |message|
+            %li.error__message= message
+        .field
+          = f.label :お名前（全角）
+          %span.form__require 必須
+          %br/
+          .name__fields
+            .name__field
+              = f.text_field :family_name, placeholder: "例）山田", class: 'input__form--name'
+            .name__field
+              = f.text_field :first_name, placeholder: "例）彩", class: 'input__form--name'
+          - @user.errors.full_messages_for(:family_name).each do |message|
+            %li.error__message= message
+          - @user.errors.full_messages_for(:first_name).each do |message|
+            %li.error__message= message
+        .filed  
+          = f.label :お名前カナ（全角）
+          %span.form__require 必須
+          %br/
+          .name__fields
+            .name__field
+              = f.text_field :family_name_kana, placeholder: "例）ヤマダ", class: 'input__form--name'
+            .name__field
+              = f.text_field :first_name_kana, placeholder: "例）アヤ", class: 'input__form--name'
+          - @user.errors.full_messages_for(:family_name_kana).each do |message|
+            %li.error__message= message
+          - @user.errors.full_messages_for(:first_name_kana).each do |message|
+            %li.error__message= message
+        .field__birth
+          = f.label :生年月日
+          %span.form__require 必須
+          %br/
+          = f.date_select :birth_day, use_month_numbers: true, start_year: (Time.now.year), end_year: 1930, include_blank: true
+          - @user.errors.full_messages_for(:birth_day).each do |message|
+            %li.error__message= message
+        %p.attention__msg 
+          ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        %p.consent__msg
+          「次へ進む」のボタンを押すことにより、
+          = link_to "利用規約", new_user_registration_path
+          に同意したものとみなします
+        .actions
+          = f.submit "次へ進む", class: 'submit__btn'
+        .personal__info
+          = link_to "本人情報について", new_user_registration_path
+        .app__info
+          %p 
+            This site is protected by reCAPTCHA and the Google 
+            %a(href="https://policies.google.com/privacy")Privacy Policy 
+            and 
+            %a(href="https://policies.google.com/terms")Terms of Service 
+            apply.
+
+    = render 'devise/shared/signup_footer'

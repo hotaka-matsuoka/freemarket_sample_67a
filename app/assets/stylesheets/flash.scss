@@ -1,0 +1,13 @@
+.notification {
+  .notice {
+    background-color: $bg-color;
+    color: $white-color;
+    text-align: center;
+  }
+
+  .alert {
+    background-color: red;
+    color: $white-color;
+    text-align: center;
+  }
+}

@@ -1,0 +1,22 @@
+.signup__header
+  .header__icon
+    = link_to root_path do
+      = image_tag 'logo/logo.png',size:'200x60' 
+  
+  .progress
+    %ul.progress-bar
+      %li.user#user
+        会員情報
+        .progress-status
+        .progress-status__bar#bar__user
+      %li.address#address
+        お届け先住所入力
+        .progress-status#status__address
+        .progress-status__bar#bar__address
+      %li.payment#payment
+        支払い方法
+        .progress-status#status__payment
+        .progress-status__bar#bar__payment
+      %li.end#end
+        完了
+        .progress-status

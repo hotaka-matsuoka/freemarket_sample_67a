@@ -3,11 +3,25 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   root 'top#index'
-  resources :top,  only:[:index]
   get 'logout', to: 'logout#index'
+  resources :top,        only:[:index]
+  resources :exhibitions do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_size', defaults: { format: 'json' }
+    end
+  end
+
   devise_scope :user do
-    get 'addresses', to: 'users/registrations#new_address'
+    get  'users',     to: redirect("/users/sign_up")
+    get  'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
     resources :users, only: [:index]
   end
+
+
+
+  resources :card, except: :edit
 end
+
