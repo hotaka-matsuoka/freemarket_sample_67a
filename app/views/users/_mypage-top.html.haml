@@ -6,7 +6,7 @@
       出品数: 0
   .mypage-message
     .mypage-message__tabs
-      .mypage-message__tabs__tab
+      .mypage-message__tabs__tab.mypage-message__tabs__tab--active
         =link_to '#' , class:'hover'do
           お知らせ
       .mypage-message__tabs__tab.mypage-message__tabs__tab--right
@@ -26,7 +26,6 @@
             7日前
       .mypage-nontification__arrow
         ›
-
     .mypage-nontification
       .mypage-nontification__image
         = image_tag 'pict/pict-reason-01.jpg',size:'48x48'
@@ -42,37 +41,37 @@
       .mypage-nontification__arrow
         ›
 
-    .mypage-contents__tab__contents-box
-      .mypage-contents__tab__contents-box__footer
+    .mypage-container
+      .mypage-container__box
         =link_to '#' do
           一覧を見る
+  -# ここまで修正すみ
 
-  .mypage-contents__container
-    .mypage-contents__container-tab
-      .mypage-contents__container-tab_message
-        購入した商品
-    .mypage-contents__container-tabs
-      .mypage-contents__container-tabs__tab
+  .mypage-transaction
+    購入した商品
+  .mypage-message
+    .mypage-message__tabs
+      .mypage-message__tabs__tab.mypage-message__tabs__tab--active
         =link_to '#' , class:'hover'do
           取引中
-      .mypage-contents__container-tabs__tab--right
+      .mypage-message__tabs__tab.mypage-message__tabs__tab--right
         =link_to '#' , class:'hover'do
           過去の取引
-    .mypage-contents__container__contents-box
-      .mypage-contents__container__contents-box__nontification-one
-        .mypage-contents__container__contents-box__nontification-one__image
-          = image_tag 'pict/pict-reason-01.jpg',size:'48x48'
-        .mypage-contents__container__contents-box__nontification-one__message
-          %ul
-            = link_to '#',class: 'hover' do
-              ○○を購入しました。受取評価をお願いします。
-            %li.abc
-              = link_to '#',class:'backcolor-red' do
-                受取評価待ち
-        .mypage-contents__container__contents-box__nontification-one__icon-arrow-right
-          ›
-          
-    .mypage-contents__container__contents-box
-      .mypage-contents__container__contents-box__footer
-        =link_to '#' , class:'hover'do
+
+    .mypage-nontification
+      .mypage-nontification__image
+        = image_tag 'pict/pict-reason-01.jpg',size:'48x48'
+      .mypage-nontification__message
+        %p.nontification-margin
+          = link_to '#' , class:'hover'do
+            ○○を購入しました。受取評価をお願いします。
+        %p
+          = link_to '#',class:'backcolor-red' do
+            受取評価待ち
+      .mypage-nontification__arrow
+        ›
+
+    .mypage-container
+      .mypage-container__box
+        =link_to '#' do
           一覧を見る
