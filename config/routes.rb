@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   }
   root 'top#index'
   resources :top,  only:[:index]
+  get 'card', to: 'card#index'
   get 'logout', to: 'logout#index'
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'

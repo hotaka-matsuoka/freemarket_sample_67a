@@ -3,7 +3,11 @@
     =render'users/mypage-lists'
 
   .btn-page
-    .btn-page-contents.btn-page-contents__logout
+    .btn-page-title
+      支払い方法
+    .btn-page-contents
+      %p.card
+        クレジットカード一覧
       =link_to destroy_user_session_path,method: :delete ,class:'color' do
         .btn-page-contents__btn
-          ログアウト
+          クレジットカードの追加
