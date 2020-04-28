@@ -4,6 +4,6 @@
 
   .logout
     .logout-contents
-      .logout-contents__btn
-        =link_to destroy_user_session_path,method: :delete ,class:'color' do
+      =link_to destroy_user_session_path,method: :delete ,class:'color' do
+        .logout-contents__btn
           ログアウト

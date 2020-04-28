@@ -123,71 +123,7 @@ a{
   line-height: 60px;
 }
 
-  // &-tab{
-  //   width:600px;
-  //   background-color: #fafafa;
-  //   line-height: 72px;
-  //   width: 100%;
-  //   border-bottom:$bg-color 2px solid
-  // }
-  // &-tab_message{
-  //   padding-left: 20px;
-  //   font-size: 16px;
-  // }
-  // &-tabs{
-  //   display: flex;
-
-  //   &__tab{
-  //     background-color: #fff;
-  //     text-align: center;
-  //     font-size: 16px;
-  //     line-height: 72px;
-  //     width: 50%;
-
-  //   &--right{
-  //     background-color: #eee;
-  //     text-align: center;
-  //     font-size: 16px;
-  //     line-height: 72px;
-  //     width: 50%;
-  //     }
-  //   }
-  // }
-
-  //   &__contents-box{
-  //     background-color: #fff;
-  //     min-height: 60px;
-  //     padding: 16px;
-  //     border-bottom: #eee 2px solid;
-
-  //   &__nontification-one{
-  //     background-color: #fff;
-  //     min-height: 60px;
-  //     display: flex;
-  //   }
-  //   &__nontification-one__message{
-  //     margin-left:20px;
-  //     width:700px;
-  //   }
-  //   &__nontification-one__icon-arrow-right{
-  //       margin-top: 15px;
-  //       margin-right: 20px;
-  //       font-size: 30px;
-  //   }
-
-  //   &__footer{
-  //     display: block;
-  //     height: 56px;
-  //     margin: 0 auto;
-  //     background: #eee;
-  //     color: #333;
-  //     line-height: 56px;
-  //     text-align: center;
-  //   }
-  // }
-
-
-a.backcolor-red{
+a.backcolor{
   margin-top: 5px;
   padding: 5px 6px;
   background-color:$bg-color;
