@@ -20,6 +20,7 @@ document.addEventListener("turbolinks:load",function () {
     $('#exhibition-container').css('padding-bottom', '300px');
     $('.select-wrapper').append(sizeSelectHtml);
   }
+  
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;

@@ -48,6 +48,18 @@ class ExhibitionsController < ApplicationController
   end
 
   def edit
+    grandchild_category = @exhibition.category  #孫カテゴリーを取得
+    child_category = grandchild_category.parent #親カテゴリーを取得
+
+    @category_child_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_child_array << children
+    end
+
+    @category_grandchild_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchild_array << grandchildren
+    end
   end
 
   def update
