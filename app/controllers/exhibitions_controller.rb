@@ -44,6 +44,7 @@ class ExhibitionsController < ApplicationController
   end
 
 
+ 
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得

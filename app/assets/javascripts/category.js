@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-document.addEventListener("turbolinks:load",function () {
-=======
-$(function () {
 
->>>>>>> parent of 1e8b33d... remove commentout
+document.addEventListener("turbolinks:load",function () {
+
   // サイズセレクトボックスのオプションを作成
   function appendSizeOption(size){
     var html = `<option value="${size.id}">${size.size}</option>`;

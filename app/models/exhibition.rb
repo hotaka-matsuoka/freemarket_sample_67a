@@ -18,6 +18,7 @@ class Exhibition < ApplicationRecord
   belongs_to_active_hash :shipping_method
   belongs_to_active_hash :shipping_date
 
+
   belongs_to :user
   belongs_to :category
   belongs_to :size

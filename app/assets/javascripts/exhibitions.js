@@ -1,10 +1,6 @@
-<<<<<<< HEAD
+
 document.addEventListener("turbolinks:load",function () {
-=======
 
-$(function () {
-
->>>>>>> parent of 1e8b33d... remove commentout
   // 商品説明文字数
 
   $("#exhibition_explanation").on('keyup', function () {
