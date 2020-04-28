@@ -1,0 +1,44 @@
+.form__wrapper--login {
+  width: 300px;
+  margin: 0 auto;
+  padding: 0 100px 50px;
+  background-color: #ffffff;
+  .sign-up__wrapper--login {
+    padding: 50px 0;
+    text-align: center;
+    .sign-up__wrapper--btn {
+      display: inline-block;
+      width: 300px;
+      background-color: #03ace9 ;
+      margin: 20px 0 40px;
+      a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 15px 0;
+      }
+    }
+  }
+  
+  .input__form--login {
+    margin: 8px 0 20px;
+    font-size: 16px;
+    padding-left: 10px;
+    height: 45px;
+    width: 290px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .submit__btn--login {
+    padding: 15px 0;
+    background-color: #3ccace;
+    color: #ffffff;
+    font-size: 17px;
+    margin: 50px 0 40px;
+    width: 100%;
+  }
+  .forget__psw {
+    text-decoration: none;
+    color: #4eb8ff;
+  }
+}

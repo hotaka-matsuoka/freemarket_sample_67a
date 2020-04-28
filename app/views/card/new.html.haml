@@ -1,0 +1,32 @@
+.main
+  .wrapper
+    = render 'devise/shared/signup_header'
+
+    .form__wrapper--card
+      %h2 お支払い方法
+      = form_with url: card_index_path, method: :post, id: 'charge-form', html: { name: "inputForm" } do |f|
+        .field
+          = f.label :カード番号
+          %span.form__require 必須
+          %br/
+          = f.text_field :card_number, id: "card_number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", class: 'input__form--card'
+          %br
+        .field
+          = f.label :有効期限
+          %span.form__require 必須
+          %br/
+          = f.select :exp_year,  [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]], {}, name: "exp_year", id:"exp_year"
+          %span 年
+          = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]], {}, name: "exp_month", id:"exp_month"
+          %span 月
+        .field
+          = f.label :セキュリティコード
+          %span.form__require 必須
+          %br/
+          = f.text_field :cvc, id: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", class: 'input__form', class: 'input__form--card'
+        .actions#card_token
+          = f.submit 'カードを登録する', id: "token_submit", class: 'submit__btn'
+        .use__link
+          = link_to "登録せずに利用する", root_path
+
+    = render 'devise/shared/signup_footer'
