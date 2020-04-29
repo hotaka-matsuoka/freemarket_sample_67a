@@ -1,0 +1,20 @@
+-@products.each do |product|
+  =link_to product,class:'pickup__link ' do
+    .pickup__content
+      .pickup__img
+        -if product.sales_status == "sold_out"
+          .pickup__img__sold
+          .pickup__img__sold__font sold
+        - product.images.each_with_index do |image,i|
+          = image_tag image.image_url.url
+          - break if i == 0
+      .pickup__body
+        %h3.name
+          = product.name
+        %ul.detail
+          %li.detail-name
+            = product.price
+          %li.detail-name
+            ★ 0
+        %p.tax-included
+          (税込) 

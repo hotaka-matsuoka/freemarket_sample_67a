@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       get 'get_size', defaults: { format: 'json' }
     end
   end
+  resources :categories,  only:[:index, :show]
+  resources :brands,  only:[:index, :show]
 
   devise_scope :user do
     get  'users',     to: redirect("/users/sign_up")
