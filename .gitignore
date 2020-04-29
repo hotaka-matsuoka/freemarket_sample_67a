@@ -16,8 +16,8 @@ public/uploads/*
 
 # Ignore Byebug command history file.
 .byebug_history
-/config/credentials.yml.enc
 .DS_Store
 /config/master.key
+/config/credentials.yml.enc
 vendor/bundle
 /.bundle
