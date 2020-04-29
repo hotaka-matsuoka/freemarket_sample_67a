@@ -16,10 +16,12 @@ public/uploads/*
 
 # Ignore Byebug command history file.
 .byebug_history
+
 config/secrets.yml
 
+
 .DS_Store
-
-# Ignore master key for decrypting credentials and more.
 /config/master.key
-
+/config/credentials.yml.enc
+vendor/bundle
+/.bundle
