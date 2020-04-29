@@ -1,3 +1,6 @@
+.header
+  = render 'top/header'
+
 .mypage-wrapper
   .mypage-lists
     =render'mypage/mypage-lists'
@@ -11,3 +14,6 @@
       =link_to destroy_user_session_path,method: :delete ,class:'color' do
         .btn-page-contents__btn
           クレジットカードの追加
+
+.footer
+  = render 'top/footer'

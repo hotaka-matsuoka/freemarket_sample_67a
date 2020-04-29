@@ -19,3 +19,5 @@ public/uploads/*
 config/credentials.yml.enc
 .DS_Store
 /config/master.key
+vendor/bundle
+/.bundle
