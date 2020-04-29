@@ -23,6 +23,28 @@ class ExhibitionsController < ApplicationController
   def show
   end
 
+
+  def edit
+  end
+
+  def update
+    if @exhibition.user_id == current_user.id && @exhibition.update(exhibition_params)
+      redirect_to exhibitions_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @exhibition.user_id == current_user.id && @exhibition.destroy
+      redirect_to exhibitions_path
+    else
+      render :new
+    end
+  end
+
+
+ 
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
@@ -46,26 +68,6 @@ class ExhibitionsController < ApplicationController
        end
     end
   end
-
-  def edit
-  end
-
-  def update
-    if @exhibition.user_id == current_user.id && @exhibition.update(exhibition_params)
-      redirect_to exhibitions_path
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    if @exhibition.user_id == current_user.id && @exhibition.destroy
-      redirect_to exhibitions_path
-    else
-      render :new
-    end
-  end
-
 
   private
 

@@ -3,9 +3,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   root 'top#index'
+
   get 'mypage', to: 'mypage#index'
   get 'card-registration',to: 'card_registration#index'
   get 'logout', to: 'logout#index'
+
   resources :top,        only:[:index]
   resources :exhibitions do
     collection do
