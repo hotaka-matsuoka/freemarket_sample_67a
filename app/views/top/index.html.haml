@@ -101,8 +101,46 @@
             お支払いは、クレジットカードだけでなく、
             %br
             ポイントや売上金など多彩な方法があります。
-
-    = render 'pickup'
+    .pickup
+      %h1.pickup__title
+        ピックアップカテゴリー
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          レディース新着アイテム
+      .pickup__box
+        = render partial:'pickup', collection:@redies,as: :product
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          メンズ新着アイテム
+      .pickup__box
+        = render partial:'pickup', collection:@mens,as: :product
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          家電・スマホ・カメラ新着アイテム
+      .pickup__box
+        = render partial:'pickup', collection:@electrical,as: :product
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          おもちゃ・ホビー・グッズ新着アイテム
+      .pickup__box
+        = render partial:'pickup', collection:@kids,as: :product
+      %h1.pickup__title
+        ピックアップブランド
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          シャネル
+      .pickup__box
+        = render partial:'pickup', collection:@chanel,as: :product
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          ナイキ
+      .pickup__box
+        = render partial:'pickup', collection:@nike,as: :product
+      %h2.pickup__sub-title
+        =link_to "#",class:'pickup__link--category' do
+          アップル
+      .pickup__box
+        = render partial:'pickup', collection:@apple,as: :product
 
     .appBanner
       = render 'top/app_banner'
