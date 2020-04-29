@@ -1,0 +1,19 @@
+.header
+  = render 'top/header'
+
+.mypage-wrapper
+  .mypage-lists
+    =render'mypage/mypage-lists'
+
+  .btn-page
+    .btn-page-title
+      支払い方法
+    .btn-page-contents
+      %p.card
+        クレジットカード一覧
+      =link_to destroy_user_session_path,method: :delete ,class:'color' do
+        .btn-page-contents__btn
+          クレジットカードの追加
+
+.footer
+  = render 'top/footer'

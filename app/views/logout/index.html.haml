@@ -1,0 +1,14 @@
+.header
+  = render 'top/header'
+
+.mypage-wrapper
+  .mypage-lists
+    =render'mypage/mypage-lists'
+
+  .btn-page
+    .btn-page-contents.btn-page-contents__logout
+      =link_to destroy_user_session_path,method: :delete ,class:'color' do
+        .btn-page-contents__btn
+          ログアウト
+.footer
+  = render 'top/footer'
