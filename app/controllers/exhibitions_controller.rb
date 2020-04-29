@@ -23,10 +23,6 @@ class ExhibitionsController < ApplicationController
   def show
   end
 
-
-  def edit
-  end
-
   def update
     if @exhibition.user_id == current_user.id && @exhibition.update(exhibition_params)
       redirect_to exhibitions_path
@@ -70,17 +66,32 @@ class ExhibitionsController < ApplicationController
   end
 
   def edit
-    grandchild_category = @exhibition.category  #孫カテゴリーを取得
-    child_category = grandchild_category.parent #親カテゴリーを取得
-
-    @category_child_array = []
-    Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_child_array << children
+    @parents = Category.where(ancestry:nil)
+    # 編集する商品を選択
+    @exhibition = Exhibition.find(params[:id])
+    # 登録されている商品の孫カテゴリーのレコードを取得
+    @selected_grandchild_category = @exhibition.category
+    # 孫カテゴリー選択肢用の配列作成
+    @category_grandchildren_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_grandchild_category.id}").siblings.each do |grandchild|
+      grandchildren_hash = {id: "#{grandchild.id}", name: "#{grandchild.name}"}
+      @category_grandchildren_array << grandchildren_hash
     end
-
-    @category_grandchild_array = []
-    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchild_array << grandchildren
+    # 選択されている子カテゴリーのレコードを取得
+    @selected_child_category = @selected_grandchild_category.parent
+    # 子カテゴリー選択肢用の配列作成
+    @category_children_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_child_category.id}").siblings.each do |child|
+      children_hash = {id: "#{child.id}", name: "#{child.name}"}
+      @category_children_array << children_hash
+    end
+    # 選択されている親カテゴリーのレコードを取得
+    @selected_parent_category = @selected_child_category.parent
+    # 親カテゴリー選択肢用の配列作成
+    @category_parents_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
+      parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
+      @category_parents_array << parent_hash
     end
   end
 
