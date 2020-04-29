@@ -3,6 +3,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   root 'top#index'
+
+  get 'mypage', to: 'mypage#index'
+  get 'card-registration',to: 'card_registration#index'
+  get 'logout', to: 'logout#index'
+
   resources :top,        only:[:index]
   resources :exhibitions do
     collection do
@@ -11,10 +16,12 @@ Rails.application.routes.draw do
       get 'get_size', defaults: { format: 'json' }
     end
   end
+
   devise_scope :user do
     get  'users',     to: redirect("/users/sign_up")
     get  'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
+    resources :users, only: [:index]
   end
 
 

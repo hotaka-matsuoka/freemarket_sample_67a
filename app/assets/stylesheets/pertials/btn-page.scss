@@ -1,0 +1,37 @@
+.btn-page{
+  width: 60%;
+  height: 550px;
+  .btn-page-title{
+    width:100%;
+    padding:12px 0;
+    font-size:24px;
+    margin-top:40px;
+    background-color:$title-bg-color;
+    margin-bottom:2px;
+    text-align: center;
+  }
+  .btn-page-contents{
+    width:100%;
+    background-color:$title-bg-color;
+    padding:25px 0;
+    text-align: center;
+    &__logout{
+      margin-top: 40px;
+    }
+    p.card{
+      margin-bottom: 12px;
+    }
+    &__btn{
+      margin:0 auto;
+      line-height: 50px;
+      height:50px;
+      width:300px;
+      background: $bg-color;
+      text-align: center;
+    }
+  }
+}
+
+a.color{
+  color: #fff;
+}

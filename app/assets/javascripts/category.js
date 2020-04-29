@@ -1,4 +1,6 @@
+
 document.addEventListener("turbolinks:load",function () {
+
   // サイズセレクトボックスのオプションを作成
   function appendSizeOption(size){
     var html = `<option value="${size.id}">${size.size}</option>`;
@@ -54,6 +56,8 @@ document.addEventListener("turbolinks:load",function () {
     $('#exhibition-container').css('padding-bottom', '190px');
     $('.select-wrapper').append(grandchildSelectHtml);
   }
+
+
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
