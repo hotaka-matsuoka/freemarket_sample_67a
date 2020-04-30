@@ -35,6 +35,11 @@
       &--detail{
         width:65%;
       }
+      ul.details{
+        width:140px;
+        display: flex;
+        justify-content: space-between;
+      }
       li.detail{
         font-size:12px;
         line-height: 15px;
