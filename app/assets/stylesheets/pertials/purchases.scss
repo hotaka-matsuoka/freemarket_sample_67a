@@ -1,0 +1,99 @@
+.purchases-confirm-wrapper{
+  width:100%;
+  background-color: #eee;
+  .purchases-confirm-contents{
+    margin:0 auto;
+    width:650px;
+    &__logo-box{
+      padding:25px;
+      text-align: center;
+    }
+    &__title{
+      background-color: $title-bg-color;
+      height:90px;
+      line-height: 90px;
+      font-size:24px;
+      text-align: center;
+      margin-bottom: 2px;
+    }
+    &__product-box{
+      background-color: $title-bg-color;
+      display:flex;
+      height:150px;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-bottom: 2px;
+    }
+    &__product{
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width:350px;
+      &--image{
+        width:35%;
+      }
+      &--detail{
+        width:65%;
+      }
+      li.detail{
+        font-size:12px;
+        line-height: 15px;
+      }
+    }
+    &__payment-box{
+      height:300px;
+      background-color: $title-bg-color;
+      margin:0 auto 2px;
+      &--payment{
+        border-bottom: solid 1px #eee;
+        margin:0 auto;
+        width:350px;
+        height:100px;
+        display: flex;
+        align-items: center;
+      }
+      ul.prices{
+        width:100%;
+        display:flex;
+        justify-content: space-between;
+        font-size:22px;
+        font-weight: bold;
+      }
+      li.add-contents{
+        font-size:12px;
+        padding: 2px 0 0 5px;
+        color:#0099e8;
+      }
+    }
+    &__confirm-btn{
+      background-color: $title-bg-color;
+      padding:25px;
+      text-align: center;
+      &--btn{
+        margin:0 auto;
+        line-height: 50px;
+        height:50px;
+        width:300px;
+        background: $bg-color;
+        text-align: center;
+      }
+      a.link-text{
+        color:$white-color;
+      }
+    }
+    &__bottom{
+      padding:30px;
+      margin:0 auto;
+      font-size: 8px;
+      ul.bottom-contents{
+        display:flex;
+        justify-content: space-evenly;
+      }
+      p.copyright{
+        margin-top: 25px;
+        font-size:16px;
+        text-align: center;
+      }
+    }
+  }
+}
