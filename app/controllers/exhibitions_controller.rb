@@ -16,7 +16,7 @@ class ExhibitionsController < ApplicationController
     if @exhibition.save
       redirect_to root_path, notice:"出品に成功しました"
     else
-      redirect_to new_exhibition_path, notice:"出品に失敗しました"
+      render :new
     end
   end
 
@@ -24,8 +24,9 @@ class ExhibitionsController < ApplicationController
   end
 
   def update
-    if @exhibition.user_id == current_user.id && @exhibition.update(exhibition_params)
-      redirect_to exhibitions_path
+    if @exhibition.user_id == current_user.id && 
+      @exhibition.update(exhibition_params)
+      redirect_to exhibition_path
     else
       render :edit
     end
@@ -33,9 +34,9 @@ class ExhibitionsController < ApplicationController
 
   def destroy
     if @exhibition.user_id == current_user.id && @exhibition.destroy
-      redirect_to exhibitions_path
+      redirect_to root_path
     else
-      render :new
+      redirect_to :show
     end
   end
 
@@ -88,29 +89,13 @@ class ExhibitionsController < ApplicationController
     # 選択されている親カテゴリーのレコードを取得
     @selected_parent_category = @selected_child_category.parent
     # 親カテゴリー選択肢用の配列作成
-    @category_parents_array = [{id: "---", name: "---"}]
+    @category_parent_array = [{id: "---", name: "---"}]
     Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
       parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
-      @category_parents_array << parent_hash
+      @category_parent_array << parent_hash
     end
   end
-
-  def update
-    if @exhibition.user_id == current_user.id && @exhibition.update(exhibition_params)
-      redirect_to exhibitions_path
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    if @exhibition.user_id == current_user.id && @exhibition.destroy
-      redirect_to exhibitions_path
-    else
-      render :new
-    end
-  end
-
+  
 
   private
 

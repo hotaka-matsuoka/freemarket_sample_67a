@@ -6,6 +6,13 @@
 
 .exhibition-wrapper{
   background-color: #eee;
+  .error__message {
+    list-style: none;
+    color:#ff4242;
+    font-size: 15px;
+    margin: 5px 0;
+  }
+
   .exhibition-header{
     height: 100px;
     width: 100%;
@@ -143,7 +150,7 @@
     #exhibition_name, #exhibition_explanation, #exhibition_brand_name{
       width: calc(100% - 20px);
     }
-    #parent_category, #child_category,#grandchild_category{
+    #parent_category, #child_category, #grandchild_category{
       margin-bottom: 20px;
     }
     .items{
