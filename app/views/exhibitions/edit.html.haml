@@ -4,7 +4,6 @@
       = image_tag 'logo/logo.png',size:'142x41'
   .exhibition-main
     = form_for @exhibition do |f|
-      = render 'layouts/error_messages', model: f.object
       .exhibition-container.img#1
         .item
           .item__label 商品画像
@@ -17,15 +16,21 @@
                 = i.file_field :image_url, accept:"image/jpg,image/jpeg,image/png,image/gif", type: 'file', name: "exhibition[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
                 %label{for: "img-file"}
                   %i.fa.fa-camera
+            - @exhibition.errors.full_messages_for(:images).each do |message|
+              .error__message= message
       .exhibition-container
         .item
           .item__label 商品名
           .item__required 必須
-        = f.text_field :name, required:true, placeholder: "40字まで"
+        = f.text_field :name, placeholder: "40字まで"
+        - @exhibition.errors.full_messages_for(:name).each do |message|
+          .error__message= message
         .item
           .item__label 商品の説明
           .item__required 必須
-        = f.text_area :explanation, required:true, placeholder: "商品の説明（1,000文字以内）\n（色、素材、重さ、定価、注意点など）" ,id:'exhibition_explanation'
+        = f.text_area :explanation, placeholder: "商品の説明（1,000文字以内）\n（色、素材、重さ、定価、注意点など）" ,id:'exhibition_explanation'
+        - @exhibition.errors.full_messages_for(:explanation).each do |message|
+          .error__message= message
         .count 0/1000
       #exhibition-container.exhibition-container
         .items
@@ -35,9 +40,15 @@
           .item__required 必須
         .select-wrapper
           = f.number_field :size_id, value:1,class:"none"
-          = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c, {'data-sample'=>c}]}, @selected_parent_category.name), {}, {class: 'select', id: 'parent_category'}
-          = f.select :category_id, options_for_select(@category_children_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, {prompt: "指定なし", selected: @selected_child_category.id}), {}, {class: 'selectbox', id: 'children_wrapper'}
-          = f.select :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, {prompt: "指定なし", selected: @selected_grandchild_category.id}), {}, {class: 'selectbox', id: 'grandchildren_wrapper'}
+          = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c, {'data-category'=>c}]}, @selected_parent_category.name), {}, {class: 'select', id: 'parent_category'}
+          = f.select :category_id, options_for_select(@category_children_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_child_category.id), {}, {class: 'selectbox', id: 'children_wrapper'}
+          = f.select :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_grandchild_category.id), {}, {class: 'selectbox', id: 'grandchildren_wrapper'}
+
+
+
+        - @exhibition.errors.full_messages_for(:category).each do |message|
+          .error__message= message
+      
         .item
           .item__label ブランド
           .item__required--not 任意
@@ -45,22 +56,30 @@
         .item
           .item__label 商品の状態
           .item__required 必須
-        = f.collection_select  :condition_id, Condition.all, :id, :name
+        = f.collection_select :condition_id, Condition.all, :id, :name, :prompt => true
+        - @exhibition.errors.full_messages_for(:condition_id).each do |message|
+          .error__message= message
       .exhibition-container
         .items
           .items__label 配送について
         .item
           .item__label 配送料の負担
           .item__required 必須
-        = f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name
+        = f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, :prompt => true
+        - @exhibition.errors.full_messages_for(:shipping_method_id).each do |message|
+          .error__message= message
         .item
           .item__label 配送元の地域
           .item__required 必須
-        = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, :prompt => true
+        - @exhibition.errors.full_messages_for(:prefecture_id).each do |message|
+          .error__message= message
         .item
           .item__label 発送までの日数
           .item__required 必須
-        = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name
+        = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name, :prompt => true
+        - @exhibition.errors.full_messages_for(:shipping_date_id).each do |message|
+          .error__message= message
       .exhibition-container
         .items 
           .items__label 価格（¥300〜9,999,999)
@@ -69,7 +88,9 @@
           .item__required 必須
           .item__right
             ¥
-            = f.number_field :price,  required:true, style:"text-align:right count", placeholder: "0", class:'price', id:'exhibition_price'
+            = f.number_field :price, style:"text-align:right count", placeholder: "0", class:'price', id:'exhibition_price'
+        - @exhibition.errors.full_messages_for(:price).each do |message|
+          .error__message= message
         .sale 
           %p.font.sale__left 販売手数料（10%）
           .sale__right ー

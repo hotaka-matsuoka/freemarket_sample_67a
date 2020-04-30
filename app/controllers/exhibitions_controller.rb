@@ -1,6 +1,6 @@
 class ExhibitionsController < ApplicationController
   before_action :set_exhibition, except: [:index, :new, :create, 'get_category_children', 'get_category_grandchildren', 'get_size']
-  before_action :set_category  , only: [:new, :create, :edit]
+  before_action :set_category  , only: [:new, :create, :edit, :update]
   
   def index
     @exhibitions = Exhibition.includes(:images).order('created_at DESC')
@@ -24,7 +24,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def update
-    if @exhibition.user_id == current_user.id && 
+    if @exhibition.user_id == current_user.id 
       @exhibition.update(exhibition_params)
       redirect_to exhibition_path
     else
@@ -68,8 +68,6 @@ class ExhibitionsController < ApplicationController
 
   def edit
     @parents = Category.where(ancestry:nil)
-    # 編集する商品を選択
-    @exhibition = Exhibition.find(params[:id])
     # 登録されている商品の孫カテゴリーのレコードを取得
     @selected_grandchild_category = @exhibition.category
     # 孫カテゴリー選択肢用の配列作成
@@ -78,6 +76,7 @@ class ExhibitionsController < ApplicationController
       grandchildren_hash = {id: "#{grandchild.id}", name: "#{grandchild.name}"}
       @category_grandchildren_array << grandchildren_hash
     end
+
     # 選択されている子カテゴリーのレコードを取得
     @selected_child_category = @selected_grandchild_category.parent
     # 子カテゴリー選択肢用の配列作成
@@ -86,13 +85,13 @@ class ExhibitionsController < ApplicationController
       children_hash = {id: "#{child.id}", name: "#{child.name}"}
       @category_children_array << children_hash
     end
+    
     # 選択されている親カテゴリーのレコードを取得
     @selected_parent_category = @selected_child_category.parent
-    # 親カテゴリー選択肢用の配列作成
-    @category_parent_array = [{id: "---", name: "---"}]
+    # # 親カテゴリー選択肢用の配列作成
+    @category_parents_array = []
     Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
-      parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
-      @category_parent_array << parent_hash
+      @category_parents_array << parent.name
     end
   end
   
