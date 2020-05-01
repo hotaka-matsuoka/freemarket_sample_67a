@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
+resources :purchases,    only:[:new]
+
   devise_scope :user do
     get  'users',     to: redirect("/users/sign_up")
     get  'addresses', to: 'users/registrations#new_address'
