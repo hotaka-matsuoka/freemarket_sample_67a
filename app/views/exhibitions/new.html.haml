@@ -13,9 +13,9 @@
           .exhibition-num-0#image-box__container
             = f.fields_for :image do |i|
               .input-area
-                = i.file_field :image_url, accept:"image/jpg,image/jpeg,image/png,image/gif", type: 'file', name: "exhibition[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
                 %label{for: "img-file"}
                   %i.fa.fa-camera
+                = i.file_field :image_url, accept:"image/jpg,image/jpeg,image/png,image/gif", type: 'file', name: "exhibition[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
             - @exhibition.errors.full_messages_for(:images).each do |message|
               .error__message= message
       .exhibition-container
@@ -45,7 +45,6 @@
           = f.select :category_id, @category_parent_array, {}, {class: 'select', id: 'parent_category'}
           - @exhibition.errors.full_messages_for(:category).each do |message|
             .error__message= message
-        
         .item
           .item__label ブランド
           .item__required--not 任意

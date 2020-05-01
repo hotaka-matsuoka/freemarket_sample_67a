@@ -42,8 +42,8 @@ document.addEventListener("turbolinks:load",function () {
       }
     //読み込みが完了すると、srcにfileのURLを格納
     fileReader.onloadend = function() {
-      var src = fileReader.result
-      var html= `<div class='exhibition-image' data-image="${file.name}">
+      var src = fileReader.result 
+      var html= `<div class='exhibition-image' data-index="1" data-image="${file.name}">
       <div class=' exhibition-image__content'>
         <div class='exhibition-image__content--icon'>
           <img src=${src} width="124" height="120" >

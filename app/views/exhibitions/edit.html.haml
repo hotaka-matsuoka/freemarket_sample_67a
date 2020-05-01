@@ -40,14 +40,17 @@
           .item__required 必須
         .select-wrapper
           = f.number_field :size_id, value:1,class:"none"
-          = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c, {'data-category'=>c}]}, @selected_parent_category.name), {}, {class: 'select', id: 'parent_category'}
+          = f.select :category_id, options_for_select(@category_parents_array.map{|c|[c, {'data-category'=>c}]}, @selected_parent_category.name), {}, {class: 'select', id: 'parent_category'}
           = f.select :category_id, options_for_select(@category_children_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_child_category.id), {}, {class: 'selectbox', id: 'children_wrapper'}
           = f.select :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_grandchild_category.id), {}, {class: 'selectbox', id: 'grandchildren_wrapper'}
-
-
-
         - @exhibition.errors.full_messages_for(:category).each do |message|
           .error__message= message
+          .item.size
+            .item__label.size サイズ
+            .item__required 必須
+          = f.select :size_id, options_for_select(@size_array.map{|c|[c[:name], c[:id], {'data-size'=>c[:id]}]}, @selected_size.size), {}, {class: 'selectboxn size', id: 'size'}
+
+
       
         .item
           .item__label ブランド
