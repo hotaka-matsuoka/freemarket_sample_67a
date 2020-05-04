@@ -32,10 +32,10 @@
     width: calc(90% - 10px);
     border-bottom: 1px solid #eee;
     padding: 40px 40px 50px 40px;
-    .none{
-      display: none;
-    }
-    #image-box-1{
+    // .none{
+    //   display: none;
+    // }
+    #image-box{
       height: 100%;
       width: 100%;
       display: flex;
@@ -46,70 +46,7 @@
         }
       }
     }
-    .exhibition-num-0{
-      width: 100%;
-    }
-    .exhibition-num-1{
-      width: 78%;
-    }
-    .exhibition-num-2{
-      width: 58%;
-    }
-    .exhibition-num-3{
-      width: 39%;
-    }
-    .exhibition-num-4{
-      width: 19%;
-    }
-    //下段のfile_field
-    .exhibition-num-5{
-      width: 100%;
-    }
-    .exhibition-num-6{
-      width: 78%;
-    }
-    .exhibition-num-7{
-      width: 58%;
-    }
-    .exhibition-num-8{
-      width: 39%;
-    }
-    .exhibition-num-9{
-      width: 19%;
-    }
-    @media screen and (max-width: 700px) {
-      .exhibition-num-0{
-        width: 100%;
-      }
-      .exhibition-num-1{
-        width: 80%;
-      }
-      .exhibition-num-2{
-        width: 60%;
-      }
-      .exhibition-num-3{
-        width: 40%;
-      }
-      .exhibition-num-4{
-        width: 20%;
-      }
-      //下段のfile_field
-      .exhibition-num-5{
-        width: 100%;
-      }
-      .exhibition-num-6{
-        width: 80%;
-      }
-      .exhibition-num-7{
-        width: 60%;
-      }
-      .exhibition-num-8{
-        width: 40%;
-      }
-      .exhibition-num-9{
-        width: 20%;
-      }
-    }
+    
     .exhibition-image__operetion--delete{
       text-align: center;
       &:hover{
