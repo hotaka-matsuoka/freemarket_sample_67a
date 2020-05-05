@@ -4,25 +4,26 @@
     .item__required 必須
   %p.font 最大10枚までアップロードできます
   #image-box
-    -# %label{for: "img-file"}
-    -#   %i.fa.fa-camera
+    %label{for: "exhibition_images_attributes_0_image_url"}
+      %i.fa.fa-camera
     #previews
       - if @exhibition.persisted?
         - @exhibition.images.each_with_index do |image, i|
-          = image_tag image.image_url.url, data: { index: i }, width: "100", height: '100'
+          .image-wapper{"data-index" => i}
+            = image_tag image.image_url.url, data: { index: i }, width: "100", height: '100'
+            .js-remove 削除
+            %label{for: "exhibition_images_attributes_#{i}_image_url", class: "edit-label"} 編集
     = f.fields_for :images do |image|
       .js-file_group{"data-index" => "#{image.index}"}
         = image.file_field :image_url, accept:"image/jpg,image/jpeg,image/png,image/gif", type: 'file', class: "js-file"
-        .js-remove 削除
       - if @exhibition.persisted?
         = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
     - if @exhibition.persisted?
       .js-file_group{"data-index" => "#{@exhibition.images.count}"}
-        = file_field_tag :image_url, name: "exhibition[images_attributes][#{@exhibition.images.count}][image_url]", class: 'js-file'
-        .js-remove 削除
+        = file_field_tag :image_url, name: "exhibition[images_attributes][#{@exhibition.images.count}][image_url]", id: "exhibition_images_attributes_#{@exhibition.images.count}_image_url", class: 'js-file'
 
     - @exhibition.errors.full_messages_for(:images).each do |message|
-      .error__message= message
+      .error__message 画像がありません
 .exhibition-container
   .item
     .item__label 商品名

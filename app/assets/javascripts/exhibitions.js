@@ -21,15 +21,17 @@ document.addEventListener("turbolinks:load",function () {
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="exhibition[images_attributes][${index}][image_url]"
-                    id="exhibition_images_attributes_${index}_image_url"><br>
-                    <div class="js-remove">削除</div>
+                    id="exhibition_images_attributes_${index}_image_url">
                   </div>`;
     return html;
   }
-
   $('.hidden-destroy').hide();
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<div data-index="${index}" class="img-wrapper">
+                    <img data-index="${index}" src="${url}" width="100px" height="100px">
+                    <div class="js-remove">削除</div>
+                    <label for="exhibition_images_attributes_${index}_image_url" class="edit-label">編集</>
+                  </div>`;
     return html;
   }
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
@@ -37,13 +39,13 @@ document.addEventListener("turbolinks:load",function () {
   fileIndex.splice(0, lastIndex);
 
   $('#image-box').on('change', '.js-file', function(e) {
-    const targetIndex = $(this).parent().data('index');
-    const file = e.target.files[0];
-    const blobUrl = window.URL.createObjectURL(file);
+    var targetIndex = $(this).parent().data('index');
+    var file = e.target.files[0];
+    var blobUrl = window.URL.createObjectURL(file);
 
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
-    } else {  // 新規画像追加の処理
+    } else {  
       $('#previews').append(buildImg(targetIndex, blobUrl));
       $('#image-box').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
@@ -52,11 +54,16 @@ document.addEventListener("turbolinks:load",function () {
   });
 
   $('#image-box').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index')
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    var targetIndex = $(this).parent().data('index');
+    var hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    var targetFile = $(`#exhibition_images_attributes_${targetIndex}_image_url`);
+   
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().remove();
+    $(targetFile).parent().remove();
+
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
     $(`img[data-index="${targetIndex}"]`).remove();
   });
+
 });

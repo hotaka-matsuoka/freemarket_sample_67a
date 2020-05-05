@@ -25,34 +25,41 @@
     background-color: #fff;
     margin: 0 auto;
   }
-  .img{
-    max-height: 200px;
-  }
+  // .img{
+  //   max-height: 200px;
+  // }
   .exhibition-container{
     width: calc(90% - 10px);
     border-bottom: 1px solid #eee;
     padding: 40px 40px 50px 40px;
-    // .none{
-    //   display: none;
-    // }
+    .none{
+      display: none;
+    }
     #image-box{
       height: 100%;
       width: 100%;
-      display: flex;
       flex-wrap: wrap;
       @media screen and (max-width: 700px) {
         img{
           width: 85px;
         }
       }
-    }
-    
-    .exhibition-image__operetion--delete{
-      text-align: center;
-      &:hover{
-        cursor: pointer;
+      #previews { 
+        display: flex;
+      }
+      // .js-file {
+      //   display: none;
+      // }
+      .js-remove {
+        color: $bg-color;
+        &:hover{
+          cursor: pointer;
         }
       }
+      .edit-label {
+        color: $bg-color;
+      }
+    }
     .fa.fa-camera{
       height: 145px;
       width: 100%;
