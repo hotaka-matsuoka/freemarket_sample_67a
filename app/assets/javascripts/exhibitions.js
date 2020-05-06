@@ -28,15 +28,48 @@ document.addEventListener("turbolinks:load",function () {
   $('.hidden-destroy').hide();
   const buildImg = (index, url)=> {
     const html = `<div data-index="${index}" class="img-wrapper">
-                    <img data-index="${index}" src="${url}" width="100px" height="100px">
-                    <div class="js-remove">削除</div>
-                    <label for="exhibition_images_attributes_${index}_image_url" class="edit-label">編集</>
+                    <img data-index="${index}" src="${url}" width="120px" height="120px">
+                    <div class="img-buttom">
+                      <div class="js-remove">削除</div>
+                      <label for="exhibition_images_attributes_${index}_image_url" class="edit-label">編集</>
+                    </div>
                   </div>`;
     return html;
   }
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
+ 
+  $('#image-box').on('change', function() {
+    var num = $('.js-file_group').length
+    if (num == 2 || num== 7) {
+      $('.label-content').css('width', '80%');
+    } else if (num == 3 || num == 8) {
+      $('.label-content').css('width', '60%');
+    } else if (num == 4 || num == 9) {
+      $('.label-content').css('width', '40%');
+    } else if (num == 5 || num == 10) {
+      $('.label-content').css('width', '20%');
+    } else if (num == 6 || num == 11) {
+      $('.label-content').css('width', '100%');
+    };
+    $('.js-remove').on('click', function() {
+      num -= 1
+      console.log(num);
+      if (num == 1) {
+        $('.label-content').css('width', '100%');
+      } else if (num == 2) {
+        $('.label-content').css('width', '80%');
+      } else if (num == 3) {
+        $('.label-content').css('width', '60%');
+      } else if (num == 4) {
+        $('.label-content').css('width', '40%');
+      } else if (num == 5) {
+        $('.label-content').css('width', '20%');
+      };
+    });
+  });
+
 
   $('#image-box').on('change', '.js-file', function(e) {
     var targetIndex = $(this).parent().data('index');
@@ -54,14 +87,13 @@ document.addEventListener("turbolinks:load",function () {
   });
 
   $('#image-box').on('click', '.js-remove', function() {
-    var targetIndex = $(this).parent().data('index');
+    var targetIndex = $(this).parent().parent().data('index');
     var hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     var targetFile = $(`#exhibition_images_attributes_${targetIndex}_image_url`);
    
     if (hiddenCheck) hiddenCheck.prop('checked', true);
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
     $(targetFile).parent().remove();
-
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
     $(`img[data-index="${targetIndex}"]`).remove();
   });
