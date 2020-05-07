@@ -43,6 +43,7 @@ document.addEventListener("turbolinks:load",function () {
 
   function sizingLabel() {
     var i = $('.js-file_group').length
+    $('.label-content').show();
     if (i == 1 || i == 6) {
       $('.label-content').css('width', '100%');
     } else if (i == 2 || i == 7) {
@@ -53,6 +54,8 @@ document.addEventListener("turbolinks:load",function () {
       $('.label-content').css('width', '40%');
     } else if (i == 5 || i == 10) {
       $('.label-content').css('width', '20%');
+    } else if (i == 11){
+      $('.label-content').hide();
     };
     id = $('.js-file_group:last').data('index');
     $('.label-box').attr({id: `label-box--${id}`,for: `exhibition_images_attributes_${id}_image_url`});
@@ -62,7 +65,6 @@ document.addEventListener("turbolinks:load",function () {
     var targetIndex = $(this).parent().data('index');
     var file = e.target.files[0];
     var blobUrl = window.URL.createObjectURL(file);
-
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
     } else {  
