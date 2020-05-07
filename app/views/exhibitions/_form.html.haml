@@ -12,17 +12,18 @@
             .img-buttom
               .js-remove 削除
               %label{for: "exhibition_images_attributes_#{i}_image_url", class: "edit-label"} 編集
+    
       .label-content
         %label{for: "exhibition_images_attributes_0_image_url", class: "label-box", id: "label-box--0"}
           %i.fa.fa-camera
-    = f.fields_for :images do |image|
-      .js-file_group{"data-index" => "#{image.index}"}
-        = image.file_field :image_url, accept:"image/jpg,image/jpeg,image/png,image/gif", type: 'file', class: "js-file"
+      = f.fields_for :images do |image|
+        .js-file_group{"data-index" => "#{image.index}"}
+          = image.file_field :image_url, accept:"image/jpg,image/jpeg,image/png,image/gif", type: 'file', class: "js-file"
+        - if @exhibition.persisted?
+          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
       - if @exhibition.persisted?
-        = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-    - if @exhibition.persisted?
-      .js-file_group{"data-index" => "#{@exhibition.images.count}"}
-        = file_field_tag :image_url, name: "exhibition[images_attributes][#{@exhibition.images.count}][image_url]", id: "exhibition_images_attributes_#{@exhibition.images.count}_image_url", class: 'js-file'
+        .js-file_group{"data-index" => "#{@exhibition.images.count}"}
+          = file_field_tag :image_url, name: "exhibition[images_attributes][#{@exhibition.images.count}][image_url]", id: "exhibition_images_attributes_#{@exhibition.images.count}_image_url", class: 'js-file'
 
     - @exhibition.errors.full_messages_for(:images).each do |message|
       .error__message 画像がありません

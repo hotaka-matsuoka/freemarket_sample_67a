@@ -34,7 +34,7 @@ document.addEventListener("turbolinks:load",function () {
                       <label for="exhibition_images_attributes_${index}_image_url" class="edit-label">編集</>
                     </div>
                   </div>`;
-    $('#previews').before(html);
+    $('.label-content').before(html);
   }
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   lastIndex = $('.js-file_group:last').data('index');
