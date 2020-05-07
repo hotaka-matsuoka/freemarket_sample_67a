@@ -14,7 +14,6 @@ class ExhibitionsController < ApplicationController
   
   def create
     @exhibition = Exhibition.new(exhibition_params)
-    @exhibition.images.new
     if @exhibition.save
       redirect_to root_path, notice:"出品に成功しました"
     else
