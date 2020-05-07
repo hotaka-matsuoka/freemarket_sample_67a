@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   root 'top#index'
 
   get 'mypage', to: 'mypage#index'
-  get 'card-registration',to: 'card_registration#index'
   get 'logout', to: 'logout#index'
+  get 'card-registration', to: 'card_registration#index'
+  get 'card-registration/new', to: 'card_registration#new'
+  post 'card-registration', to: 'card_registration#create'
 
   resources :top,        only:[:index]
   resources :exhibitions do
@@ -23,8 +25,6 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
     resources :users, only: [:index]
   end
-
-
 
   resources :card, except: :edit
 end
