@@ -18,4 +18,5 @@ window.addEventListener("load", function() {
     $("#status__payment").css('background-color', '#ea352d');
     $("#bar__address").css('background-color', '#ea352d');
   };
+
 });

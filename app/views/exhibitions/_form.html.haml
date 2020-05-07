@@ -7,13 +7,15 @@
     #previews
       - if @exhibition.persisted?
         - @exhibition.images.each_with_index do |image, i|
-          .image-wapper{"data-index" => i}
-            = image_tag image.image_url.url, data: {index: i}, width: "120", height: '120'
-            .img-buttom
-              .js-remove 削除
-              %label{for: "exhibition_images_attributes_#{i}_image_url", class: "edit-label"} 編集
+          .preview1
+            .image-wapper{"data-index" => i}
+              = image_tag image.image_url.url, data: {index: i}, width: "120", height: '120'
+              .img-buttom
+                .js-remove 削除
+                %label{for: "exhibition_images_attributes_#{i}_image_url", class: "edit-label"} 編集
+          .preview2
     .label-content
-      %label{for: "exhibition_images_attributes_0_image_url"}
+      %label{for: "exhibition_images_attributes_0_image_url", class: "label-box", id: "label-box--0"}
         %i.fa.fa-camera
     = f.fields_for :images do |image|
       .js-file_group{"data-index" => "#{image.index}"}
