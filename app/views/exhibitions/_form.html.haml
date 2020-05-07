@@ -12,9 +12,9 @@
             .img-buttom
               .js-remove 削除
               %label{for: "exhibition_images_attributes_#{i}_image_url", class: "edit-label"} 編集
-    .label-content
-      %label{for: "exhibition_images_attributes_0_image_url", class: "label-box", id: "label-box--0"}
-        %i.fa.fa-camera
+      .label-content
+        %label{for: "exhibition_images_attributes_0_image_url", class: "label-box", id: "label-box--0"}
+          %i.fa.fa-camera
     = f.fields_for :images do |image|
       .js-file_group{"data-index" => "#{image.index}"}
         = image.file_field :image_url, accept:"image/jpg,image/jpeg,image/png,image/gif", type: 'file', class: "js-file"
