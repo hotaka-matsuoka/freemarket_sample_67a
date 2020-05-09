@@ -18,7 +18,7 @@ document.addEventListener("turbolinks:load",function () {
   });
 
   const buildFileField = (index)=> {
-    const html = `<div  class="js-file_group", data-index="${index}">
+    const html = `<div  class="js-file_group" data-index="${index}">
                     <input class="js-file" type="file"
                     name="exhibition[images_attributes][${index}][image_url]"
                     id="exhibition_images_attributes_${index}_image_url">
@@ -62,7 +62,7 @@ document.addEventListener("turbolinks:load",function () {
     $('.label-box').attr({id: `label-box--${id}`,for: `exhibition_images_attributes_${id}_image_url`});
   };
  
-  $('#image-box').on('change', '.js-file:last', function(e) {
+  $('#image-box').on('change', '.js-file', function(e) {
     var targetIndex = $(this).parent().data('index');
     var file = e.target.files[0];
     var blobUrl = window.URL.createObjectURL(file);
