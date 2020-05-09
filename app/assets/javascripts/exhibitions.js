@@ -18,7 +18,7 @@ document.addEventListener("turbolinks:load",function () {
   });
 
   const buildFileField = (index)=> {
-    const html = `<div data-index="${index}" class="js-file_group">
+    const html = `<div  class="js-file_group", data-index="${index}">
                     <input class="js-file" type="file"
                     name="exhibition[images_attributes][${index}][image_url]"
                     id="exhibition_images_attributes_${index}_image_url">
@@ -27,7 +27,7 @@ document.addEventListener("turbolinks:load",function () {
   }
   $('.hidden-destroy').hide();
   const buildImg = (index, url)=> {
-    const html = `<div data-index="${index}" class="img-wrapper">
+    const html = `<div data-index="${index}" class="image-wrapper">
                     <img data-index="${index}" src="${url}" width="120px" height="120px">
                     <div class="img-buttom">
                       <div class="js-remove">削除</div>
@@ -36,32 +36,33 @@ document.addEventListener("turbolinks:load",function () {
                   </div>`;
     $('.label-content').before(html);
   }
-  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  let fileIndex = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
   sizingLabel();
 
   function sizingLabel() {
-    var i = $('.js-file_group').length
+    var i = $('.image-wrapper').length
+    console.log(i);
     $('.label-content').show();
     if (i == 1 || i == 6) {
-      $('.label-content').css('width', '100%');
-    } else if (i == 2 || i == 7) {
       $('.label-content').css('width', '80%');
-    } else if (i == 3 || i == 8) {
+    } else if (i == 2 || i == 7) {
       $('.label-content').css('width', '60%');
-    } else if (i == 4 || i == 9) {
+    } else if (i == 3 || i == 8) {
       $('.label-content').css('width', '40%');
-    } else if (i == 5 || i == 10) {
+    } else if (i == 4 || i == 9) {
       $('.label-content').css('width', '20%');
-    } else if (i == 11){
+    } else if (i == 5 || i == 0) {
+      $('.label-content').css('width', '100%');
+    } else if (i == 10){
       $('.label-content').hide();
     };
     id = $('.js-file_group:last').data('index');
     $('.label-box').attr({id: `label-box--${id}`,for: `exhibition_images_attributes_${id}_image_url`});
   };
  
-  $('#image-box').on('change', '.js-file', function(e) {
+  $('#image-box').on('change', '.js-file:last', function(e) {
     var targetIndex = $(this).parent().data('index');
     var file = e.target.files[0];
     var blobUrl = window.URL.createObjectURL(file);
@@ -83,8 +84,8 @@ document.addEventListener("turbolinks:load",function () {
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().parent().remove();
     $(targetFile).parent().remove();
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
     $(`img[data-index="${targetIndex}"]`).remove();
+    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
     sizingLabel();
   });
 });

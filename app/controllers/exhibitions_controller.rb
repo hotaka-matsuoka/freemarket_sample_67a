@@ -17,7 +17,8 @@ class ExhibitionsController < ApplicationController
     if @exhibition.save
       redirect_to root_path, notice:"出品に成功しました"
     else
-      render :new
+      @exhibition.images.new
+      render :new 
     end
   end
   

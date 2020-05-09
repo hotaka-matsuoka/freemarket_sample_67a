@@ -7,8 +7,8 @@
     #previews
       - if @exhibition.persisted?
         - @exhibition.images.each_with_index do |image, i|
-          .image-wapper{"data-index" => i}
-            = image_tag image.image_url.url, data: {index: i}, width: "120", height: '120'
+          .image-wrapper{"data-index" => i}
+            = image_tag image.image_url.url, data: {index: i}, width: "120", height: '120', id: "image#{i}"
             .img-buttom
               .js-remove 削除
               %label{for: "exhibition_images_attributes_#{i}_image_url", class: "edit-label"} 編集
