@@ -23,7 +23,7 @@
           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
       - if @exhibition.persisted?
         .js-file_group{"data-index" => "#{@exhibition.images.count}"}
-          = file_field_tag :image_url, name: "exhibition[images_attributes][#{@exhibition.images.count}][image_url]", id: "exhibition_images_attributes_#{@exhibition.images.count}_image_url", class: 'js-file'
+          = file_field_tag :image_url, name: "exhibition[images_attributes][#{@exhibition.images.count}][image_url]", id: "exhibition_images_attributes_#{@exhibition.images.count}_image_url", class: 'js-file', accept:"image/jpg,image/jpeg,image/png,image/gif"
     - @exhibition.errors.full_messages_for(:images).each do |message|
       .error__message 画像がありません
 .exhibition-container
@@ -123,4 +123,4 @@
   - else #編集時のフォーム画面
     .actions
       = f.submit "変更する", class: "actions--blue"
-      = link_to 'もどる', root_path
+      = link_to 'もどる', exhibition_path

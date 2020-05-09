@@ -1,6 +1,6 @@
 .exhibition-wrapper
   = render 'exhibition_header'
   .exhibition-main
-    = form_for(@exhibition, :url => {:action => 'create'}) do |f|
+    = form_with model: @exhibition do |f|
       = render partial: 'form', locals: {f: f, new_form: true}
   = render 'exhibition_footer'

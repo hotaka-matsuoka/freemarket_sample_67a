@@ -19,7 +19,6 @@ document.addEventListener("turbolinks:load",function () {
                           ${insertHTML}
                         </select>
                       </div>`;
-    $('#exhibition-container').css('padding-bottom', '300px');
     $('.select-wrapper').append(sizeSelectHtml);
   }
   
@@ -39,7 +38,6 @@ document.addEventListener("turbolinks:load",function () {
                           </select>
                         </div>
                       </div>`;
-    $('#exhibition-container').css('padding-bottom', '120px');
     $('.select-wrapper').append(childSelectHtml);
   }
   // 孫カテゴリーの表示作成
@@ -53,7 +51,6 @@ document.addEventListener("turbolinks:load",function () {
                                 </select>
                               </div>
                             </div>`;
-    $('#exhibition-container').css('padding-bottom', '190px');
     $('.select-wrapper').append(grandchildSelectHtml);
   }
 
@@ -87,7 +84,6 @@ document.addEventListener("turbolinks:load",function () {
       $('#grandchildren_wrapper').remove();
       $('#size_wrapper').remove();
       $('.size').remove();
-      $('#exhibition-container').css('padding-bottom', '50px');
     }
   });
   // 子カテゴリー選択後のイベント
@@ -123,7 +119,6 @@ document.addEventListener("turbolinks:load",function () {
       $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
       $('#size_wrapper').remove();
       $('.size').remove();
-      $('#exhibition-container').css('padding-bottom', '120px');
     }
   });
   // 孫カテゴリー選択後のイベント

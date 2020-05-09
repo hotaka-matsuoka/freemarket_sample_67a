@@ -4,7 +4,7 @@ class ExhibitionsController < ApplicationController
   before_action :set_edit_array, only:   [:edit, :update]
   
   def index
-    @exhibitions = Exhibition.includes(:images).order('created_at DESC')
+   
   end
   
   def new
