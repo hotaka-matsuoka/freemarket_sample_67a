@@ -1,0 +1,49 @@
+.purchases-confirm-wrapper
+  .purchases-confirm-contents
+    .purchases-confirm-contents__logo-box  
+      = link_to root_path do
+        = image_tag 'logo/logo.png',size:'200x60' 
+    .purchases-confirm-contents__title
+      購入内容の確認
+    .purchases-confirm-contents__product-box
+      .purchases-confirm-contents__product
+        .purchases-confirm-contents__product--image
+          = image_tag 'product/m40554531756_2.jpg',size:'80x100'
+        .purchases-confirm-contents__product--detail
+          商品名が入ります
+          %ul.details
+            %li.detail
+              ¥9,999,999
+            %li.detail
+              送料込
+    .purchases-confirm-contents__payment-box
+      .purchases-confirm-contents__payment-box--payment
+        %ul.prices
+          %li.price
+            支払金額
+          %li
+            ¥9,999,999
+      .purchases-confirm-contents__payment-box--payment
+        %ul
+          支払い方法
+          %li.add-contents
+            +登録してください
+      .purchases-confirm-contents__payment-box--payment
+        %ul
+          配送先
+          %li.add-contents
+            +登録してください
+    .purchases-confirm-contents__confirm-btn
+      = link_to '#' ,class:'link-text' do
+        .purchases-confirm-contents__confirm-btn--btn
+          購入する
+    .purchases-confirm-contents__bottom
+      %ul.bottom-contents
+        %li
+          プライバシポリシー
+        %li
+          FRIMA利用規約
+        %li
+          特定商取引に関する表記
+      %p.copyright
+        © FURIMA

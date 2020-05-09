@@ -11,7 +11,6 @@ class Exhibition < ApplicationRecord
   has_many  :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   enum sales_status:    { on_sale: 0, sold_out: 1 }
-
   validates :name,        presence: true, length: { maximum:40 }
   validates :explanation, presence: true, length: { maximum:1000 }
   validates :price,       numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 1000000, allow_blank: true }

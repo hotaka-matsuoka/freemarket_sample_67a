@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   root 'top#index'
 
   get 'mypage', to: 'mypage#index'
-  get 'card-registration',to: 'card_registration#index'
   get 'logout', to: 'logout#index'
+  get 'card-registration/new', to: 'card_registration#new'
 
   resources :top,        only: [:index]
 
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
+resources :purchases,    only:[:new]
 
   devise_scope :user do
     get  'users',     to: redirect("/users/sign_up")
@@ -31,8 +32,6 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
     resources :users, only: [:index]
   end
-
-
 
   resources :card, except: :edit
 end
