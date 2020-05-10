@@ -6,6 +6,13 @@
 
 .exhibition-wrapper{
   background-color: #eee;
+  .error__message {
+    list-style: none;
+    color:#ff4242;
+    font-size: 15px;
+    margin: 5px 0;
+  }
+
   .exhibition-header{
     height: 100px;
     width: 100%;
@@ -22,105 +29,61 @@
     max-height: 200px;
   }
   .exhibition-container{
-    height: 340px;
     width: calc(90% - 10px);
     border-bottom: 1px solid #eee;
     padding: 40px 40px 50px 40px;
     .none{
       display: none;
     }
-    #image-box-1{
+    #image-box{
       height: 100%;
-      width: 100%;
-      display: flex;
       flex-wrap: wrap;
-      @media screen and (max-width: 700px) {
-        img{
-          width: 85px;
+      .label-content {
+        width: 620px;
+      }
+      #previews { 
+        flex-wrap: wrap;
+        display: flex;
+      }
+      .js-file {
+        display: none;
+      }
+      .img-buttom {
+        text-align: center;
+        .js-remove {
+          display: inline-block;
+          color: $bg-color;
+          margin-right: 3px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        .edit-label {
+          color: $bg-color;
+          margin-left: 3px;
+          &:hover{
+            cursor: pointer;
+          }
         }
       }
     }
-    .exhibition-num-0{
-      width: 100%;
-    }
-    .exhibition-num-1{
-      width: 78%;
-    }
-    .exhibition-num-2{
-      width: 58%;
-    }
-    .exhibition-num-3{
-      width: 39%;
-    }
-    .exhibition-num-4{
-      width: 19%;
-    }
-    //下段のfile_field
-    .exhibition-num-5{
-      width: 100%;
-    }
-    .exhibition-num-6{
-      width: 78%;
-    }
-    .exhibition-num-7{
-      width: 58%;
-    }
-    .exhibition-num-8{
-      width: 39%;
-    }
-    .exhibition-num-9{
-      width: 19%;
-    }
-    @media screen and (max-width: 700px) {
-      .exhibition-num-0{
-        width: 100%;
-      }
-      .exhibition-num-1{
-        width: 80%;
-      }
-      .exhibition-num-2{
-        width: 60%;
-      }
-      .exhibition-num-3{
-        width: 40%;
-      }
-      .exhibition-num-4{
-        width: 20%;
-      }
-      //下段のfile_field
-      .exhibition-num-5{
-        width: 100%;
-      }
-      .exhibition-num-6{
-        width: 80%;
-      }
-      .exhibition-num-7{
-        width: 60%;
-      }
-      .exhibition-num-8{
-        width: 40%;
-      }
-      .exhibition-num-9{
-        width: 20%;
-      }
-    }
-    .exhibition-image__operetion--delete{
-      text-align: center;
-      &:hover{
-        cursor: pointer;
-        }
-      }
-    .fa.fa-camera{
-      height: 145px;
-      width: 100%;
+    .label-content{
       background-color: #eee;
       text-align: center;
-      line-height: 150px;
+      line-height: 145px;
       border: 2px dotted #ccc;
       margin-top: 2px;
-      display: inline-block;
       &:hover{
         cursor: pointer;
+      }
+      .label-box {
+        display: inline-block;
+        width: 100%;
+        height: 145px;
+        p {
+          font-size: 5px;
+          margin-top: 3px;
+        }
       }
     }
     input, select, textarea{
@@ -144,7 +107,7 @@
     #exhibition_name, #exhibition_explanation, #exhibition_brand_name{
       width: calc(100% - 20px);
     }
-    #parent_category, #child_category,#grandchild_category{
+    #parent_category, #child_category, #grandchild_category{
       margin-bottom: 20px;
     }
     .items{
@@ -215,6 +178,7 @@
       text-align: center;
       .actions--blue{
         background-color: #3CCACE;
+        color: #fff;
         &:hover{
           cursor: pointer;
         }

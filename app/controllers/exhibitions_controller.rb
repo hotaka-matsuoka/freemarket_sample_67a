@@ -1,9 +1,10 @@
 class ExhibitionsController < ApplicationController
-  before_action :set_exhibition, except: [:index, :new, :create, 'get_category_children','get_category_grandchildren','get_size']
-  before_action :set_category  , only: [:new, :create, :edit]
+  before_action :set_exhibition, except: [:index, :new, :create, 'get_category_children', 'get_category_grandchildren', 'get_size']
+  before_action :set_category,   only:   [:new, :create]
+  before_action :set_edit_array, only:   [:edit, :update]
   
   def index
-    @exhibitions = Exhibition.includes(:images).order('created_at DESC')
+   
   end
   
   def new
@@ -16,20 +17,20 @@ class ExhibitionsController < ApplicationController
     if @exhibition.save
       redirect_to root_path, notice:"出品に成功しました"
     else
-      redirect_to new_exhibition_path, notice:"出品に失敗しました"
+      @exhibition.images.new
+      render :new 
     end
   end
-
+  
   def show
   end
-
 
   def edit
   end
 
   def update
     if @exhibition.user_id == current_user.id && @exhibition.update(exhibition_params)
-      redirect_to exhibitions_path
+      redirect_to exhibition_path
     else
       render :edit
     end
@@ -37,9 +38,9 @@ class ExhibitionsController < ApplicationController
 
   def destroy
     if @exhibition.user_id == current_user.id && @exhibition.destroy
-      redirect_to exhibitions_path
+      redirect_to root_path
     else
-      render :new
+      redirect_to :show
     end
   end
 
@@ -69,6 +70,8 @@ class ExhibitionsController < ApplicationController
     end
   end
 
+  
+
   private
 
   def exhibition_params
@@ -86,4 +89,34 @@ class ExhibitionsController < ApplicationController
       @category_parent_array << parent.name
     end
   end
+
+  def set_edit_array
+    @selected_grandchild_category = @exhibition.category
+    @category_grandchildren_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_grandchild_category.id}").siblings.each do |grandchild|
+      grandchildren_hash = {id: "#{grandchild.id}", name: "#{grandchild.name}"}
+      @category_grandchildren_array << grandchildren_hash
+    end
+
+    @selected_child_category = @selected_grandchild_category.parent
+    @category_children_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_child_category.id}").siblings.each do |child|
+      children_hash = {id: "#{child.id}", name: "#{child.name}"}
+      @category_children_array << children_hash
+    end
+
+    @selected_parent_category = @selected_child_category.parent
+    @category_parents_array = []
+    Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
+      @category_parents_array << parent.name
+    end
+    
+    @selected_size = @exhibition.size
+    @size_array = []
+    Size.find(@selected_size.id).siblings.each do |size|
+      category_hash = {id: "#{size.id}", name: "#{size.size}"}
+      @size_array << category_hash
+    end
+  end
+
 end

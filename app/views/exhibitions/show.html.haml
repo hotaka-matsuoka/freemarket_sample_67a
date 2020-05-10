@@ -30,7 +30,8 @@
         %tr
           %th カテゴリー
           %td
-            =link_to "#{@exhibition.category.parent.parent.name}"
+            - if @exhibition.category.parent.parent.present?
+              =link_to "#{@exhibition.category.parent.parent.name}"
             %br/
             =link_to "#{@exhibition.category.parent.name}"
             %br/

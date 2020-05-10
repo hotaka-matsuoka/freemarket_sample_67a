@@ -34,12 +34,14 @@
         }
       }
       &__image--thumb {
+        padding: 10px 50px;
         ul {
           display: flex;
-          justify-content: center;
+          flex-wrap: wrap;
           li {
             width: 120px;
             height: 120px;
+            padding: 0 3px;
           }
         }
       }
