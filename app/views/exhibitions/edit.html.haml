@@ -2,5 +2,5 @@
   = render 'exhibition_header'
   .exhibition-main
     = form_with model: @exhibition do |f|
-      = render partial: 'form', locals: {:f => f}
+      = render partial: 'form', locals: {f: f}
   = render 'exhibition_footer'

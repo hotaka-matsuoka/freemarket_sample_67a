@@ -7,7 +7,7 @@
     #previews
       - if @exhibition.persisted?
         - @exhibition.images.each_with_index do |image, i|
-          .image-wrapper{"data-index" => i}
+          .image-wrapper{"data-index": i}
             = image_tag image.image_url.url, data: {index: i}, width: "120", height: '120', id: "image#{i}"
             .img-buttom
               .js-remove 削除
@@ -17,12 +17,12 @@
           %i.fa.fa-camera
             %p クリックしてファイルをアップロード
       = f.fields_for :images do |image|
-        .js-file_group{"data-index" => "#{image.index}"}
+        .js-file_group{"data-index": "#{image.index}"}
           = image.file_field :image_url, accept:"image/jpg,image/jpeg,image/png,image/gif", type: 'file', class: "js-file"
         - if @exhibition.persisted?
           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
       - if @exhibition.persisted?
-        .js-file_group{"data-index" => "#{@exhibition.images.count}"}
+        .js-file_group{"data-index": "#{@exhibition.images.count}"}
           = file_field_tag :image_url, name: "exhibition[images_attributes][#{@exhibition.images.count}][image_url]", id: "exhibition_images_attributes_#{@exhibition.images.count}_image_url", class: 'js-file', accept:"image/jpg,image/jpeg,image/png,image/gif"
     - @exhibition.errors.full_messages_for(:images).each do |message|
       .error__message 画像がありません
@@ -56,16 +56,16 @@
         .error__message= message
   - else #編集時のフォーム画面
     .select-wrapper
-      = f.select :category_id, options_for_select(@category_parents_array.map{|c|[c, {'data-category'=>c}]}, @selected_parent_category.name), {}, {class: 'select', id: 'parent_category'}
-      = f.select :category_id, options_for_select(@category_children_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_child_category.id), {}, {class: 'selectbox', id: 'children_wrapper'}
-      = f.select :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id]}]}, @selected_grandchild_category.id), {}, {class: 'selectbox', id: 'grandchildren_wrapper'}
+      = f.select :category_id, options_for_select(@category_parents_array.map{|c|[c, {'data-category': c}]}, @selected_parent_category.name), {}, {class: 'select', id: 'parent_category'}
+      = f.select :category_id, options_for_select(@category_children_array.map{|c|[c[:name], c[:id], {'data-category': c[:id]}]}, @selected_child_category.id), {}, {class: 'selectbox', id: 'children_wrapper'}
+      = f.select :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name], c[:id], {'data-category': c[:id]}]}, @selected_grandchild_category.id), {}, {class: 'selectbox', id: 'grandchildren_wrapper'}
       - @exhibition.errors.full_messages_for(:category).each do |message|
         .error__message= message
       = f.number_field :size_id, value:1,class:"none"
       .item.size
         .item__label.size サイズ
         .item__required 必須
-      = f.select :size_id, options_for_select(@size_array.map{|c|[c[:name], c[:id], {'data-size'=>c[:id]}]}, @selected_size.size), {}, {class: 'selectboxn size', id: 'size'}
+      = f.select :size_id, options_for_select(@size_array.map{|c|[c[:name], c[:id], {'data-size': c[:id]}]}, @selected_size.size), {}, {class: 'selectboxn size', id: 'size'}
       - @exhibition.errors.full_messages_for(:size).each do |message|
         .error__message= message
   .item
@@ -75,7 +75,7 @@
   .item
     .item__label 商品の状態
     .item__required 必須
-  = f.collection_select :condition_id, Condition.all, :id, :name, :prompt => true
+  = f.collection_select :condition_id, Condition.all, :id, :name, prompt: true
   - @exhibition.errors.full_messages_for(:condition_id).each do |message|
     .error__message 選択してください
 .exhibition-container
@@ -84,19 +84,19 @@
   .item
     .item__label 配送料の負担
     .item__required 必須
-  = f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, :prompt => true
+  = f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, prompt: true
   - @exhibition.errors.full_messages_for(:shipping_method_id).each do |message|
     .error__message 選択してください
   .item
     .item__label 配送元の地域
     .item__required 必須
-  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, :prompt => true
+  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: true
   - @exhibition.errors.full_messages_for(:prefecture_id).each do |message|
     .error__message 選択してください
   .item
     .item__label 発送までの日数
     .item__required 必須
-  = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name, :prompt => true
+  = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name, prompt: true
   - @exhibition.errors.full_messages_for(:shipping_date_id).each do |message|
     .error__message 選択してください
 .exhibition-container

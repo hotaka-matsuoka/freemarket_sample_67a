@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2020_04_29_084834) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sales_status", default: 0
     t.index ["category_id"], name: "index_exhibitions_on_category_id"
     t.index ["condition_id"], name: "index_exhibitions_on_condition_id"
     t.index ["prefecture_id"], name: "index_exhibitions_on_prefecture_id"
