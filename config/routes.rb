@@ -26,7 +26,8 @@ Rails.application.routes.draw do
 
   resources :purchases, only: :buy do
     member do
-      get 'buy'
+      get  'buy'
+      post 'pay'
     end
   end
 

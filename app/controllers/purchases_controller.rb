@@ -1,10 +1,8 @@
 class PurchasesController < ApplicationController
-
   require "payjp"
+  before_action :set_card
 
   def buy
-    @exhibition = Exhibition.find(params[:id])
-
     if user_signed_in?
       @user = current_user
       if @user.card.present?
@@ -14,6 +12,14 @@ class PurchasesController < ApplicationController
         @customer_card = customer.cards.retrieve(@card.card_id)
       end
     end
+  end
+
+  def pay
+    
+  end
+
+  def set_card
+    @exhibition = Exhibition.find(params[:id])
   end
   
 end
