@@ -4,8 +4,10 @@ class PurchasesController < ApplicationController
 
   def buy
     if user_signed_in?
-      @user = current_user
-      if @user.card.present?
+      if @exhibition.sales_status == "sold_out" 
+        redirect_to exhibition_path
+        flash[:alert] = 'この商品は売り切れです。'
+      elsif @user.card.present?
         Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
         @card = Card.find_by(user_id: current_user.id) if Card.where(user_id: current_user.id).present?
         customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -15,11 +17,21 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    
+    if @exhibition.sales_status == "on_sale" && @user.card.present?
+      @card = Card.find_by(user_id: current_user.id)
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp::Charge.create(
+        amount: @exhibition.price,
+        customer: @card.customer_id,
+        currency: 'jpy',
+        ) 
+       @exhibition.update(sales_status: 1) 
+    end
   end
 
   def set_card
     @exhibition = Exhibition.find(params[:id])
+    @user = current_user
   end
   
 end

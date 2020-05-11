@@ -87,11 +87,21 @@
     }
     &__confirm-btn {
       background-color: $title-bg-color;
-      padding: 40px;
+      padding: 50px;
       text-align: center;
       .buy-btn {
         padding: 15px 200px;
         font-size: 15px;
+        background-color: $bg-color;
+        color: #fff;
+      }
+      .card-regist {
+        display: block;
+        height: 60px;
+        width: 460px;
+        line-height: 60px;
+        font-size: 15px;
+        margin: 0 auto;
         background-color: $bg-color;
         color: #fff;
       }

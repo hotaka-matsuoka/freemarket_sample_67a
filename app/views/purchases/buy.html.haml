@@ -40,8 +40,11 @@
           - first_name = @user.first_name
           .user-info= family_name + first_name
     .purchases-confirm-contents__confirm-btn
-      = button_to pay_purchase_path(@exhibition.id) ,class:'buy-btn' do
-        購入する
+      - if @card.present?
+        = button_to pay_purchase_path(@exhibition.id), class:'buy-btn' do
+          購入する
+      - else
+        = link_to 'クレジットカードを登録する', card_registration_new_path, class: 'card-regist'
     .purchases-confirm-contents__bottom
       %ul.bottom-contents
         %li
