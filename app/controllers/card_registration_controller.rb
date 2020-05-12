@@ -9,19 +9,19 @@ class CardRegistrationController < ApplicationController
   def new
   end
 
-  # def create
-  #   if params['payjp-token'].blank?
-  #     redirect_to action: "new"
-  #   else
-  #     customer = Payjp::Customer.create(card: params['payjp-token'])
-  #     @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-  #     if @card.save
-  #       redirect_to root_path
-  #     else
-  #       redirect_to action: "new"
-  #     end
-  #   end
-  # end
+  def create
+    if params['payjp-token'].blank?
+      redirect_to action: "new"
+    else
+      customer = Payjp::Customer.create(card: params['payjp-token'])
+      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @card.save
+        redirect_to root_path
+      else
+        redirect_to action: "new"
+      end
+    end
+  end
 
   private
   def set_card

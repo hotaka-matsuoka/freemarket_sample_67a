@@ -6,7 +6,7 @@
           = image_tag 'logo/logo.png',size:'200x60'
     .form__wrapper--card
       %h2 お支払い方法
-      = form_with url: card_index_path, method: :post, id: 'charge-form', html: { name: "inputForm" } do |f|
+      = form_with url: card_registration_new_path, method: :post, id: 'charge-form', html: { name: "inputForm" } do |f|
         .field
           = f.label :カード番号
           %span.form__require 必須
