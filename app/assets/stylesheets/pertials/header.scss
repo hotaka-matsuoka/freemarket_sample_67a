@@ -1,5 +1,7 @@
 .header{
   a.header-link{
+    height: 50px;
+    display: inline-block;
     text-decoration: none;
     color:$link-color;
   }
@@ -8,7 +10,7 @@
   padding:0 60px;
   &__inner{
     margin:0 70px;
-    padding:20px 0;
+    padding-top:20px;
     height:80px;
   }
   &__inner-top{

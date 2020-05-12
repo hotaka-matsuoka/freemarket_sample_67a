@@ -1,0 +1,21 @@
+.header
+  = render 'top/header'
+- breadcrumb :categories
+=render 'layouts/breadcrumb'
+.brand-wrapper
+  .categories
+    %h2 カテゴリー一覧
+    - @categories.each_with_index do |category,i|
+      =link_to category.name,"##{i}" ,class:"scroll-js"
+  -@categories.each_with_index do |category,i|
+    %h2.category-title{id:"#{i}"}=link_to category.name, category, class: "category-title"
+    .category-list
+      -category.children.each do |child|
+        %p= link_to child.name, child, class: "category-list__child-title"
+        .category-list__child
+        - child.children.each_slice(2) do |grandchildren|
+          %ul.category-line
+            - grandchildren.each do |grandchild|
+              %li=link_to grandchild.name, grandchild, class: "category-list__child__grandchild"
+.footer
+  = render 'top/footer'

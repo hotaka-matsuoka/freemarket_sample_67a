@@ -43,7 +43,6 @@ document.addEventListener("turbolinks:load",function () {
 
   function sizingLabel() {
     var i = $('.image-wrapper').length
-    console.log(i);
     $('.label-content').show();
     if (i == 1 || i == 6) {
       $('.label-content').css('width', '80%');

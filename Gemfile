@@ -64,11 +64,11 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 gem 'fog-aws'
 gem 'jquery-turbolinks'
-
 gem 'faker'
 gem 'rails-i18n'
 gem 'payjp'
-
+gem 'kaminari'
+gem 'gretel'
 
 group :production do
   gem 'unicorn', '5.4.1'

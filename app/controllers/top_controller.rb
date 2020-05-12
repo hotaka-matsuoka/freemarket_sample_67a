@@ -1,6 +1,8 @@
 class TopController < ApplicationController
   
   def index
+    @categories = Category.where(ancestry: nil)
+    @brands = Brand.all
     @redies,@mens,@electrical,@kids,@chanel,@nike,@apple = [],[],[],[],[],[],[]
     Exhibition.includes([:images, :category]).order(created_at: :desc).each do |product|
       break if @redies.length == 2 && @mens.length == 2 && @kids.length == 0
@@ -14,13 +16,13 @@ class TopController < ApplicationController
         @kids << product
       end
     end
-    chanel_id,mens_id,apple_id = Brand.find(1).brand,Brand.find(2).brand,Brand.find(17).brand
+    @category_chanel,@category_mens,@category_apple = Brand.find(1), Brand.find(2), Brand.find(17)
     Exhibition.includes([:images]).order(created_at: :desc).each do |product|
-      if product.brand_name == chanel_id
+      if product.brand_name == @category_chanel.brand
         @chanel << product
-      elsif product.brand_name == mens_id
+      elsif product.brand_name == @category_mens.brand
         @nike << product
-      elsif product.brand_name == apple_id
+      elsif product.brand_name == @category_apple.brand
         @apple << product
       end
     end

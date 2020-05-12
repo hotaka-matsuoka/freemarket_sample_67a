@@ -1,0 +1,43 @@
+.header
+  = render 'top/header'
+- breadcrumb :brand, @brand
+=render 'layouts/breadcrumb'
+.brand-category-items
+  .brand-category-items__link-list
+    -unless @products.blank?
+      -@category_brand.each do |link| 
+        =link_to link.category.name,link.category
+-unless @products.blank?
+  .brand-category-items__title
+    %h2= "#{@products[0].brand_name}の商品一覧"
+  .brand-category-items__item
+    -@products.each do |product|
+      =link_to product,class:'pickup__link ' do
+        .pickup__content
+          .pickup__img
+            -if product.sales_status == "sold_out"
+              .pickup__img__sold
+              .pickup__img__sold__font sold
+            - product.images.each_with_index do |image,i|
+              = image_tag image.image_url.url,size:"180x200"
+              - break if i == 0
+          .pickup__body
+            %h3.name
+              = product.name
+            %ul.detail
+              %li.detail-name
+                = product.price
+              %li.detail-name
+                ★ 0
+            %p.tax-included
+              (税込)
+  = paginate @products
+  %h2.footer-category
+    = "#{@products[0].brand_name}"
+-else
+  .brand-category-items__title
+    %h2 商品が出品されていません
+  =link_to "トップページに戻る", root_path
+.footer-category-explanation
+.footer.mt
+  = render 'top/footer'
