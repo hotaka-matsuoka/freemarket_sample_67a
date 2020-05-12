@@ -1,11 +1,7 @@
-= render 'top/header'
-.nav
-  %ul
-    %li=link_to 'TOP',root_path
-    %i(class="fas fa-angle-right")
-    %li=link_to 'ブランド一覧', brands_path
-    %i(class="fas fa-angle-right")
-    %p=@products[0].brand_name unless @products.blank?
+.header
+  = render 'top/header'
+- breadcrumb :brand, @brand
+=render 'layouts/breadcrumb'
 .brand-category-items
   .brand-category-items__link-list
     -unless @products.blank?

@@ -1,9 +1,7 @@
-= render 'top/header'
-.nav
-  %ul
-    %li=link_to 'TOP',root_path
-    %i(class="fas fa-angle-right")
-    %p カテゴリー一覧
+.header
+  = render 'top/header'
+- breadcrumb :categories
+=render 'layouts/breadcrumb'
 .brand-wrapper
   .categories
     %h2 カテゴリー一覧
