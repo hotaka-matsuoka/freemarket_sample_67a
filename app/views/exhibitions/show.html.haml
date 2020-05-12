@@ -10,6 +10,9 @@
         %ul.preview
           - @exhibition.images.each_with_index do |image, i|
             %li{class: "item#{i}"}= image_tag image.image_url.url
+        -if @exhibition.sales_status == "sold_out"
+          .detail-img__sold
+          .detail-img__sold__font sold
       .exhibition-detail__image--thumb
         %ul.thumbnail
           - @exhibition.images.each_with_index do |image, i|
