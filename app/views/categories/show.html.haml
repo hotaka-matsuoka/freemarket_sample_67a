@@ -1,11 +1,7 @@
-= render 'top/header'
-.nav
-  %ul
-    %li=link_to 'TOP',root_path
-    %i(class="fas fa-angle-right")
-    %li=link_to 'カテゴリー一覧', categories_path
-    %i(class="fas fa-angle-right")
-    %p=@category.name
+.header
+  = render 'top/header'
+- breadcrumb :category, @category
+=render 'layouts/breadcrumb'
 .brand-category-items
   .brand-category-items__link-list
     - @category.children.each do |category|

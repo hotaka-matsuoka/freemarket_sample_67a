@@ -37,8 +37,8 @@ class BrandsController < ApplicationController
   private
   
   def set_brand
-    brand = Brand.find(params[:id])
-    @category_brand = CategoryBrand.includes(:category,:brand).where(brand_id:brand.id).order(id: :asc)
-    @products = Exhibition.includes(:images).where(brand_name: brand.brand).order(created_at: :desc).page(params[:page]).per(1)
+    @brand = Brand.find(params[:id])
+    @category_brand = CategoryBrand.includes(:category,:brand).where(brand_id:@brand.id).order(id: :asc)
+    @products = Exhibition.includes(:images).where(brand_name: @brand.brand).order(created_at: :desc).page(params[:page]).per(1)
   end
 end
