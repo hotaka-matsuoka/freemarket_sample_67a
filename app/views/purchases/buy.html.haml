@@ -40,9 +40,11 @@
           - first_name = @user.first_name
           .user-info= family_name + first_name
     .purchases-confirm-contents__confirm-btn
-      - if @card.present?
+      - if @card.present? && @exhibition.sales_status == "on_sale"
         = button_to pay_purchase_path(@exhibition.id), class:'buy-btn' do
           購入する
+      - elsif @card.present? && @exhibition.sales_status == "sold_out"
+        %p.sold-out__box 売り切れました
       - else
         = link_to 'クレジットカードを登録する', card_registration_new_path, class: 'card-regist'
     .purchases-confirm-contents__bottom
