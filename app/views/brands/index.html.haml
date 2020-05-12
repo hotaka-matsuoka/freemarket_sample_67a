@@ -1,3 +1,36 @@
-%h2 ブランド一覧
--@brands.each do |brand|
-  =link_to brand.brand,brand
+= render 'top/header'
+=@a
+.nav
+  %ul
+    %li=link_to 'TOP',root_path
+    %i(class="fas fa-angle-right")
+    %p ブランド一覧
+.brand-wrapper
+  .categories
+    %h2 ブランド一覧
+    -@categories.each_with_index do |categories_brands,i|
+      - categories_brands.each do |category_brand|
+        -unless categories_brands.blank?
+          - if  i == 0
+            %p.category-js.bg-color--selected{id: "#{i}"}=category_brand.category.name 
+          - else
+            %p.category-js{id: "#{i}"}=category_brand.category.name
+        -break
+  - @categories.each_with_index do |categories_brands,i|
+    - if i == 0
+      %h2.category-title.category-title-js{class: "category#{i}"}= categories_brands[0].category.name unless categories_brands.blank? 
+    - else
+      %h2.category-title.category-title-js.none{class: "category#{i}"}= categories_brands[0].category.name unless categories_brands.blank? 
+    - category_array = []
+    - categories_brands.each_with_index do |category_brand,j|
+      - category_array << category_brand.brand.brand
+    -category_array.sort!
+    - category_array.each_slice(2) do |brands|
+      %ul.category-line
+        -brands.each do |brand|
+          - if i == 0
+            %li.category-title-js{class: "category#{i}"}=link_to brand, Brand.find_by(brand: brand), class: "brand-list"
+          - else
+            %li.none.category-title-js{class: "category#{i}"}=link_to brand, Brand.find_by(brand: brand), class: "brand-list"
+.footer.mt
+  = render 'top/footer'

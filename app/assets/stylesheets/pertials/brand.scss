@@ -1,0 +1,132 @@
+.brand-wrapper{
+  width: 700px;
+  margin: 0 auto;
+  .categories{
+    padding-bottom: 10px;
+    h2{
+      font-size: 24px;
+      padding-left: 5px;
+      margin: 20px 0;
+    }
+    p,a{
+      height: 16px;
+      background: #eee;
+      padding: 15px;
+      margin: 0 4px 6px 0;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    p:hover,a:hover{
+      color: $white-color;
+      background: $bg-color;
+    }
+    
+    .bg-color{
+      background-color: $bg-color;
+      color: $white-color;
+      &--selected{
+        background-color: $bg-color;
+      color: $white-color;
+      }
+    }
+  }
+  .category-title{
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    padding: 0 10px;
+    border-radius: 4px 4px 0 0;
+    background-color: $bg-color;
+    color: $white-color;
+  }
+  .category-list{
+    background-color: $white-color;
+    padding: 20px;
+    &__child-title{
+      font-weight: bold;
+    }
+    &__child{
+      padding: 10px;
+      &__grandchild{
+        color: blue;
+      }
+    }
+  }
+  .category-line{
+    display: flex;
+    .brand-list{
+      color: blue;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    li{
+      width: 50%;
+      font-size: 14px;
+      margin: 0 20px 20px 20px;
+      
+    }
+  }
+  .index{
+    height: 35px;
+    line-height: 35px;
+    background-color: #ccc;
+    padding-left: 10px;
+  }
+.brand{
+  height: 35px;
+  line-height: 35px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+
+  &--color{
+    color: blue;
+  }
+  i{
+    color: $bg-color;
+    font-size: 24px;
+    line-height: 35px;
+  }
+}
+}
+.mt{
+  margin-top: 20px;
+}
+.brand-category-items{
+  width: 1000px;
+  margin: 50px auto 0 auto;
+  &__link-list{
+    display: flex;
+    flex-wrap: wrap;
+    a{
+      color: blue;
+    font-size: 14px;
+    margin: 0 10px 10px 0;
+    }
+  }
+  &__title{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  &__item{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.footer-category{
+  height: 50px;
+  width: 1000px;
+  font-size: 22px;
+  text-align: center;
+  line-height: 50px;
+  background: $bg-color;
+  color: $white-color;
+  margin: 20px auto 0 auto;
+}
+.footer-category-explanation{
+  width: 1000px;
+  background: $white-color;
+  padding: 20px;
+  margin: 0 auto;
+}

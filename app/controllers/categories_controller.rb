@@ -11,8 +11,12 @@ class CategoriesController < ApplicationController
   private
   
   def set_category
-    category = Category.find(params[:id])
-    category_child,category_grandchild = category.child_ids,category.indirect_ids
-    @products = Exhibition.includes(:images, :category).where(category_id:category_grandchild)
+    @category = Category.find(params[:id])
+    category_id=[]
+    category_id << @category unless @category.children?
+    category_id << @category.child_ids unless @category.child_ids.blank?
+    category_id << @category.indirect_ids unless @category.indirect_ids.blank?
+    category_id.flatten!
+    @products = Exhibition.includes(:images, :category).where(category_id:category_id).page(params[:page]).per(5)
   end
 end

@@ -249,7 +249,7 @@ other_child_array.each_with_index do |child,i|
 end
 
 #brand.rb
-brands = ['アーヴェヴェ','アーカイバ',  #レディース　メンズ　ベビー・キッズ
+brands = ['シャネル','ナイキ',  #レディース メンズ ベビー・キッズ
   'イーセンアーレン','イイホシユミコ',  #インテリア・住まい・雑貨
   'ヴィーニャ','ヴィノグランデ',  #キッチン・食器
   'エクストララージ','エテルナ',  #時計
@@ -306,62 +306,68 @@ def create_category_brand(category_id,brand_ids)
     category_brand = CategoryBrand.create(category_id:category_id,brand_id:brand_id)
   end
 end
+categories, category_list = [],["レディース","メンズ","ベビー・キッズ","インテリア・住まい・小物","キッチン/食品","時計","コスメ・香水・美容","家電・スマホ・カメラ","スポーツ・レジャー","スマートフォン/携帯電話","バイクウエア/装備","自動車タイヤ/ホイール","食器","国内自動車本体","外国自動車本体"]
+category_list.each do |category_name|
+  if Category.find_by(name: category_name).blank?
+    categories << nil
+  else
+    categories << Category.find_by(name: category_name).id
+  end
+end
+redies_brand_ids = [1,2]
+mens_brand_ids = [1,2]
+kids_brand_ids = [1,2]
+interior_brand_ids = [3,4]
+housing_brand_ids = [5,6]
+kitchen_brand_ids = [7,8]
+watch_brand_ids = [9,10]
+cosmetic_brand_ids = [1,16]
+home_appliances_brand_ids = [11,12]
+sports_brand_ids = [15,16]
+phone_brand_ids = [17,18]
+bike_wear_brand_ids = [21,22]
+car_partsbrand_ids = [21..22]
+tableware_brand_ids = [3,4]
+domestic_car_body_brand_ids = [21,22]
+foreigncar_brand_ids = [23..24]
+categories.each_with_index do |category, i|
+  next if category.nil?
+  case i
+  when 0
+    create_category_brand(category, redies_brand_ids)
+  when 1
+    create_category_brand(category, mens_brand_ids)
+  when 2
+    create_category_brand(category, interior_brand_ids)
+  when 3
+    create_category_brand(category, kids_brand_ids)
+  when 4
+    create_category_brand(category, housing_brand_ids)
+  when 5
+    create_category_brand(category, kitchen_brand_ids)
+  when 6
+    create_category_brand(category, watch_brand_ids)
+  when 7
+    create_category_brand(category, cosmetic_brand_ids)
+  when 8
+    create_category_brand(category, home_appliances_brand_ids)
+  when 9
+    create_category_brand(category, sports_brand_ids)
+  when 10
+    create_category_brand(category, phone_brand_ids)
+  when 11
+    create_category_brand(category, bike_wear_brand_ids)
+  when 12
+    create_category_brand(category, car_partsbrand_ids)
+  when 13
+    create_category_brand(category, tableware_brand_ids)
+  when 14
+    create_category_brand(category, domestic_car_body_brand_ids)
+  when 15
+    create_category_brand(category, foreigncar_brand_ids)
+  end
+end
 
-brand_ids = (1..2)
-category_id = 1
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (1..2)
-category_id = 200
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (1..2)
-category_id = 211
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (3..4)
-category_id = 226
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (5..6)
-category_id = 227
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (7..8)
-category_id = 155
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (9..10)
-category_id = 265
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (11..12)
-category_id = 248
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (13..14)
-category_id = 278
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (15..16)
-category_id = 289
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (17..18)
-category_id = 279
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (19..20)
-category_id = 335
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (21..22)
-category_id = 325
-create_category_brand(category_id,brand_ids)
-
-brand_ids = (23..24)
-category_id = 326
-create_category_brand(category_id,brand_ids)
 
 #category_size.rb
 

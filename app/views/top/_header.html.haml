@@ -6,15 +6,14 @@
     .header__inner-top--search-box
       = form_with url:'#' do |f|
         = f.text_field :name,placeholder:'何かお探しですか？',class:'header__inner-top--search-window' 
-        = button_tag do 
+        = button_tag do
           = image_tag 'icon/icon-search1.png',class:'header__inner-top--search-button'
   .header__inner-bottom
     %ul.header__inner-bottom--find
       %li.header__inner-bottom--find-list
-        = link_to '#',class:'header-link' do
-          カテゴリから探す
+        = link_to "カテゴリから探す",'/categories',class:'header-link category-js'
       %li.header__inner-bottom--find-list
-        = link_to '#',class:'header-link' do
+        = link_to '/brands',class:'header-link brand-js' do
           ブランドから探す
     - if user_signed_in?
       %ul.header__inner-bottom--btn
