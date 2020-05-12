@@ -11,9 +11,9 @@
   .header__inner-bottom
     %ul.header__inner-bottom--find
       %li.header__inner-bottom--find-list
-        = link_to "カテゴリから探す",'/categories',class:'header-link category-js'
+        = link_to "カテゴリから探す", categories_path,class:'header-link category-js'
       %li.header__inner-bottom--find-list
-        = link_to '/brands',class:'header-link brand-js' do
+        = link_to brands_path,class:'header-link brand-js' do
           ブランドから探す
     - if user_signed_in?
       %ul.header__inner-bottom--btn
