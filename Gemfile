@@ -64,10 +64,10 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 gem 'fog-aws'
 gem 'jquery-turbolinks'
-
 gem 'faker'
 gem 'rails-i18n'
 gem 'payjp'
+gem 'kaminari'
 
 
 group :production do

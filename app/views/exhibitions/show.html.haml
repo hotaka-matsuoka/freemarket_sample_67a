@@ -30,12 +30,12 @@
         %tr
           %th カテゴリー
           %td
-            - if @exhibition.category.parent.parent.present?
-              =link_to "#{@exhibition.category.parent.parent.name}"
+            =link_to "#{@exhibition.category.parent.parent.name}",@exhibition.category.parent.parent
+
             %br/
-            =link_to "#{@exhibition.category.parent.name}"
+            =link_to "#{@exhibition.category.parent.name}", @exhibition.category.parent
             %br/
-            =link_to "#{@exhibition.category.name}"
+            =link_to "#{@exhibition.category.name}", @exhibition.category unless @exhibition.category.blank?
         %tr
           %th ブランド
           %td= @exhibition.brand_name
@@ -78,7 +78,7 @@
           %li= link_to "前の商品", exhibition_path(@exhibition.previous) if @exhibition.previous
           %li= link_to "次の商品", exhibition_path(@exhibition.next) if @exhibition.next
         .category-more
-          = link_to "#{@exhibition.category.parent.parent.name}をもっと見る"
+          = link_to "#{@exhibition.category.parent.parent.name}をもっと見る", @exhibition.category.parent.parent
 
 
 .appBanner

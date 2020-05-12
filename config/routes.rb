@@ -23,6 +23,8 @@ Rails.application.routes.draw do
       get 'get_size', defaults: { format: 'json' }
     end
   end
+  resources :categories,  only:[:index, :show]
+  resources :brands,  only:[:index, :show]
 
 resources :purchases,    only:[:new]
 

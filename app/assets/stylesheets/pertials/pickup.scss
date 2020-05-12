@@ -39,13 +39,13 @@
     font-size: 12px;
   }
   img{
-    width:200px;
-    height:150px;
+    width:180px;
+    height:200px;
   }
 
   &__img{
-    width:200px;
-    height:150px;
+    width:180px;
+    height:200px;
     position: relative;
     &__sold{
       width: 0;
@@ -72,7 +72,8 @@
     padding:10px 0 70px 0;
   }
   &__content{
-    background-color: $white-color;
+    background-color: $title-bg-color;
+    margin-right: 21px;
   }
   &__content:hover{
     opacity: 0.6;
