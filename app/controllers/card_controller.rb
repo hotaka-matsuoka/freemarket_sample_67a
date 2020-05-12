@@ -9,8 +9,8 @@ class CardController < ApplicationController
       @card_brand = @card_info.brand
       @exp_month = @card_info.exp_month.to_s
       @exp_year = @card_info.exp_year.to_s.slice(2,3) 
-    # else
-    #   redirect_to action: "new"
+    else
+      redirect_to action: "new"
     end
   end
 
@@ -50,10 +50,10 @@ class CardController < ApplicationController
   private
   def set_card
     if user_signed_in?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
       @card = Card.find_by(user_id: current_user.id) if Card.where(user_id: current_user.id).present?
-    # else
-    #   redirect_to new_user_registration_path
+    else
+      redirect_to new_user_registration_path
     end
   end
 end

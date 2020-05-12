@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'mypage', to: 'mypage#index'
   get 'logout', to: 'logout#index'
   get 'card-registration/new', to: 'card_registration#new'
+  post 'card-registration/new', to: 'card_registration#create'
 
   resources :top,        only: [:index]
 
