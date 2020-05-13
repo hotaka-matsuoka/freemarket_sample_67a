@@ -3,6 +3,9 @@ class CardRegistrationController < ApplicationController
   require "payjp"
   before_action :set_card
 
+  def index
+  end
+
   def new
   end
 

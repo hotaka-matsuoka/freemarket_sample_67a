@@ -6,20 +6,16 @@ class PurchasesController < ApplicationController
     if user_signed_in?
       @exhibition.with_lock do
         if @exhibition.sales_status == "sold_out" 
-      if @exhibition.sales_status == "sold_out" 
-        if @exhibition.sales_status == "sold_out" 
-      if @exhibition.sales_status == "sold_out" 
-        if @exhibition.sales_status == "sold_out" 
           redirect_to exhibition_path
           flash[:alert] = 'この商品は売り切れです。'
         elsif @user.card.present?
-        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-        @card = Card.find_by(user_id: current_user.id) if Card.where(user_id: current_user.id).present?
-        customer = Payjp::Customer.retrieve(@card.customer_id)
-        @customer_card = customer.cards.retrieve(@card.card_id)
+          Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+          @card = Card.find_by(user_id: current_user.id) if Card.where(user_id: current_user.id).present?
+          customer = Payjp::Customer.retrieve(@card.customer_id)
+          @customer_card = customer.cards.retrieve(@card.card_id)
+        end
       end
     end
-  end
   end
 
   def pay

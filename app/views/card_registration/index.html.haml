@@ -1,0 +1,18 @@
+.header
+  = render 'top/header'
+- breadcrumb :logout
+=render 'layouts/breadcrumb'
+.mypage-wrapper
+  .mypage-lists
+    =render'mypage/mypage-lists'
+
+  .btn-page
+    .btn-page-contents.btn-page-contents__card-regist
+      %h1 支払い方法
+      %p クレジットカード一覧
+      =button_to new_card_registration_path, method: :get, class: 'card-regist__btn' do
+        クレジットカードを追加する
+
+.footer
+  = render 'top/footer'
+
