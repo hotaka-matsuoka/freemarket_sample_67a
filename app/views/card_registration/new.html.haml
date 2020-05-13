@@ -6,10 +6,10 @@
   .mypage-lists
     =render'mypage/mypage-lists'
 
-  .main
-    .wrapper
-      .form__wrapper--card
-        %h2 お支払い方法
+  .main#btn-page
+    .wrapper#btn-page
+      .form__wrapper--card#btn-page
+        %h2 クレジットカード情報入力
         = form_with url:  card_registration_index_path, method: :post, id: 'charge-form', html: { name: "inputForm" } do |f|
           .field
             = f.label :カード番号
@@ -31,8 +31,6 @@
             %br/
             = f.text_field :cvc, id: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", class: 'input__form', class: 'input__form--card'
           .actions#card_token
-            = f.submit 'カードを登録する', id: "token_submit", class: 'submit__btn'
-          .use__link
-            = link_to "登録せずに利用する", root_path
+            = f.submit 'カードを追加する', id: "token_submit", class: 'submit__btn'
 .footer
   = render 'top/footer'
