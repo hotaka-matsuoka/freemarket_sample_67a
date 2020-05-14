@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root 'top#index'
-  resources :top,        only: :index
+  resources :top,  only: :index
   resources :card, except: :edit
   resources :categories,  only: [:index, :show]
-  resources :brands,  only: [:index, :show]
-  resource :mypage, only: :show do 
+  resources :brands, only: [:index, :show]
+  resource  :mypage, only: :show do 
     resources :card_registration, only: [:index, :new, :create, :destroy]
-    resource :logout, only: :show
+    resource  :logout, only: :show
   end
 
   devise_for :users, controllers: {
