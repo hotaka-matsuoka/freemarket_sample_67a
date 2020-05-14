@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'top#index'
   resources :top,        only: :index
   resources :card, except: :edit
-  resources :card_registration, only: [:index, :new, :create]
+  resources :card_registration, only: [:index, :new, :create, :destroy]
   resources :categories,  only:[:index, :show]
   resources :brands,  only:[:index, :show]
   get 'mypage', to: 'mypage#index'

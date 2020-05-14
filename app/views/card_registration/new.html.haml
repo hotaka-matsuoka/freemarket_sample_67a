@@ -31,6 +31,6 @@
             %br/
             = f.text_field :cvc, id: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", class: 'input__form', class: 'input__form--card'
           .actions#card_token
-            = f.submit 'カードを追加する', id: "token_submit", class: 'submit__btn'
+            = f.submit '追加する', id: "token_submit", class: 'submit__btn'
 .footer
   = render 'top/footer'
