@@ -9,7 +9,7 @@ class PurchasesController < ApplicationController
           redirect_to exhibition_path
           flash[:alert] = 'この商品は売り切れです。'
         elsif current_user.card.present?
-          Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+          Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
           @card = Card.find_by(user_id: current_user.id) if Card.where(user_id: current_user.id).present?
           customer = Payjp::Customer.retrieve(@card.customer_id)
           @customer_card = customer.cards.retrieve(@card.card_id)
@@ -38,7 +38,7 @@ class PurchasesController < ApplicationController
   def pay
     if @exhibition.sales_status == "on_sale" && current_user.card.present?
       @card = Card.find_by(user_id: current_user.id)
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
       Payjp::Charge.create(
         amount: @exhibition.price,
         customer: @card.customer_id,
