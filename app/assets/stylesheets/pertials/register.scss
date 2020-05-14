@@ -128,7 +128,7 @@ $base-collor: #3ccace;
     }
   
     .form__wrapper--card {
-      width: 320px;
+      width: 300px;
       margin: 0 auto;
       padding: 50px 100px;
       background-color: #ffffff;
@@ -142,14 +142,9 @@ $base-collor: #3ccace;
         font-size: 16px;
         padding-left: 10px;
         height: 45px;
-        width: 305px;
+        width: 290px;
         border-radius: 5px;
         border: 1px solid #ccc;
-      }
-      .logos {
-        img {
-          margin: 0 3px;
-        }
       }
       .field {
         margin-bottom: 20px;

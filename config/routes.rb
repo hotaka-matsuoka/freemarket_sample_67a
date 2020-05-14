@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   root 'top#index'
-  resources :top,  only: :index
+  resources :top,        only: :index
   resources :card, except: :edit
-  resources :categories,  only: [:index, :show]
-  resources :brands, only: [:index, :show]
-  resource  :mypage, only: :show do 
-    resources :card_registration, only: [:index, :new, :create, :destroy]
-    resource  :logout, only: :show
-  end
+  resources :card_registration, only: [:new, :create]
+  resources :categories,  only:[:index, :show]
+  resources :brands,  only:[:index, :show]
+  get 'mypage', to: 'mypage#index'
+  get 'logout', to: 'logout#index'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',

@@ -19,12 +19,12 @@
     =link_to '#' do
       %li.mypage-list
         住所・発送元
-    =link_to mypage_card_registration_index_path do
+    =button_to new_card_registration_path, method: :get, class: 'card-regist__btn' do
       %li.mypage-list
-        支払い方法
+        クレジットカードの登録
     =link_to edit_user_registration_path do
       %li.mypage-list
         メール/パスワード
-    =link_to mypage_logout_path do
+    =link_to logout_path do
       %li.mypage-list
         ログアウト
