@@ -4,13 +4,13 @@
 =render 'layouts/breadcrumb'
 .mypage-wrapper
   .mypage-lists
-    =render'mypage/mypage-lists'
+    =render'mypages/mypage-lists'
 
   .main#btn-page
     .wrapper#btn-page
       .form__wrapper--card#btn-page
         %h2 クレジットカード情報入力
-        = form_with url:  card_registration_index_path, method: :post, id: 'charge-form', html: { name: "inputForm" } do |f|
+        = form_with url:  mypage_card_registration_index_path, method: :post, id: 'charge-form', html: { name: "inputForm" } do |f|
           .field
             = f.label :カード番号
             %span.form__require 必須
