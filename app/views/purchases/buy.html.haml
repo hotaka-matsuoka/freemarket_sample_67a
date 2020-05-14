@@ -1,0 +1,59 @@
+.purchases-confirm-wrapper
+  .purchases-confirm-contents
+    .purchases-confirm-contents__logo-box  
+      = link_to root_path do
+        = image_tag 'logo/logo.png',size:'200x60' 
+    .purchases-confirm-contents__title
+      購入内容の確認
+    .purchases-confirm-contents__product-box
+      .purchases-confirm-contents__product
+        .purchases-confirm-contents__product--image
+          = image_tag @exhibition.images.first.image_url.url
+        .purchases-confirm-contents__product--detail
+          = @exhibition.name
+          %ul.details
+            %li.detail
+              = "¥#{@exhibition.price}(税込) 送料込み"
+    .purchases-confirm-contents__payment-box
+      .purchases-confirm-contents__payment-box--payment
+        %ul.prices
+          %li.price
+            支払金額
+          %li
+            = "¥#{@exhibition.price}"
+      .purchases-confirm-contents__payment-box--payment
+        %p 支払い方法
+        - if @card.present?
+          .add-contents
+            .card-logo__wrapper
+              = image_tag "card_logo/#{@card_img}", id: 'card_logo'
+            .card-info= "**** **** **** " + @customer_card.last4
+            .card-info= @exp_month + " / " + @exp_year
+        - else 
+          = link_to '登録してください', mypage_card_registration_index_path, class: "card-regist"
+      .purchases-confirm-contents__payment-box--payment
+        %p 配送先
+        .add-contents
+          .user-info= "〒#{current_user.address.zipcode}"
+          .user-info= "#{@exhibition.prefecture.name} #{current_user.address.municipality} #{current_user.address.address}"
+          - family_name = current_user.family_name 
+          - first_name = current_user.first_name
+          .user-info= family_name + first_name
+    .purchases-confirm-contents__confirm-btn
+      - if @card.present? && @exhibition.sales_status == "on_sale"
+        = button_to pay_purchase_path(@exhibition.id), class:'buy-btn' do
+          購入する
+      - elsif @card.present? && @exhibition.sales_status == "sold_out"
+        %p.sold-out__box 売り切れました
+      - else
+        = link_to 'クレジットカードを登録する', mypage_card_registration_index_path, class: 'card-regist'
+    .purchases-confirm-contents__bottom
+      %ul.bottom-contents
+        %li
+          プライバシポリシー
+        %li
+          FRIMA利用規約
+        %li
+          特定商取引に関する表記
+      %p.copyright
+        © FURIMA

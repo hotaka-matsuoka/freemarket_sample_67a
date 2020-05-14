@@ -1,14 +1,14 @@
-.purchases-confirm-wrapper{
+.purchases-confirm-wrapper {
   width:100%;
   background-color: #eee;
-  .purchases-confirm-contents{
+  .purchases-confirm-contents {
     margin:0 auto;
     width:650px;
-    &__logo-box{
+    &__logo-box {
       padding:25px;
       text-align: center;
     }
-    &__title{
+    &__title {
       background-color: $title-bg-color;
       height:90px;
       line-height: 90px;
@@ -16,85 +16,127 @@
       text-align: center;
       margin-bottom: 2px;
     }
-    &__product-box{
+    &__product-box {
       background-color: $title-bg-color;
       display:flex;
       height:150px;
       align-items: center;
-      justify-content: space-evenly;
       margin-bottom: 2px;
     }
-    &__product{
+    &__buyed-product-box {
+      background-color: $title-bg-color;
+      height:300px;
+      padding: 50px;
+    }
+    &__product {
       display: flex;
       align-items: center;
       justify-content: space-evenly;
       width:350px;
-      &--image{
+      margin: 0 auto;
+      &--image {
         width:35%;
+        padding: 20px;
       }
-      &--detail{
+      &--detail {
         width:65%;
+        padding: 20px;
       }
-      ul.details{
+      ul.details {
         width:140px;
-        display: flex;
-        justify-content: space-between;
       }
-      li.detail{
+      li.detail {
         font-size:12px;
         line-height: 15px;
+        margin-top: 15px;
       }
     }
-    &__payment-box{
-      height:300px;
+    &__payment-box {
+      height:400px;
       background-color: $title-bg-color;
       margin:0 auto 2px;
-      &--payment{
+      &--payment {
         border-bottom: solid 1px #eee;
-        margin:0 auto;
+        margin: 15px auto;
         width:350px;
         height:100px;
         display: flex;
+        justify-content: space-between;
         align-items: center;
+        a {
+          color: $bg-color;
+        }
+        .add-contents {
+          margin-right: 15px;
+          .card-logo__wrapper {
+            margin-bottom: 10px;
+          }
+          .card-info, .user-info{
+            margin-bottom: 3px;
+            color: $bg-color;
+          }
+        }
       }
-      ul.prices{
+      ul.prices {
         width:100%;
         display:flex;
         justify-content: space-between;
         font-size:22px;
         font-weight: bold;
       }
-      li.add-contents{
+      li.add-contents {
         font-size:12px;
         padding: 2px 0 0 5px;
-        color:#0099e8;
+        color: $bg-color;
+        .user-info {
+          margin: 5px 0;
+        }
       }
     }
-    &__confirm-btn{
+    &__confirm-btn {
       background-color: $title-bg-color;
-      padding:25px;
+      padding: 50px;
       text-align: center;
-      &--btn{
-        margin:0 auto;
-        line-height: 50px;
-        height:50px;
-        width:300px;
-        background: $bg-color;
-        text-align: center;
+      .buy-btn {
+        padding: 15px 200px;
+        font-size: 15px;
+        background-color: $bg-color;
+        color: #fff;
       }
-      a.link-text{
-        color:$white-color;
+      .card-regist {
+        display: block;
+        height: 60px;
+        width: 460px;
+        line-height: 60px;
+        font-size: 15px;
+        margin: 0 auto;
+        background-color: $bg-color;
+        color: #fff;
       }
     }
-    &__bottom{
+    &__btn-wrapper {
+      display: flex;
+      justify-content: space-between;
+      margin: 50px 0;
+      .btn {
+        display: inline-block;
+        padding: 20px 0;
+        width: 250px;
+        background-color: $bg-color;
+        color: #fff;
+        text-align: center;
+        border-radius: 50px;
+      }
+    }
+    &__bottom {
       padding:30px;
       margin:0 auto;
       font-size: 8px;
-      ul.bottom-contents{
+      ul.bottom-contents {
         display:flex;
         justify-content: space-evenly;
       }
-      p.copyright{
+      p.copyright {
         margin-top: 25px;
         font-size:16px;
         text-align: center;

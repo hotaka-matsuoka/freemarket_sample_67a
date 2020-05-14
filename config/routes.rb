@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
+  root 'top#index'
+  resources :top,  only: :index
+  resources :card, except: :edit
+  resources :categories,  only: [:index, :show]
+  resources :brands, only: [:index, :show]
+  resource  :mypage, only: :show do 
+    resources :card_registration, only: [:index, :new, :create, :destroy]
+    resource  :logout, only: :show
+  end
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
+
   root 'top#index'
   get 'mypage', to: 'mypage#index'
   get 'logout', to: 'logout#index'
@@ -10,8 +21,9 @@ Rails.application.routes.draw do
 
   resources :top,        only: [:index]
   get 'search', to: 'top#search'
+
   post 'exhibitions/new', to: 'exhibitions#create', as: 'exhibitions'
-  resources :exhibitions, except: [:create] do
+  resources :exhibitions, except: :create do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -23,18 +35,19 @@ Rails.application.routes.draw do
       get 'get_size', defaults: { format: 'json' }
     end
   end
-  resources :categories,  only:[:index, :show]
-  resources :brands,  only:[:index, :show]
 
-resources :purchases,    only:[:new]
+  resources :purchases, only: :buy do
+    member do
+      get  'buy'
+      post 'pay'
+    end
+  end
 
   devise_scope :user do
     get  'users',     to: redirect("/users/sign_up")
     get  'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
-    resources :users, only: [:index]
+    resources :users, only: :index
   end
 
-  resources :card, except: :edit
 end
-

@@ -10,6 +10,9 @@
         %ul.preview
           - @exhibition.images.each_with_index do |image, i|
             %li{class: "item#{i}"}= image_tag image.image_url.url
+        -if @exhibition.sales_status == "sold_out"
+          .detail-img__sold
+          .detail-img__sold__font sold
       .exhibition-detail__image--thumb
         %ul.thumbnail
           - @exhibition.images.each_with_index do |image, i|
@@ -19,8 +22,10 @@
         %h1= "¥#{@exhibition.price}"
         %p= @exhibition.shipping_method.name
 
-      - if user_signed_in? && current_user.id != @exhibition.user_id
-        = link_to "購入画面に進む", root_path, class: 'buy-btn'
+      - if @exhibition.sales_status == "sold_out"
+        %p.sold-out__box 売り切れました
+      - elsif user_signed_in? && current_user.id != @exhibition.user_id
+        = link_to "購入画面に進む", buy_purchase_path, class: 'buy-btn'
       .exhibition-detail__explanation
         = @exhibition.explanation
       %table.exhibition-detail__table

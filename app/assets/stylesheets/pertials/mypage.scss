@@ -1,6 +1,7 @@
 .mypage-wrapper{
   display:flex;
   background-color: #eee;
+  padding: 0 95px;
 }
 a{
   text-decoration: none;
@@ -30,6 +31,13 @@ a{
   }
   li.mypage-list:hover{
     background-color: #ccc;
+  }
+  .card-regist__btn {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border: none;
+    text-align: left;
   }
 }
 .mypage-contents{
@@ -135,4 +143,3 @@ a.backcolor{
 a.hover:hover {
     opacity: 0.6;
   }
-
