@@ -16,7 +16,8 @@
         font-size: 40px;
       }
       &__image--preview {
-        ul {
+        position: relative;
+        .preview {
           display: flex;
           justify-content: center;
           li {
@@ -27,6 +28,22 @@
               width: 100%;
               object-fit: cover;
             }
+          }
+        }
+        .detail-img__sold {
+          border-style: solid;
+          border-width: 200px 200px 0 0;
+          border-color: $bg-color transparent transparent transparent;
+          position: absolute;
+          top: 0;
+          left: 36px;
+          &__font {
+            font-size: 50px;
+            color:$white-color;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 50px;
+            left: 45px;
           }
         }
         .item1, .item2, .item3, .item4, .item5, .item6, .item7, .item8, .item9 {
@@ -54,6 +71,17 @@
         p {
           font-size: 10px;
         }
+      }
+      .sold-out__box {
+        text-align: center;
+        margin: 0 auto;
+        font-size: 20px;
+        height: 70px;
+        line-height: 70px;
+        width: 80%;
+        background-color: rgb(160, 160, 160);
+        color: #fff;
+        
       }
       .buy-btn {
         display: block;

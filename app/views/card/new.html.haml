@@ -9,7 +9,13 @@
           %span.form__require 必須
           %br/
           = f.text_field :card_number, id: "card_number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", class: 'input__form--card'
-          %br
+          .logos
+            = image_tag 'card_logo/Visa.png',size:'55x20'
+            = image_tag 'card_logo/Mastercard.png',size:'32x24'
+            = image_tag 'card_logo/JCB.png',size:'32x24'
+            = image_tag 'card_logo/American_Express.png',size:'25x22'
+            = image_tag 'card_logo/Diners_Club.png',size:'32x24'
+            = image_tag 'card_logo/Discover.png',size:'37x24'
         .field
           = f.label :有効期限
           %span.form__require 必須
