@@ -1,5 +1,4 @@
-document.addEventListener(
-  "DOMContentLoaded", e => {
+document.addEventListener("turbolinks:load", e => {
     if (document.getElementById("token_submit") != null) {
       Payjp.setPublicKey("pk_test_4736003f33400cd0cfbdcd6c");
       let btn = document.getElementById("token_submit");
