@@ -1,0 +1,36 @@
+.header
+  = render 'top/header'
+.products
+  - if @products.nil?
+    %p 検索結果
+    %p.products__result-number= "1 - #{@notfound_products.size}件表示"
+    .products__item
+      = render partial: 'layouts/products_list', collection: @notfound_products, as: "product"
+    = paginate @notfound_products
+  -else
+    -if @products.blank?
+      %p
+        %span.products__keyword="#{@keyword}"
+        の検索結果
+      %p.notfound 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+      %p.products__result-number= "1 - #{@notfound_products.size}件表示"
+      .products__title
+        %h2 新着商品
+      .products__item
+        = render partial: 'layouts/products_list', collection: @notfound_products, as: "product"
+      = paginate @notfound_products
+    -else
+      %p
+        %span.products__keyword="#{@keyword}"
+        の検索結果
+      %p.products__result-number= "1 - #{@products.size}件表示"
+      .products__item
+        = render partial: 'layouts/products_list', collection: @products, as: "product"
+      = paginate @products
+.footer
+  = render 'top/footer'
+= link_to new_exhibition_path do
+  .camera
+    %p.exhibition
+      出品する
+    = image_tag 'icon/icon_camera.png',size:'60x60'

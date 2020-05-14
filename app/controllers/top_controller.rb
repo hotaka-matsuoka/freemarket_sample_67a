@@ -17,7 +17,7 @@ class TopController < ApplicationController
       end
     end
     @category_chanel,@category_mens,@category_apple = Brand.find(1), Brand.find(2), Brand.find(17)
-    Exhibition.includes([:images]).order(created_at: :desc).each do |product|
+    Exhibition.includes(:images).order(created_at: :desc).each do |product|
       if product.brand_name == @category_chanel.brand
         @chanel << product
       elsif product.brand_name == @category_mens.brand
@@ -25,6 +25,17 @@ class TopController < ApplicationController
       elsif product.brand_name == @category_apple.brand
         @apple << product
       end
+    end
+  end
+
+  def search
+    if params[:keyword].blank?
+      @products = nil
+      @notfound_products = Exhibition.includes(:images).order(created_at: :desc).page(params[:page]).per(5)
+    else
+      @keyword = params[:keyword].gsub(/[[:space:]]/, '').tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
+      @products = Exhibition.where("(name LIKE ?) OR (name LIKE ?) OR (name LIKE ?) OR (name LIKE ?)", "%#{@keyword}%","%#{@keyword.tr('ァ-ンぁ-ん','ぁ-んァ-ン')}%", "%#{@keyword.upcase}%", "%#{@keyword.downcase}%").page(params[:page]).per(5)
+      @notfound_products = Exhibition.includes(:images).order(created_at: :desc).page(params[:page]).per(5) if @products.blank?
     end
   end
 end

@@ -3,14 +3,13 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
   root 'top#index'
-
   get 'mypage', to: 'mypage#index'
   get 'logout', to: 'logout#index'
   get 'card-registration/new', to: 'card_registration#new'
   post 'card-registration/new', to: 'card_registration#create'
 
   resources :top,        only: [:index]
-
+  get 'search', to: 'top#search'
   post 'exhibitions/new', to: 'exhibitions#create', as: 'exhibitions'
   resources :exhibitions, except: [:create] do
     collection do
