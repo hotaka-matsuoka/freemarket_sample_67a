@@ -21,6 +21,8 @@
         %p.card-list クレジットカード一覧
         .btn-page-contents__card-list--wrapper
           .btn-page-contents__card-list--wrapper--left
+            .card-logo__wrapper
+              = image_tag "card_logo/#{@card_img}", id: 'card_logo'
             .card-info= "**** **** **** " + @customer_card.last4
             .card-info= @exp_month + " / " + @exp_year
           .btn-page-contents__card-regist--wrapper--right

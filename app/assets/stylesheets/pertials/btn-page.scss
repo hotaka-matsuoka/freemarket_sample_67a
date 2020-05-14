@@ -66,6 +66,13 @@
       justify-content: space-between;
       width: 350px;
       margin: 0 auto;
+      .card-logo__wrapper {
+        margin-bottom: 10px;
+        img {
+          width: 52px;
+          height: 20px;
+        }
+      }
       .card-info {
         margin-bottom: 15px;
       }
