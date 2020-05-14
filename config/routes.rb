@@ -13,13 +13,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
 
-  root 'top#index'
-  get 'mypage', to: 'mypage#index'
-  get 'logout', to: 'logout#index'
-  get 'card-registration/new', to: 'card_registration#new'
-  post 'card-registration/new', to: 'card_registration#create'
-
-  resources :top,        only: [:index]
   get 'search', to: 'top#search'
 
   post 'exhibitions/new', to: 'exhibitions#create', as: 'exhibitions'
@@ -36,10 +29,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :purchases, only: :buy do
+  resources :purchases, only: [:but, :pay] do
     member do
-      get  'buy'
-      post 'pay'
+      get  'buy', to: 'purchases#buy'
+      post 'pay', to: 'purchases#pay'
     end
   end
 
