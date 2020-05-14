@@ -52,12 +52,12 @@
       }
     }
     &__payment-box {
-      height:300px;
+      height:400px;
       background-color: $title-bg-color;
       margin:0 auto 2px;
       &--payment {
         border-bottom: solid 1px #eee;
-        margin:0 auto;
+        margin: 15px auto;
         width:350px;
         height:100px;
         display: flex;
@@ -68,8 +68,11 @@
         }
         .add-contents {
           margin-right: 15px;
+          .card-logo__wrapper {
+            margin-bottom: 10px;
+          }
           .card-info, .user-info{
-            margin: 5px 0;
+            margin-bottom: 3px;
             color: $bg-color;
           }
         }

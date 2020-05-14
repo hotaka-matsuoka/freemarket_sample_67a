@@ -25,10 +25,10 @@
         %p 支払い方法
         - if @card.present?
           .add-contents
+            .card-logo__wrapper
+              = image_tag "card_logo/#{@card_img}", id: 'card_logo'
             .card-info= "**** **** **** " + @customer_card.last4
-            - exp_month = @customer_card.exp_month.to_s
-            - exp_year = @customer_card.exp_year.to_s.slice(2,3)
-            .card-info= exp_month + " / " + exp_year
+            .card-info= @exp_month + " / " + @exp_year
         - else 
           = link_to '登録してください', card_registration_new_path, class: "card-regist"
       .purchases-confirm-contents__payment-box--payment

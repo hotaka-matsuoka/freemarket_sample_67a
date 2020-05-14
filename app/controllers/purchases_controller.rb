@@ -13,8 +13,25 @@ class PurchasesController < ApplicationController
           @card = Card.find_by(user_id: current_user.id) if Card.where(user_id: current_user.id).present?
           customer = Payjp::Customer.retrieve(@card.customer_id)
           @customer_card = customer.cards.retrieve(@card.card_id)
+          @exp_month = @customer_card.exp_month.to_s
+          @exp_year = @customer_card.exp_year.to_s.slice(2,3)
+          @card_bland = @customer_card.brand
         end
       end
+    end
+    case @card_bland
+    when "Visa"
+      @card_img = "Visa.png"
+    when "MasterCard"
+      @card_img = "Mastercard.png"
+    when "JCB"
+      @card_img = "JCB.png"
+    when "American Express"
+      @card_img = "American_Express.png"
+    when "Diners Club"
+      @card_img = "Diners_Club.png"
+    when "Discover"
+      @card_img = "Discover.png"
     end
   end
 
