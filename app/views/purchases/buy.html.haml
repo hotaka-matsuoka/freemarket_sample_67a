@@ -30,7 +30,7 @@
             .card-info= "**** **** **** " + @customer_card.last4
             .card-info= @exp_month + " / " + @exp_year
         - else 
-          = link_to '登録してください', card_registration_new_path, class: "card-regist"
+          = link_to '登録してください', mypage_card_registration_index_path, class: "card-regist"
       .purchases-confirm-contents__payment-box--payment
         %p 配送先
         .add-contents
@@ -46,7 +46,7 @@
       - elsif @card.present? && @exhibition.sales_status == "sold_out"
         %p.sold-out__box 売り切れました
       - else
-        = link_to 'クレジットカードを登録する', card_registration_new_path, class: 'card-regist'
+        = link_to 'クレジットカードを登録する', mypage_card_registration_index_path, class: 'card-regist'
     .purchases-confirm-contents__bottom
       %ul.bottom-contents
         %li
