@@ -92,7 +92,7 @@
 .mt{
   margin-top: 20px;
 }
-.brand-category-items{
+.products{
   width: 1000px;
   margin: 50px auto 0 auto;
   &__link-list{
@@ -109,9 +109,21 @@
     font-weight: bold;
     margin: 10px 0;
   }
+  &__result-number{
+    font-size: 11px;
+    color: #999;
+    margin: 10px 0;
+  }
+  &__keyword{
+    font-weight: bold;
+  }
   &__item{
     display: flex;
     flex-wrap: wrap;
+  }
+  .notfound{
+    font-size: 14px;
+    margin: 10px 0;
   }
 }
 .footer-category{
