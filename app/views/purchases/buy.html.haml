@@ -34,10 +34,10 @@
       .purchases-confirm-contents__payment-box--payment
         %p 配送先
         .add-contents
-          .user-info= "〒#{@user.address.zipcode}"
-          .user-info= "#{@exhibition.prefecture.name} #{@user.address.municipality} #{@user.address.address}"
-          - family_name = @user.family_name 
-          - first_name = @user.first_name
+          .user-info= "〒#{current_user.address.zipcode}"
+          .user-info= "#{@exhibition.prefecture.name} #{current_user.address.municipality} #{current_user.address.address}"
+          - family_name = current_user.family_name 
+          - first_name = current_user.first_name
           .user-info= family_name + first_name
     .purchases-confirm-contents__confirm-btn
       - if @card.present? && @exhibition.sales_status == "on_sale"
