@@ -8,9 +8,6 @@ $(document).on('turbolinks:load', function(){
         </div>
           <div class="comments-field__comment--wrapper">
             <p>${comment.content}</p>
-            <div class="message-info__date">
-              ${time_ago_in_words(comment.created_at)}
-            </div>
           </div>
       </div>`
     return html;
@@ -29,10 +26,10 @@ $(document).on('turbolinks:load', function(){
     })
     .done(function(data) {
       var html = buildHTML(data);
+      console.log(html);
       $('.comment-field').append(html);
       $('#new_comment')[0].reset();
       $('.comment-form__comment-btn').prop('disabled', false);
-      console.log(data);
     })
     .fail(function() {
       alert("コメントを入力してください");
