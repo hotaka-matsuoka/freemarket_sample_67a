@@ -127,9 +127,9 @@
           display: flex;
           justify-content: space-between;
           margin-bottom: 20px;
-
           &--user {
             text-align: center;
+            width: 85px;
             i {
               font-size: 50px;
               color: rgb(200, 200, 200);
@@ -142,16 +142,27 @@
               font-size: 8px;
               background-color: rgb(230, 240, 240);
               padding: 5px;
+              width: 60%;
+              margin: 0 auto;
               text-align: center;
             }
           }
-          &--content {
+          .comments-field__comment--wrapper {
+            margin: auto 0;
+            height: auto;
             width: 80%;
-            height: 50px;
             padding: 15px;
-            word-break: break-all;
             background-color: rgb(230, 240, 240);
             border-radius: 10px;
+            p {
+              word-break: break-all;
+              white-space: pre-wrap;
+              margin-bottom: 5px;
+            }
+            time {
+              font-size: 5px;
+              color: rgb(109, 109, 109);
+            }
           }
         }
       }

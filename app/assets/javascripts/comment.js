@@ -6,7 +6,12 @@ $(document).on('turbolinks:load', function(){
           <i class="fas fa-user-circle"></i>
           <div class="comments-field__comment--username">${comment.user_name}</div>
         </div>
-          <div class="comments-field__comment--content">${comment.content}</div>
+          <div class="comments-field__comment--wrapper">
+            <p>${comment.content}</p>
+            <div class="message-info__date">
+              ${time_ago_in_words(comment.created_at)}
+            </div>
+          </div>
       </div>`
     return html;
   };

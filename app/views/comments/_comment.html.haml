@@ -4,4 +4,6 @@
     .comments-field__comment--username= current_user.nickname
     - if current_user.id == @exhibition.user_id
       %p 出品者
-  .comments-field__comment--content= comment.content
+  .comments-field__comment--wrapper 
+    %p= comment.content
+    %time(datetime="#{comment.created_at}")= "#{time_ago_in_words(comment.created_at)}前"
