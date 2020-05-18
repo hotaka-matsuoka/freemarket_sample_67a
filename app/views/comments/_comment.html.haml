@@ -1,0 +1,7 @@
+.comments-field__comment
+  .comments-field__comment--user
+    %i.fas.fa-user-circle
+    .comments-field__comment--username= current_user.nickname
+    - if current_user.id == @exhibition.user_id
+      %p 出品者
+  .comments-field__comment--content= comment.content

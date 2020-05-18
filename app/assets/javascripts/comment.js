@@ -2,8 +2,11 @@ $(document).on('turbolinks:load', function(){
   function buildHTML(comment) {
     var html = 
       `<div class="comments-field__comment">
-        <div class="comments-field__comment--username">${comment.user_name}</div>
-        <div class="comments-field__comment--content">${comment.content}</div>
+        <div class="comments-field__comment--user">
+          <i class="fas fa-user-circle"></i>
+          <div class="comments-field__comment--username">${comment.user_name}</div>
+        </div>
+          <div class="comments-field__comment--content">${comment.content}</div>
       </div>`
     return html;
   };
@@ -21,8 +24,14 @@ $(document).on('turbolinks:load', function(){
     })
     .done(function(data) {
       var html = buildHTML(data);
-      $('.comments-field').append(html);
+      $('.comment-field').append(html);
       $('#new_comment')[0].reset();
+      $('.comment-form__comment-btn').prop('disabled', false);
+      console.log(data);
+    })
+    .fail(function() {
+      alert("コメントを入力してください");
+      $('.comment-form__comment-btn').prop('disabled', false);
     });
   });
 });
