@@ -122,11 +122,27 @@
       background-color: #fff;
       margin: 10px 0;
       padding: 35px;
+      .comments-field {
+        padding: 20px 0;
+        &__comment {
+          display: flex;
+          margin-bottom: 20px;
+          &--username {
+            font-size: 10px;
+            width: 20%;
+          }
+          &--content {
+            
+            word-break: break-all;
+          }
+        }
+      }
       &__form-area {
         width: 97%;
         height: 150px;
         font-size: 120%;
         padding: 10px;
+        white-space: pre-wrap;
       }
       &__alert {
         margin: 10px 0 30px;
