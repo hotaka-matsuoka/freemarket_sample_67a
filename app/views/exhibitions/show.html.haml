@@ -62,15 +62,23 @@
       %ul.exhibition-detail__buttom
         %li.good お気に入り
         %li.report 不適切な商品の通報
-
     .comment-form
-      %textarea.comment-form__form-area{:name => "body", :type => "text", :value => ""}
-      .comment-form__alert
-        %p 相手のことを考え丁寧なコメントを心がけましょう。 
-        %p 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      .comment-form__btn
-        %button.comment-form__comment-btn{:name => "button", :type => "submit"}
-          コメントする
+      .comment-field
+        = render @comments
+      .comment-form__wrapper
+        = form_for [@exhibition, @comment] do |f|
+          = f.text_area :content, class: "comment-form__form-area"
+          - @exhibition.errors.full_messages_for(:content).each do |message|
+            .error__message= message
+          .comment-form__alert
+            %p 相手のことを考え丁寧なコメントを心がけましょう。 
+            %p 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          - if user_signed_in?
+            - if @exhibition.sales_status == "sold_out"
+              %p.sold-out__box 売り切れたためコメントできません
+            - else
+              .comment-form__btn
+                = f.submit 'コメントする', class: "comment-form__comment-btn"
 
     - if user_signed_in? && current_user.id == @exhibition.user_id
       .edit-form
