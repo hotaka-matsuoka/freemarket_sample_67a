@@ -2,7 +2,7 @@
   .comments-field__comment--user
     %i.fas.fa-user-circle
     .comments-field__comment--username= comment.user.nickname
-    - if comment.user_id == @exhibition.user_id
+    - if comment.user_id == @exhibition.user.id
       %p 出品者
   .comments-field__comment--wrapper 
     %p= comment.content

@@ -73,11 +73,12 @@
           .comment-form__alert
             %p 相手のことを考え丁寧なコメントを心がけましょう。 
             %p 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          - if @exhibition.sales_status == "sold_out"
-            %p.sold-out__box 売り切れたためコメントできません
-          - else
-            .comment-form__btn
-              = f.submit 'コメントする', class: "comment-form__comment-btn"
+          - if user_signed_in?
+            - if @exhibition.sales_status == "sold_out"
+              %p.sold-out__box 売り切れたためコメントできません
+            - else
+              .comment-form__btn
+                = f.submit 'コメントする', class: "comment-form__comment-btn"
 
     - if user_signed_in? && current_user.id == @exhibition.user_id
       .edit-form
