@@ -16,10 +16,10 @@ class User < ApplicationRecord
   validate  :first_name_kana_error
   validates :birth_day,                          presence: true
 
-  has_many :exhibitions
-  has_many :comments
-  has_one :address, dependent: :destroy
-  has_one :card
+  has_many :exhibitions, dependent: :destroy
+  has_many :comments,    dependent: :destroy
+  has_one  :address,     dependent: :destroy
+  has_one  :card,        dependent: :destroy
 
   def family_name_error
     if family_name.blank?
