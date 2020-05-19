@@ -26,7 +26,6 @@ $(document).on('turbolinks:load', function(){
     })
     .done(function(data) {
       var html = buildHTML(data);
-      console.log(html);
       $('.comment-field').append(html);
       $('#new_comment')[0].reset();
       $('.comment-form__comment-btn').prop('disabled', false);
