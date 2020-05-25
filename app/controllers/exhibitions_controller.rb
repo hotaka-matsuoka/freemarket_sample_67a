@@ -2,7 +2,7 @@ class ExhibitionsController < ApplicationController
   before_action :set_exhibition, except: [:index, :new, :create, 'get_category_children', 'get_category_grandchildren', 'get_size']
   before_action :set_category,   only:   [:new, :create]
   before_action :set_edit_array, only:   [:edit, :update]
-  
+
   def index
    
   end
@@ -31,18 +31,20 @@ class ExhibitionsController < ApplicationController
   end
 
   def update
-    if @exhibition.user_id == current_user.id && @exhibition.update(exhibition_params)
-      redirect_to exhibition_path
-    else
-      render :edit
+    if @exhibition.user_id == current_user.id 
+      if @exhibition.update(exhibition_params)
+        redirect_to exhibition_path
+      else
+        respond_to do |format|
+          format.json
+        end
+      end
     end
   end
 
   def destroy
     if @exhibition.user_id == current_user.id && @exhibition.destroy
       redirect_to root_path
-    else
-      redirect_to :show
     end
   end
 
