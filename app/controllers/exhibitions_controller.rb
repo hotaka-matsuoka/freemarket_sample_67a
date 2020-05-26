@@ -33,11 +33,9 @@ class ExhibitionsController < ApplicationController
   def update
     if @exhibition.user_id == current_user.id 
       if @exhibition.update(exhibition_params)
-        redirect_to exhibition_path
+        redirect_to exhibition_path(@exhibition)
       else
-        respond_to do |format|
-          format.json
-        end
+        render :edit
       end
     end
   end
