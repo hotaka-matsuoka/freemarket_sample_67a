@@ -23,6 +23,8 @@ class ExhibitionsController < ApplicationController
   end
   
   def show
+    @comment = Comment.new
+    @comments = @exhibition.comments.includes(:user)
   end
 
   def edit

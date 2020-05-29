@@ -1,0 +1,9 @@
+.comments-field__comment
+  .comments-field__comment--user
+    %i.fas.fa-user-circle
+    .comments-field__comment--username= comment.user.nickname
+    - if comment.user_id == @exhibition.user.id
+      %p 出品者
+  .comments-field__comment--wrapper 
+    %p= comment.content
+    %time(datetime="#{comment.created_at}")= "#{time_ago_in_words(comment.created_at)}前"
