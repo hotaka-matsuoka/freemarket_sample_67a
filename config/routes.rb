@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   post 'exhibitions/new', to: 'exhibitions#create', as: 'exhibitions'
   resources :exhibitions, except: :create do
+    resources :comments, only: [:index, :create]
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }

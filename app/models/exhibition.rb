@@ -8,7 +8,8 @@ class Exhibition < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :size
-  has_many  :images, dependent: :destroy
+  has_many  :comments, dependent: :destroy
+  has_many  :images,   dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   enum sales_status:    { on_sale: 0, sold_out: 1 }
   validates :name,        presence: true, length: { maximum:40 }
