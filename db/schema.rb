@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_29_084834) do
+ActiveRecord::Schema.define(version: 2020_05_20_100239) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zipcode", null: false
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_04_29_084834) do
   create_table "exhibitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "explanation", null: false
-    t.string "price", null: false
+    t.integer "price", null: false
     t.string "brand_name"
     t.bigint "shipping_method_id", null: false
     t.bigint "shipping_date_id", null: false

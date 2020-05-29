@@ -1,16 +1,99 @@
 .header
   = render 'top/header'
-.products
-  - if @products.nil?
-    %p 検索結果
-    %p.products__result-number= "1 - #{@notfound_products.size}件表示"
-    .products__item
-      = render partial: 'layouts/products_list', collection: @notfound_products, as: "product"
-    = paginate @notfound_products
-  -else
-    -if @products.blank?
+.search-wrapper
+  .detailed-search
+    .set-child-category.none
+      =@selected_child_category
+    .set-grandchild-category.none
+      =@selected_grandchild_category
+    .set-size.none
+      =@selected_size
+    =search_form_for @q, url: search_path, method: :get do |f|
+      .detailed-search__sorts
+        = f.select :sorts, {'並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の新しい順': 'updated_at asc'}, selected: params[:q][:sorts]
+        %i(class="fas fa-angle-down")
+      .detailed-search__wrapper
+        %h2 詳細検索
+        .detailed-search__title
+          %i(class="fas fa-plus")
+          %span キーワードを追加する
+        = f.text_field :name_cont, value: params[:q][:name_cont], placeholder: '例）値下げ'
+        .detailed-search__title  
+          %i(class="fas fa-list")
+          %span カテゴリーを選択する
+        .search-category
+          .detailed-select
+            = f.select :category_id_in, @category_parent_array,{include_blank:"すべて",selected:@selected_category},name:"q[category_id_in][]"
+            %i(class="fas fa-angle-down")
+        .detailed-search__title
+          %i(class="fas fa-tag")
+          %span ブランド名から探す
+        = f.text_field :brand_name_cont, value: params[:q][:brand_name_cont], placeholder: '例）シャネル'
+        .detailed-search__title
+          %i(class="fas fa-arrows-alt")
+          %span サイズを指定する
+        .search-size
+          .detailed-select
+            = f.select :size_id_in, @size_parent_array,{include_blank:"すべて", selected: @selected_size}, id:"q_size_id_in", name:"q[size_id_in][]"
+            %i(class="fas fa-angle-down")
+        .detailed-search__title
+          %i(class="fas fa-yen-sign")
+          %span 価格
+        .detailed-select
+          = f.select :price, [['選択してください'],['300~1000'],['1000~5000'],['5000~10000'],['10000~30000'],['30000~50000'],['50000~']], selected: params[:q][:price]
+          %i(class="fas fa-angle-down")
+        .detailed-search__price
+          = f.number_field :price_gteq, value: params[:q][:price_gteq], placeholder: '¥ Min'
+          %p= "~"
+          = f.number_field :price_lteq, value: params[:q][:price_lteq], placeholder: '¥ Max'
+        .detailed-search__title
+          %i(class="fas fa-star")
+          %span 商品の状態
+        .condition
+          = check_box_tag :condition_id,{},{}, class: 'condition-all condition__all'
+          = label_tag :condition_id, "すべて"
+          %div#condition_boxes
+            = f.collection_check_boxes :condition_id_in, Condition.all, :id, :name,{}, class: 'condition__id_in'
+        .detailed-search__title
+          %i(class="fas fa-shipping-fast")
+          %span 配送料の負担
+        .shipping_method
+          = check_box_tag :shipping_method_id,{},{}, class: 'shipping_method-all shipping_method__all'
+          = label_tag :shipping_method_id, "すべて"
+          %div#shipping_method_boxes
+            = f.collection_check_boxes :shipping_method_id_in, ShippingMethod.all, :id, :name,{}, class: 'shipping_method__id_in'
+        .detailed-search__title
+          %i(class="fas fa-shopping-cart")
+          %span 販売状況
+        .sales_status
+          = check_box_tag :sales_status,{},{}, class: 'sales_status-all sales_status__all'
+          = label_tag :sales_status, "すべて"
+        %div#sales_status_boxes
+          - sales_status = {"販売中":0, "売り切れ":1}
+          - sales_status.each do |key, value|
+            = f.check_box :sales_status_in, { multiple: true,class: 'sales_status__id_in'}, value, nil
+            = f.label :sales_status_in, key , for: "q_sales_status_in_#{value}",class:"sales-label"
+        .detailed-search-submit
+          .reset-btn クリア
+          = f.button '完了',class:"search-button"
+  .search-products
+    -if  @products.present?
       %p
-        %span.products__keyword="#{@keyword}"
+        %span.products__keyword= "#{params[:q][:name_cont]}"
+        の検索結果
+      %p.products__result-number= "1 - #{@products.size}件表示"
+      .products__item
+        = render partial: 'layouts/products_list', collection: @products, as: "product"
+      = paginate @products
+    - if @no_name_cont_products.present?
+      %p 検索結果
+      %p.products__result-number= "1 - #{@no_name_cont_products.size}件表示"
+      .products__item
+        = render partial: 'layouts/products_list', collection: @no_name_cont_products, as: "product"
+      = paginate @no_name_cont_products
+    -if @notfound_products.present?
+      %p
+        %span.products__keyword= "#{params[:q][:name_cont]}"
         の検索結果
       %p.notfound 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
       %p.products__result-number= "1 - #{@notfound_products.size}件表示"
@@ -19,14 +102,6 @@
       .products__item
         = render partial: 'layouts/products_list', collection: @notfound_products, as: "product"
       = paginate @notfound_products
-    -else
-      %p
-        %span.products__keyword="#{@keyword}"
-        の検索結果
-      %p.products__result-number= "1 - #{@products.size}件表示"
-      .products__item
-        = render partial: 'layouts/products_list', collection: @products, as: "product"
-      = paginate @products
 .footer
   = render 'top/footer'
 = link_to new_exhibition_path do
