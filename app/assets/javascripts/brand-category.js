@@ -39,13 +39,10 @@ document.addEventListener("turbolinks:load", function () {
       $("input[name='q[condition_id_in][]'").prop('checked', true);
     }
   });
-  // 2. 「全選択」以外のチェックボックスがクリックされたら、
   $("input[name='q[condition_id_in][]'").on('click', function () {
     if ($("#condition_boxes :checked").length == $("input[name='q[condition_id_in][]'").length - 1) {
-      // 全てのチェックボックスにチェックが入っていたら、「全選択」 = checked
       $('#condition_id').prop('checked', true);
     } else {
-      // 1つでもチェックが入っていたら、「全選択」 = checked
       $('#condition_id').prop('checked', false);
     }
   });
@@ -62,13 +59,10 @@ document.addEventListener("turbolinks:load", function () {
       $("input[name='q[shipping_method_id_in][]'").prop('checked', true);
     }
   });
-  // 2. 「全選択」以外のチェックボックスがクリックされたら、
   $("input[name='q[shipping_method_id_in][]'").on('click', function () {
     if ($("#shipping_method_boxes :checked").length == $("input[name='q[shipping_method_id_in][]'").length - 1) {
-      // 全てのチェックボックスにチェックが入っていたら、「全選択」 = checked
       $('#shipping_method_id').prop('checked', true);
     } else {
-      // 1つでもチェックが入っていたら、「全選択」 = checked
       $('#shipping_method_id').prop('checked', false);
     }
   });
@@ -85,13 +79,11 @@ document.addEventListener("turbolinks:load", function () {
       $("input[name='q[sales_status_in][]'").prop('checked', true);
     }
   });
-  // 2. 「全選択」以外のチェックボックスがクリックされたら、
+
   $("input[name='q[sales_status_in][]'").on('click', function () {
     if ($("#sales_status_boxes :checked").length == $("input[name='q[sales_status_in][]'").length) {
-      // 全てのチェックボックスにチェックが入っていたら、「全選択」 = checked
       $('#sales_status').prop('checked', true);
     } else {
-      // 1つでもチェックが入っていたら、「全選択」 = checked
       $('#sales_status').prop('checked', false);
     }
   });
@@ -121,7 +113,6 @@ document.addEventListener("turbolinks:load", function () {
     $('#children_wrapper').remove(); 
     $('#grandchildren_wrapper').remove();
   }
-
 
   var childId = $('.set-child-category').text(); 
     if (childId != 0){ 
@@ -177,19 +168,6 @@ document.addEventListener("turbolinks:load", function () {
       $('#exhibition-container').css('padding-bottom', '190px');
     }
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
   function appendSizeCheckBox(size) {
     var size_ids = $('.set-size').text().replace('[', " ").replace(']', "").replace(/\s+|\s+$/g, "").replace(/\"/g, "").split(',');
     var sizeSwitch = false;
@@ -216,7 +194,7 @@ document.addEventListener("turbolinks:load", function () {
                       </div>`;
     $('.search-size').append(sizeSelectHtml);
   }
-  // カテゴリーセレクトボックスのオプションを作成
+
   function appendOption(category) {
     if ($('.set-child-category').text() == category.id) {
       var html = `<option selected='selected' value="${category.id}" data-category="${category.id}" class="child_category">${category.name}</option>`;
@@ -247,7 +225,7 @@ document.addEventListener("turbolinks:load", function () {
       return html;
     }
   }
-  // 子カテゴリーの表示作成
+
   function appendChidrenBox(insertHTML, parentCategory) {
     var childSelectHtml = '';
     childSelectHtml = `<div class='select-wrapper__added' id= 'children_wrapper'>
@@ -263,7 +241,7 @@ document.addEventListener("turbolinks:load", function () {
                       </div>`;
     $('.search-category').append(childSelectHtml);
   }
-  // 孫カテゴリーの表示作成
+
   function appendGrandchidrenBox(insertHTML) {
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='select-wrapper__added' id= 'grandchildren_wrapper'>
@@ -274,7 +252,6 @@ document.addEventListener("turbolinks:load", function () {
     $('.search-category').append(grandchildSelectHtml);
   }
 
-  // 親カテゴリー選択後のイベント
   $('#q_category_id_in').on('change', function () {
     var parentCategory = document.getElementById('q_category_id_in').value;
     if (parentCategory != "") { 
@@ -302,7 +279,6 @@ document.addEventListener("turbolinks:load", function () {
     }
     
   });
-  // 子カテゴリー選択後のイベント
   $('.search-category').on('change', '#child_category', function () {
     $('#child_category option:selected').prop('selected', true);
     var childId = $('#child_category option:selected').data('category'); 
@@ -339,7 +315,7 @@ document.addEventListener("turbolinks:load", function () {
   $('#q_size_id_in').on('change', function(){
     var parentSizeId = $('#q_size_id_in option:selected').val();
     $('#size_wrapper').remove();
-    if (parentSizeId != 0) { //孫カテゴリーが初期値でないことを確認
+    if (parentSizeId != 0) { 
       $.ajax({
         url: '/exhibitions/get_size',
         type: 'GET',

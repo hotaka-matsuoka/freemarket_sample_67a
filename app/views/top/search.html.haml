@@ -93,8 +93,9 @@
       = paginate @no_name_cont_products
     -if @notfound_products.present?
       %p
-        %span.products__keyword= "#{params[:q][:name_cont]}"
-        の検索結果
+        -if params[:q][:name_cont].present?
+          %span.products__keyword= "#{params[:q][:name_cont]}の"
+        検索結果
       %p.notfound 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
       %p.products__result-number= "1 - #{@notfound_products.size}件表示"
       .products__title
