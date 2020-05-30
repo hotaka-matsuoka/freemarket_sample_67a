@@ -82,6 +82,8 @@ class ExhibitionsController < ApplicationController
 
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
+    @favorites = Favorite.where(exhibition_id: @exhibition.id)
+    @favorite = Favorite.find_by(user_id: current_user.id, exhibition_id: @exhibition.id)
   end
   def set_category
     #セレクトボックスの初期値設定

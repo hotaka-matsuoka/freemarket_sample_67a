@@ -8,7 +8,8 @@ class Exhibition < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :size
-  has_many  :comments, dependent: :destroy
+  has_many  :comments,  dependent: :destroy
+  has_many  :favorites, dependent: :destroy
   has_many  :images,   dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   enum sales_status:    { on_sale: 0, sold_out: 1 }
@@ -33,4 +34,15 @@ class Exhibition < ApplicationRecord
     Exhibition.where("id > ?", self.id).order("id ASC").first
   end
 
+  def favorite(user)
+    favorites.create(user_id: user.id)
+  end
+
+  def favorite_destroy(user)
+    favorites.find_by(user_id: user.id).destroy
+  end
+
+  def already_liked?(user)
+    favorites.exists?(user_id: user.id)
+  end
 end
