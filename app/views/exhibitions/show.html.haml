@@ -62,7 +62,7 @@
       %ul.exhibition-detail__buttom
         %li.good 
           #favorite-button{id: @exhibition.id}
-            = render partial: "favorites/favorite", locals: {exhibition: @exhibtion, favorite: @favorite}
+            = render partial: "favorites/favorite", locals: {exhibition: @exhibition}
         %li.report 不適切な商品の通報
     .comment-form
       .comment-field

@@ -3,10 +3,10 @@ class FavoritesController < ApplicationController
   before_action :favorite_count
 
   def create
-    @exhibition = Exhibition.find(params[:exhibition_id])
     @exhibition.favorite(current_user)
+    @favorite = Favorite.find_by(user_id: current_user.id, exhibition_id: @exhibition.id)
   end
-
+  
   def destroy
     @exhibition = Favorite.find(params[:id]).exhibition
     @exhibition.favorite_destroy(current_user)
