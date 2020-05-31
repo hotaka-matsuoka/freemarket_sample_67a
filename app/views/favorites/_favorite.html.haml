@@ -1,8 +1,8 @@
 - if current_user.id != @exhibition.user_id
   - if @exhibition.already_liked?(current_user)
-    = button_to "いいねを消す！#{@favorites.count}", exhibition_favorite_path(@exhibition, @favorite), method: :delete, remote: :true
+    = button_to "♡ いいね！#{@favorites.count}", exhibition_favorite_path(@exhibition, @favorite), id: "liked",method: :delete, remote: :true
   - else 
-    = button_to "いいね！#{@favorites.count}", exhibition_favorites_path(@exhibition, @favorite), method: :post , remote: :true
+    = button_to "♡ いいね！#{@favorites.count}", exhibition_favorites_path(@exhibition, @favorite), id: "unliked", method: :post , remote: :true
 
 - else
   お気に入り
