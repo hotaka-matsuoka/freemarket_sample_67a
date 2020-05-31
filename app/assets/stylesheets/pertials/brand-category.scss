@@ -92,9 +92,10 @@
 .mt{
   margin-top: 20px;
 }
+
 .products{
   width: 1000px;
-  margin: 50px auto 0 auto;
+  margin: 20px auto 0 auto;
   &__link-list{
     display: flex;
     flex-wrap: wrap;
@@ -142,3 +143,149 @@
   padding: 20px;
   margin: 0 auto;
 }
+.search-wrapper{
+  width: 1140px;
+  display: flex;
+  margin: 0 auto;
+  .detailed-search{
+    width: 293px;
+    margin-right: 30px;
+    input[type=checkbox] {
+      transform: scale(1.5);
+      margin: 6px 3px 6px 3px;
+    }
+    &__title{
+      margin: 24px 0 5px 0;
+      span{
+        margin: 5px 0;
+      }
+      i{
+        color: $link-color;
+      }
+    }
+    
+    &__wrapper{
+      padding: 16px;
+      margin-top: 20px;
+    }
+    &__sorts{
+      select{
+       width: 100%;
+       margin: 0;
+       appearance: none;
+       -webkit-appearance: none;
+       -moz-appearance: none;
+       border: 1px solid #ccc;
+       background: $white-color;
+       padding: 0 15px;
+       font-size: 16px;
+      }
+    }
+    &__price{
+      display: flex;
+      p{
+        line-height: 54px;
+        margin: 0 10px;
+      }
+      input{
+        height: 48px;
+        width: 83px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background: $white-color;
+        padding: 0 15px;
+       font-size: 16px;
+      }
+    }
+  }
+  
+  select{
+    height: 48px;
+    width: 100%;
+    margin: 5px 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: $white-color;
+    padding: 0 15px;
+    font-size: 16px;
+    
+  }
+  #q_name_cont, #q_brand_name_cont{
+    height: 48px;
+    width: 229px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin: 5px 0;
+    background: $white-color;
+    padding: 0 15px;
+    font-size: 16px;
+  }
+  label{
+    width: calc(50% - 24px);
+    font-size: 14px;
+    display: inline-block;
+    margin: 8px 0;
+    vertical-align: middle;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .sales-label{
+    width: 96px;
+  }
+  .detailed-search-submit{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0 10px 0;
+    .search-button,.reset-btn{
+      height: 50px;
+      width: 120px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      margin: 0;
+      appearance: none;
+      background: $bg-color;
+      color: $white-color;
+      font-size: 20px;
+      text-align: center;
+      line-height: 50px;
+      display: inline-block;
+    }
+    .reset-btn{
+      background: #ccc;
+    }
+  }
+  .detailed-select{
+    position: relative;
+    .fa-angle-down{
+      position: absolute;
+      font-size: 24px;
+      top: 18px;
+      right: 20px;
+      color: #aaa;
+    }
+  }
+  .detailed-search__sorts{
+    position: relative;
+    .fa-angle-down{
+      position: absolute;
+      font-size: 24px;
+      top: 12px;
+      right: 20px;
+      color: #aaa;
+    }
+  }
+}
+.search-products{
+  width: 850px;
+  margin: 0;
+}
+
+  
