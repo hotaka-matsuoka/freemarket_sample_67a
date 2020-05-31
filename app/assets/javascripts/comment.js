@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
-  function buildHTML(comment) {
+  function buildHTML() {
     var html = 
       `<div class="comments-field__comment">
         <div class="comments-field__comment--user">

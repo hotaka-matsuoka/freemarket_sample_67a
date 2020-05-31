@@ -8,8 +8,6 @@ class CommentsController < ApplicationController
       respond_to do |format|
         format.json
       end
-    else
-      @comments = @exhibition.comments.includes(:user)
     end
   end
 

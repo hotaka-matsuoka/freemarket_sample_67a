@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+  get 'favorites/destroy'
   root 'top#index'
   resources :top,  only: :index
   resources :card, except: :edit
@@ -17,7 +19,8 @@ Rails.application.routes.draw do
 
   post 'exhibitions/new', to: 'exhibitions#create', as: 'exhibitions'
   resources :exhibitions, except: :create do
-    resources :comments, only: [:index, :create]
+    resources :favorites, only: [:create, :destroy]
+    resources :comments,  only: [:index, :create]
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
