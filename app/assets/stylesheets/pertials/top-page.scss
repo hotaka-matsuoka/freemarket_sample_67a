@@ -9,55 +9,6 @@
       position: relative;
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
       color:$white-color;
-      .category{
-        height: 532px;
-        width: 200px;
-        position: absolute;
-        top: 0;
-        left: 100px;
-        background-color: $white-color;
-        z-index: 1;
-        &__list{
-          height: 40px;
-          width: 100%;
-          font-size: 14px;
-          line-height: 40px;
-          padding-left: 5px;
-          border-bottom: 1px solid #ccc;
-        }
-      }
-      .category-child{
-        height: 532px;
-        width: 200px;
-        position: absolute;
-        top: 0;
-        left: 190px;
-        background-color: $white-color;
-        z-index: 1;
-        &__list{
-          height: 40px;
-          font-size: 14px;
-          line-height: 40px;
-          padding-left: 5px;
-          border-bottom: 1px solid #ccc;
-        }
-      }
-      .brand{
-        height: 164px;
-        width: 180px;
-        position: absolute;
-        top: 0;
-        left: 250px;
-        background-color: $white-color;
-        z-index: 1;
-        &__list{
-          height: 40px;
-          font-size: 14px;
-          line-height: 40px;
-          padding-left: 10px;
-          border-bottom: 1px solid #ccc;
-        }
-      }
       &__heading{
         position: absolute;
         font-size:48px;

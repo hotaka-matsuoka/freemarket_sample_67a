@@ -3,20 +3,6 @@
 .wrapper
   .toppage-main-contents
     .top-img
-      .category.none.category-js
-        %ul
-        -@categories.each_with_index do |category,i|
-          %li.category__list.category-js{id: "#{i}"}=link_to category.name,category
-          .category-child.none.category-js{id: "child#{i}"}
-            %ul
-            -category.children.each do |child|
-              %li.category-child__list=link_to child.name,child
-      .brand.none.brand-js
-        %ul
-          %li.brand__list=link_to @category_chanel.brand,@category_chanel
-          %li.brand__list=link_to @category_mens.brand,@category_mens
-          %li.brand__list=link_to @category_apple.brand,@category_apple
-          %li.brand__list=link_to "ブランド一覧", "brands"
       = image_tag 'pict/bg-mainVisual-pict_pc.jpg',class:'top-img'
       .top-img__heading
         人生を変えるフリマアプリ

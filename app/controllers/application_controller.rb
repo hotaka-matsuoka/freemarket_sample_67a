@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_ransack, only: [:index, :show, 'search']
-
+  before_action :set_head_category_brand
   protected
 
   def configure_permitted_parameters
@@ -25,5 +25,11 @@ class ApplicationController < ActionController::Base
 
   def set_ransack
     @q = Exhibition.ransack(params[:q])
+  end
+
+  def set_head_category_brand
+    @top_categories = Category.where(ancestry: nil)
+    @top_brands = Brand.all
+    @category_chanel,@category_mens,@category_apple = Brand.find(1), Brand.find(2), Brand.find(17)
   end
 end

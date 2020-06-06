@@ -12,7 +12,7 @@
   .header__inner-bottom
     %ul.header__inner-bottom--find
       %li.header__inner-bottom--find-list
-        = link_to "カテゴリから探す", categories_path,class:'header-link category-js'
+        = link_to "カテゴリから探す", categories_path,class:'header-link top-category-js'
       %li.header__inner-bottom--find-list
         = link_to brands_path,class:'header-link brand-js' do
           ブランドから探す
@@ -29,3 +29,13 @@
         %li.header__inner-bottom--btn-list
           = link_to new_user_session_path,class:'header-link'do
             ログイン
+.top-category.top-category-js.none
+  %ul
+    -@top_categories.each_with_index do |category,i|
+      %li.top-category__list{id: "_#{i}"}=link_to category.name,category
+.brand.none.brand-js
+  %ul
+    %li.brand__list=link_to @category_chanel.brand,@category_chanel
+    %li.brand__list=link_to @category_mens.brand,@category_mens
+    %li.brand__list=link_to @category_apple.brand,@category_apple
+    %li.brand__list=link_to "ブランド一覧", "brands"

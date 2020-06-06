@@ -2,8 +2,6 @@ class TopController < ApplicationController
   before_action :set_category,   only: "search"
   before_action :set_size,       only: "search"
   def index
-    @categories = Category.where(ancestry: nil)
-    @brands = Brand.all
     @redies,@mens,@electrical,@kids,@chanel,@nike,@apple = [],[],[],[],[],[],[]
     Exhibition.includes([:images, :category]).order(created_at: :desc).each do |product|
       break if @redies.length == 2 && @mens.length == 2 && @kids.length == 0
@@ -17,7 +15,6 @@ class TopController < ApplicationController
         @kids << product
       end
     end
-    @category_chanel,@category_mens,@category_apple = Brand.find(1), Brand.find(2), Brand.find(17)
     Exhibition.includes(:images).order(created_at: :desc).each do |product|
       if product.brand_name == @category_chanel.brand
         @chanel << product
