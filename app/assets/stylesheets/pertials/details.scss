@@ -139,6 +139,14 @@
           background-color: $bg-color;
           color: #fff;
         }
+        .favorite-btn__not-login {
+          background-color: rgb(199, 199, 199);
+          font-size: 18px;
+          border-radius: 20px;
+          border-color: #fff;
+          padding: 15px 20px;
+          color: #fff;
+        }
       }
     }
     .comment-form {

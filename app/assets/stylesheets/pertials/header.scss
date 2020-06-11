@@ -63,6 +63,9 @@
       height:100%;
       & form{
         display: flex;
+        input {
+          border-width: thin;
+        }
         & button{
           border:0;
           background-color: $bg-color;

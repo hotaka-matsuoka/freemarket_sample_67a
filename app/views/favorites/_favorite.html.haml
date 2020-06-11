@@ -5,4 +5,4 @@
     - else 
       = button_to "♡ いいね！#{@favorites.count}", exhibition_favorites_path(@exhibition, @favorite), id: "unliked", method: :post , remote: :true
 - else
-  %div#unliked="♡ いいね！#{@favorites.count}"
+  .favorite-btn__not-login="♡ いいね！#{@favorites.count}"
