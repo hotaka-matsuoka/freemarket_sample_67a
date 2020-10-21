@@ -72,6 +72,7 @@ gem 'payjp'
 gem 'kaminari'
 gem 'gretel'
 gem 'ransack'
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
