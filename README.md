@@ -18,6 +18,7 @@ https://docs.google.com/document/d/1qpMva3kacLg3b7iafrHY7xRc0GSOunK7TnZHriC2aSA/
 # 工夫したところ
 - N + 1 問題を意識したパフォーマンス
 - 一部非同期通信を使用したユーザーストレスの軽減
+- Rspecを取り入れたバグの検知
 
 # DB設計
 
