@@ -2,6 +2,7 @@
 - Ruby on Rails 5.2.4
 - HTML / CSS
 - JavaScript / jQuery / Ajax
+## データベース
 - MySQL
 ## WEBサーバ
 - nginx
