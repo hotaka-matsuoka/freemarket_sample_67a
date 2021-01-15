@@ -3,6 +3,9 @@
 - HTML / CSS
 - JavaScript / jQuery / Ajax
 - MySQL
+## WEBサーバ
+- nginx
+## インフラ
 - AWS
 
 # 詳細
