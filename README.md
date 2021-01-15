@@ -1,8 +1,19 @@
+# 使用技術
+- Ruby on Rails 5.2.4
+- HTML / CSS
+- JavaScript / jQuery / Ajax
+- MySQL
+- AWS
+
 # 詳細
 https://docs.google.com/document/d/1qpMva3kacLg3b7iafrHY7xRc0GSOunK7TnZHriC2aSA/edit?usp=sharing
 
 # ER図
 <https://www.lucidchart.com/documents/edit/38b8f983-3a34-4edb-83e1-4624d529adb1/iECLyY.Q7XgJ?shared=true#?folder_id=home&browser=icon>
+
+# 工夫したところ
+- N + 1 問題を意識したパフォーマンス
+- 一部非同期通信を使用したユーザーストレスの軽減
 
 # DB設計
 
