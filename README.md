@@ -10,7 +10,7 @@
 - AWS
 
 # 詳細
-https://docs.google.com/document/d/1qpMva3kacLg3b7iafrHY7xRc0GSOunK7TnZHriC2aSA/edit?usp=sharing
+https://www.resume.id/works/5c189d35c1612993
 
 # ER図
 <https://www.lucidchart.com/documents/edit/38b8f983-3a34-4edb-83e1-4624d529adb1/iECLyY.Q7XgJ?shared=true#?folder_id=home&browser=icon>
