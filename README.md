@@ -1,6 +1,24 @@
+# 使用技術
+- Ruby on Rails 5.2.4
+- HTML / CSS
+- JavaScript / jQuery / Ajax
+## データベース
+- MySQL
+## WEBサーバ
+- nginx
+## インフラ
+- AWS
+
+# 詳細
+https://www.resume.id/works/5c189d35c1612993
 
 # ER図
 <https://www.lucidchart.com/documents/edit/38b8f983-3a34-4edb-83e1-4624d529adb1/iECLyY.Q7XgJ?shared=true#?folder_id=home&browser=icon>
+
+# 工夫したところ
+- N + 1 問題を意識したパフォーマンス
+- 一部非同期通信を使用したユーザーストレスの軽減
+- Rspecを取り入れたバグの検知
 
 # DB設計
 
