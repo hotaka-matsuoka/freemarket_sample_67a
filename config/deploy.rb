@@ -1,79 +1,60 @@
-# config valid for current version and patch releases of Capistrano
-lock "~> 3.15.0"
+# config valid only for current version of Capistrano
+# capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
+lock '3.15.0'
 
-set :application, "freemarket_sample_67a"
-set :repo_url, "git@github.com:hotaka-matsuoka/freemarket_sample_67a.git"
+# Capistranoのログの表示に利用する
+set :application, 'freemarket_sample_67a'
 
-# Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+# どのリポジトリからアプリをpullするかを指定する
+set :repo_url,  'git@github.com:hotaka-matsuoka/freemarket_sample_67a.git'
 
-# Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/freemarket_sample_67a"
+# バージョンが変わっても共通で参照するディレクトリを指定
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
-# Default value for :format is :airbrussh.
-# set :format, :airbrussh
+set :linked_files, fetch(:linked_files, []).push("config/credentials.yml.enc")
 
-# You can configure the Airbrussh format using :format_options.
-# These are the defaults.
-# set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
+set :rbenv_type, :user
+set :rbenv_ruby, '2.6.3' #カリキュラム通りに進めた場合、2.5.1か2.3.1です
 
-# Default value for :pty is false
-# set :pty, true
+# どの公開鍵を利用してデプロイするか
 
-# Default value for :linked_files is []
-# append :linked_files, "config/database.yml"
-set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
+set :ssh_options, user: "hotaka_matsuoka", # overrides user setting above
+                  keys: %w(~/.ssh/freemarket_sample_rsa),
+                  forward_agent: true,
+                  auth_methods: %w(publickey)
 
-# Default value for linked_dirs is []
-# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+# プロセス番号を記載したファイルの場所
+set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
-
-# Default value for local_user is ENV['USER']
-# set :local_user, -> { `git config user.name`.chomp }
-
-# Default value for keep_releases is 5
+# Unicornの設定ファイルの場所
+set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
-set :rbenv_ruby, '2.6.3'
 
-set :log_level, :debug
-# Uncomment the following to require manually verifying the host key before first deploy.
-# set :ssh_options, verify_host_key: :secure
-
+# デプロイ処理が終わった後、Unicornを再起動するための記述
+after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
-  desc 'Restart application'
   task :restart do
     invoke 'unicorn:restart'
   end
-
-  desc 'Create database'
-  task :db_create do
-    on roles(:db) do |host|
-      with rails_env: fetch(:rails_env) do
-        within current_path do
-          execute :bundle, :exec, :rake, 'db:create'
-        end
-      end
-    end
-  end
-
-  desc 'Run seed'
-  task :seed do
-    on roles(:app) do
-      with rails_env: fetch(:rails_env) do
-        within current_path do
-          execute :bundle, :exec, :rake, 'db:seed'
-        end
-      end
-    end
-  end
-
-  after :publishing, :restart
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-    end
-  end
 end
+
+# desc 'upload master.key' #ここ注意
+#   task :upload do
+#     on roles(:app) do |host|
+#       if test "[ ! -d #{shared_path}/config ]"
+#         execute "mkdir -p #{shared_path}/config"
+#       end
+#       upload!('config/master.key', "#{shared_path}/config/credentials.yml.enc")#ここ注意
+#     end
+#   end
+#   before :starting, 'deploy:upload'
+#   after :finishing, 'deploy:cleanup'
+# end
+
+# set :default_env, {
+#   rbenv_root: "/usr/local/rbenv",
+#   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+#   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+#   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+# }
+
