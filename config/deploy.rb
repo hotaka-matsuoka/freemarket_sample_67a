@@ -17,8 +17,11 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.6.3' #カリキュラム通りに進めた場合、2.5.1か2.3.1です
 
 # どの公開鍵を利用してデプロイするか
-set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/freemarket_sample.pem']
+
+set :ssh_options, user: "hotaka_matsuoka", # overrides user setting above
+                  keys: %w(~/.ssh/freemarket_sample_rsa),
+                  forward_agent: true,
+                  auth_methods: %w(publickey)
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
@@ -33,6 +36,7 @@ namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
   end
+end
 
 # desc 'upload master.key' #ここ注意
 #   task :upload do
