@@ -60,4 +60,4 @@ set :unicorn_rack_env, "production"
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-server '54.168.237.82', user: 'ec2-user', roles: %w{app db web}
+server '54.168.237.82', user: 'hotaka_matsuoka', roles: %w{app db web}
