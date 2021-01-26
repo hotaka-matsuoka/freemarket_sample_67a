@@ -146,8 +146,15 @@
       = render 'top/app_banner'
 .footer
   = render 'top/footer'
-= link_to new_exhibition_path do
-  .camera
-    %p.exhibition
-      出品する
-    = image_tag 'icon/icon_camera.png',size:'60x60'
+- if user_signed_in?
+  = link_to new_exhibition_path do
+    .camera
+      %p.exhibition
+        出品する
+      = image_tag 'icon/icon_camera.png',size:'60x60'
+- else
+  = link_to new_user_registration_path do
+    .camera
+      %p.exhibition
+        出品する
+      = image_tag 'icon/icon_camera.png',size:'60x60'
