@@ -4,24 +4,24 @@ class ExhibitionsController < ApplicationController
   before_action :set_edit_array, only:   [:edit, :update]
 
   def index
-   
+
   end
-  
+
   def new
     @exhibition = Exhibition.new
     @exhibition.images.new
   end
-  
+
   def create
     @exhibition = Exhibition.new(exhibition_params)
     if @exhibition.save
       redirect_to root_path, notice:"出品に成功しました"
     else
       @exhibition.images.new
-      render :new 
+      render :new
     end
   end
-  
+
   def show
     @comment = Comment.new
     @comments = @exhibition.comments.includes(:user)
@@ -31,7 +31,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def update
-    if @exhibition.user_id == current_user.id 
+    if @exhibition.user_id == current_user.id
       if @exhibition.update(exhibition_params)
         redirect_to exhibition_path(@exhibition)
       else
@@ -47,7 +47,7 @@ class ExhibitionsController < ApplicationController
   end
 
 
- 
+
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
@@ -76,7 +76,7 @@ class ExhibitionsController < ApplicationController
     end
   end
 
-  
+
 
   private
 
@@ -118,7 +118,7 @@ class ExhibitionsController < ApplicationController
     Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
       @category_parents_array << parent.name
     end
-    
+
     @selected_size = @exhibition.size
     @size_array = []
     Size.find(@selected_size.id).siblings.each do |size|
