@@ -10,14 +10,13 @@ http://54.168.237.82/
 ## WEBサーバ
 - nginx
 ## インフラ
-- AWS
+- AWS EC2 / S3
 
 # 詳細
 https://www.resume.id/works/5c189d35c1612993
 
 # ER図
 ![er_table](https://user-images.githubusercontent.com/60139816/107105974-7f834c80-686c-11eb-9375-99b03bc80c4d.jpg)
-<https://www.lucidchart.com/documents/edit/38b8f983-3a34-4edb-83e1-4624d529adb1/iECLyY.Q7XgJ?shared=true#?folder_id=home&browser=icon>
 
 # 工夫したところ
 - N + 1 問題を意識したパフォーマンス
