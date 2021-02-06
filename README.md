@@ -63,11 +63,6 @@ https://www.resume.id/works/5c189d35c1612993
 ## ER図
 ![er_table](https://user-images.githubusercontent.com/60139816/107105974-7f834c80-686c-11eb-9375-99b03bc80c4d.jpg)
 
-## 工夫したところ
-- N + 1 問題を意識したパフォーマンス
-- 一部非同期通信を使用したユーザーストレスの軽減
-- Rspecを取り入れたバグの検知
-
 ## DB設計
 
 ## usersテーブル
