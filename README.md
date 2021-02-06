@@ -17,6 +17,17 @@ http://54.168.237.82/
 - カテゴリ区別、検索機能
 - ブランド区別、検索機能
 
+## 使用技術
+- Ruby 2.6.3
+- Ruby on Rails 5.2.4
+- HTML / CSS / Haml / Scss
+- JavaScript / jQuery / Ajax
+- MySQL 5.8
+- unicorn
+- nginx
+- AWS EC2
+- AWS S3
+
 ## 動作確認方法
 Chromeの最新版を利用してアクセスしてください。  
 
@@ -44,21 +55,6 @@ Chromeの最新版を利用してアクセスしてください。
 #### 出品者用
 メールアドレス名: seller@gmail.com  
 パスワード: password  
-
-## 使用技術
-- Ruby 2.6.3
-- Ruby on Rails 5.2.4
-- HTML / CSS
-- JavaScript / jQuery / Ajax
-
-## データベース
-- MySQL
-
-## WEBサーバ
-- nginx
-
-## インフラ
-- AWS EC2 / S3
 
 ## 詳細
 以下に制作物の詳細説明文があります。ぜひご覧ください。  
