@@ -40,7 +40,7 @@ Chromeの最新版を利用してアクセスしてください。
 メールアドレス名: seller@gmail.com  
 パスワード: password  
 
-# 使用技術
+## 使用技術
 - Ruby 2.6.3
 - Ruby on Rails 5.2.4
 - HTML / CSS
@@ -55,18 +55,19 @@ Chromeの最新版を利用してアクセスしてください。
 ## インフラ
 - AWS EC2 / S3
 
-# 詳細
+## 詳細
+以下に制作物の詳細説明文があります。ぜひご覧ください。
 https://www.resume.id/works/5c189d35c1612993
 
-# ER図
+## ER図
 ![er_table](https://user-images.githubusercontent.com/60139816/107105974-7f834c80-686c-11eb-9375-99b03bc80c4d.jpg)
 
-# 工夫したところ
+## 工夫したところ
 - N + 1 問題を意識したパフォーマンス
 - 一部非同期通信を使用したユーザーストレスの軽減
 - Rspecを取り入れたバグの検知
 
-# DB設計
+## DB設計
 
 ## usersテーブル
 |Column|Type|Options|
