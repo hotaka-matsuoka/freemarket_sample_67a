@@ -61,14 +61,18 @@
         }
       }
       &__image--thumb {
-        padding: 10px 50px;
+        padding: 50px 30px;
         ul {
           display: flex;
           flex-wrap: wrap;
           li {
             width: 120px;
-            height: 120px;
+            height: 150px;
             padding: 0 3px;
+            img {
+              width: 120px;
+              height: 150px;
+            }
           }
         }
       }
@@ -92,7 +96,7 @@
         width: 80%;
         background-color: rgb(160, 160, 160);
         color: $white-color;
-        
+
       }
 
       .buy-btn {

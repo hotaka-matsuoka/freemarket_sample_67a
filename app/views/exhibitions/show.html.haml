@@ -10,14 +10,15 @@
         %ul.preview
           - @exhibition.images.each_with_index do |image, i|
             %li{class: "item#{i}"}= image_tag image.image_url.url
-        -if @exhibition.sales_status == "sold_out"
+        - if @exhibition.sales_status == "sold_out"
           .detail-img__sold
           .detail-img__sold__font sold
       .exhibition-detail__image--thumb
         %ul.thumbnail
           - @exhibition.images.each_with_index do |image, i|
-            %li{class: "thumb#{i}"}= image_tag image.image_url.url
-             
+            %li{class: "thumb#{i}"}
+              = image_tag image.image_url.url
+
       .exhibition-detail__price
         %h1= "¥#{@exhibition.price}"
         %p= @exhibition.shipping_method.name
@@ -60,7 +61,7 @@
           %th 発送日の目安
           %td= @exhibition.shipping_date.name
       %ul.exhibition-detail__buttom
-        %li.good 
+        %li.good
           #favorite-button{id: @exhibition.id}
             = render partial: "favorites/favorite", locals: {exhibition: @exhibition}
         %li.report 不適切な商品の通報
@@ -73,7 +74,7 @@
           - @exhibition.errors.full_messages_for(:content).each do |message|
             .error__message= message
           .comment-form__alert
-            %p 相手のことを考え丁寧なコメントを心がけましょう。 
+            %p 相手のことを考え丁寧なコメントを心がけましょう。
             %p 不快な言葉遣いなどは利用制限や退会処分となることがあります。
           - if user_signed_in?
             - if @exhibition.sales_status == "sold_out"
@@ -86,7 +87,7 @@
       .edit-form
         = link_to "商品の編集", edit_exhibition_path(@exhibition.id), class: 'edit-form__edit-btn'
         = link_to "商品の削除", exhibition_path(@exhibition), method: :delete, id: 'delete-btn'
-    
+
     .exhibition-buttom
       - if user_signed_in? && current_user.id != @exhibition.user_id
         %ul.next-exhibition
