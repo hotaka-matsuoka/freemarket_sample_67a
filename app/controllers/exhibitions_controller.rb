@@ -28,6 +28,11 @@ class ExhibitionsController < ApplicationController
   end
 
   def edit
+    exhibition_id = params[:id]
+    exhibition = Exhibition.find(exhibition_id)
+    if exhibition.user_id = current_user.id
+      redirect_to root_path
+    end
   end
 
   def update
