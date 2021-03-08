@@ -31,6 +31,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def update
+    logger.debug(@exhibition.inspect)
     if @exhibition.user_id == current_user.id
       if @exhibition.update(exhibition_params)
         redirect_to exhibition_path(@exhibition)
