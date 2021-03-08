@@ -95,7 +95,7 @@ https://www.resume.id/works/5c189d35c1612993
 |municipality|string|null: false|
 |address|string|null: false|
 |building_name|string|
-|tel|string|
+|tel|integer|
 ## Association
 - belongs_to_active_hash :prefecture
 - belongs_to: user
@@ -105,10 +105,8 @@ https://www.resume.id/works/5c189d35c1612993
 |Column|Type|Options|
 |------|----|-------|
 |user_id|reference|null: false, foreign_key: true|
-|card_num|integer|null: false, unique: true|
-|year|integer|null: false|
-|day|integer|null: false|
-|security_code|integer|null: false|
+|card_idinteger|null: false|
+|customer_id|integer|null: false|
 ## Association
 - belongs_to: user
 - has_one:  purchase
