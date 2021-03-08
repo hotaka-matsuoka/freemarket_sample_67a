@@ -70,10 +70,6 @@
             height: 120px;
             padding: 0 3px;
           }
-          img {
-            width: 120px;
-            height: 120px;
-          }
         }
       }
       &__price {
@@ -96,7 +92,7 @@
         width: 80%;
         background-color: rgb(160, 160, 160);
         color: $white-color;
-
+        
       }
 
       .buy-btn {
