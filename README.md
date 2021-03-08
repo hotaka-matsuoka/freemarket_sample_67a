@@ -104,8 +104,8 @@ https://www.resume.id/works/5c189d35c1612993
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foreign_key: true|
-|card_idinteger|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|card_id|integer|null: false|
 |customer_id|integer|null: false|
 ## Association
 - belongs_to: user
