@@ -211,3 +211,4 @@ https://www.resume.id/works/5c189d35c1612993
 - has_many: exhibitions
 - has_many: brand_categories
 - has_many: categories,  through :category_brands
+
