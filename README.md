@@ -226,4 +226,3 @@ Chromeの最新版を利用してアクセスしてください。
 - has_many: exhibitions
 - has_many: brand_categories
 - has_many: categories,  through :category_brands
-
