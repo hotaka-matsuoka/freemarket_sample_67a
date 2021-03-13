@@ -4,7 +4,7 @@
 http://54.168.237.82/
 
 ## 詳細
-以下に制作物の詳細説明文があります。ぜひご覧ください。  
+以下に制作物の詳細説明文があります。ぜひご覧ください。
 https://www.resume.id/works/5c189d35c1612993
 
 ## 機能
@@ -58,9 +58,9 @@ Chromeの最新版を利用してアクセスしてください。
 期限: 22/01
 セキュリティコード: 123
 =======
-番号: 4242424242424242  
-期限: 22/12  
-セキュリティコード: 123  
+番号: 4242424242424242
+期限: 22/12
+セキュリティコード: 123
 >>>>>>> 37863e9c2480f50cb24abbd3517cc900c1df7b8e
 #### 出品者用
 メールアドレス名: seller@gmail.com
@@ -238,4 +238,3 @@ https://www.resume.id/works/5c189d35c1612993
 - has_many: exhibitions
 - has_many: brand_categories
 - has_many: categories,  through :category_brands
-
